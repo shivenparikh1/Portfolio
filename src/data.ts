@@ -1,6 +1,51 @@
-const resumeHref = "./assets/shiven-resume.pdf";
+export interface ProjectLink {
+  label: string;
+  href: string;
+}
 
-const navItems = [
+export interface Project {
+  title: string;
+  description: string;
+  skills: string[];
+  tools: string[];
+  insights: string[];
+  links: ProjectLink[];
+}
+
+export interface ProjectCategory {
+  id: string;
+  title: string;
+  description: string;
+  projectTitles: string[];
+}
+
+export interface Experience {
+  company: string;
+  role: string;
+  description: string;
+  points: string[];
+}
+
+export interface SkillGroup {
+  category: string;
+  items: string[];
+}
+
+export interface Article {
+  title: string;
+  description: string;
+  skills: string[];
+  href: string;
+}
+
+export interface GlossaryGroup {
+  category: string;
+  items: Array<[term: string, definition: string]>;
+}
+
+export const resumeHref = "./assets/shiven-resume.pdf";
+
+export const navItems = [
   ["Home", "home"],
   ["About", "about"],
   ["Projects", "projects"],
@@ -11,7 +56,7 @@ const navItems = [
   ["Contact", "contact"]
 ];
 
-const focusAreas = [
+export const focusAreas = [
   {
     title: "Advanced Manufacturing",
     description:
@@ -34,7 +79,7 @@ const focusAreas = [
   }
 ];
 
-const experiences = [
+export const experiences: Experience[] = [
   {
     company: "MSWIPE",
     role: "Supply Chain Intern, MSwipe",
@@ -50,7 +95,7 @@ const experiences = [
   }
 ];
 
-const projects = [
+export const projects: Project[] = [
   {
     title: "iPhone Sourcing Cost Sheet Case Study",
     description:
@@ -163,7 +208,7 @@ const projects = [
   }
 ];
 
-const projectCategories = [
+export const projectCategories: ProjectCategory[] = [
   {
     id: "sourcing",
     title: "Sourcing & Supplier Management",
@@ -196,7 +241,7 @@ const projectCategories = [
   }
 ];
 
-const skillGroups = [
+export const skillGroups: SkillGroup[] = [
   {
     category: "Sourcing & Procurement",
     items: ["Supplier Evaluation", "Landed Cost Analysis", "Purchase Orders", "Vendor Comparison", "Procurement Documentation", "RFQ Understanding"]
@@ -215,7 +260,7 @@ const skillGroups = [
   }
 ];
 
-const articles = [
+export const articles: Article[] = [
   {
     title: "AI and Humans in Supply Chain",
     description: "Explores how AI is becoming a support tool in supply chain work and why human judgment still matters in planning, sourcing, and operations.",
@@ -242,7 +287,7 @@ const articles = [
   }
 ];
 
-const glossary = [
+export const glossary: GlossaryGroup[] = [
   {
     category: "General Supply Chain Terms",
     items: [
