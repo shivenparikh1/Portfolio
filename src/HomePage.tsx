@@ -1,328 +1,313 @@
-import type { Article, GlossaryGroup, Project, SkillGroup } from "./data";
+import type { Project } from "./data";
 import {
-  articles,
+  emailHref,
   experiences,
-  glossary,
+  focusAreas,
+  linkedinHref,
   projects,
   resumeHref,
-  skillGroups
+  sourcingStrategies
 } from "./data";
 import { Icon } from "./components/Icon";
 import { SiteFooter, SiteHeader } from "./components/SiteChrome";
 
-interface FeaturedWork {
-  project: Project;
-  title: string;
-  discipline: string;
-  image: string;
-  href: string;
-  lead?: boolean;
-}
-
-const projectByTitle = new Map(projects.map((project) => [project.title, project]));
-
-function requireProject(title: string) {
-  const project = projectByTitle.get(title);
-
-  if (!project) {
-    throw new Error(`Missing project data: ${title}`);
-  }
-
-  return project;
-}
-
-function getPrimaryExperience() {
-  const experience = experiences[0];
-
-  if (!experience) {
-    throw new Error("The portfolio requires at least one experience entry.");
-  }
-
-  return experience;
-}
-
-const primaryExperience = getPrimaryExperience();
-
-const featuredWork: FeaturedWork[] = [
-  {
-    project: requireProject("EV Assembly Logistics Readiness Case Study"),
-    title: "EV Assembly Logistics Readiness",
-    discipline: "Production & materials planning",
-    image: "./assets/ev-assembly-logistics-readiness-dashboard.png",
-    href: "./assets/ev-assembly-logistics-readiness-dashboard.png",
-    lead: true
-  },
-  {
-    project: requireProject("Global Sourcing Framework for AI Microchips"),
-    title: "Global Sourcing for AI Microchips",
-    discipline: "Strategic sourcing",
-    image: "./assets/supplier-scorecard-preview.png",
-    href: "./assets/global-sourcing-ai-microchip-report.pdf"
-  },
-  {
-    project: requireProject("Advanced Manufacturing Distribution Center Location Case Study"),
-    title: "Distribution Center Location Strategy",
-    discipline: "Network design",
-    image: "./assets/distribution-center-location-strategy-dashboard.png",
-    href: "./assets/distribution-center-location-strategy-dashboard.png"
-  }
+const featuredProjectTitles = [
+  "Global Sourcing Strategy Model",
+  "Supplier Risk Scoring Dashboard",
+  "China Plus One Sourcing Analysis",
+  "AI-Assisted RFQ Analyzer",
+  "Landed Cost & Supplier Comparison Model",
+  "Warehouse / Operations Case Study"
 ];
 
-const experienceSteps = [
-  ["01", "Inbound receiving", "Followed warehouse inward processes and inventory movement."],
-  ["02", "Physical verification", "Cross-checked products, quantities, invoices, and stock."],
-  ["03", "ERP updates", "Observed purchase entries and inventory record updates."],
-  ["04", "Reverse logistics", "Studied returned-device intake and reverse inward workflows."],
-  ["05", "Documentation handoff", "Mapped operational handoffs across warehouse and accounting."]
-] as const;
+const projectImages: Partial<Record<string, string>> = {
+  "Global Sourcing Strategy Model": "./assets/supply-chain-hero.png",
+  "Supplier Risk Scoring Dashboard": "./assets/supplier-scorecard-preview.png",
+  "Warehouse / Operations Case Study":
+    "./assets/warehouse-inward-reverse-inward-preview.png"
+};
 
-const capabilityTitles = [
-  "Sourcing & Procurement",
-  "Inventory & Warehouse",
-  "Analytics & Tools",
-  "Advanced Manufacturing"
+const featuredProjects = featuredProjectTitles.flatMap((title) => {
+  const project = projects.find((candidate) => candidate.title === title);
+  return project ? [project] : [];
+});
+
+const aiApplications = [
+  "Supplier research",
+  "RFQ comparison",
+  "Country risk summaries",
+  "Tariff scenario planning",
+  "Supplier scorecards",
+  "Recommendation writing"
 ];
 
-function FeaturedProject({ item }: { item: FeaturedWork }) {
+function ProjectCard({ project, index }: { project: Project; index: number }) {
+  const preview = projectImages[project.title];
+  const primaryLink = project.links[0];
+
   return (
-    <article className={`featured-project${item.lead ? " featured-project--lead" : ""}`}>
-      <a className="project-artifact" href={item.href} target="_blank" rel="noreferrer">
-        <img
-          src={item.image}
-          alt={`${item.title} project artifact`}
-          loading={item.lead ? "eager" : "lazy"}
-        />
-      </a>
-      <div className="featured-project__copy">
-        <p className="utility-label">{item.discipline}</p>
-        <h3>{item.title}</h3>
-        <p>{item.project.insights[0]}</p>
-        <a className="text-link" href={item.href} target="_blank" rel="noreferrer">
-          View project <Icon name="arrow" />
-        </a>
+    <article className="project-card">
+      <div className="project-card__visual">
+        {preview ? (
+          <img
+            src={preview}
+            alt={`${project.title} analysis preview`}
+            loading={index === 0 ? "eager" : "lazy"}
+          />
+        ) : (
+          <div className="project-card__model" aria-hidden="true">
+            <span>{String(index + 1).padStart(2, "0")}</span>
+            <div>
+              <i />
+              <i />
+              <i />
+              <i />
+            </div>
+          </div>
+        )}
+        <span className={`project-status${project.status === "In development" ? " is-planned" : ""}`}>
+          {project.status}
+        </span>
+      </div>
+      <div className="project-card__body">
+        <p className="project-card__number">Project {String(index + 1).padStart(2, "0")}</p>
+        <h3>{project.title}</h3>
+        <p>{project.description}</p>
+        <ul className="tag-list" aria-label={`${project.title} topics`}>
+          {project.skills.map((skill) => <li key={skill}>{skill}</li>)}
+        </ul>
+        {primaryLink ? (
+          <a className="text-link" href={primaryLink.href} target="_blank" rel="noreferrer">
+            View project <Icon name="arrow" />
+          </a>
+        ) : (
+          <span className="project-card__planned">Case study in development</span>
+        )}
       </div>
     </article>
   );
 }
 
-function CapabilityColumn({ group, index }: { group: SkillGroup; index: number }) {
-  return (
-    <article className="capability-column">
-      <p className="capability-number">0{index + 1}</p>
-      <h3>{capabilityTitles[index]}</h3>
-      <ul>
-        {group.items.slice(0, 6).map((item) => <li key={item}>{item}</li>)}
-      </ul>
-    </article>
-  );
-}
-
-function WritingRow({ article, index }: { article: Article; index: number }) {
-  return (
-    <a className="writing-row" href={article.href} target="_blank" rel="noreferrer">
-      <span className="writing-number">0{index + 1}</span>
-      <h3>{article.title}</h3>
-      <p>{article.description}</p>
-      <span className="writing-arrow"><Icon name="arrow" /></span>
-    </a>
-  );
-}
-
-function NotesGroup({ group }: { group: GlossaryGroup }) {
-  return (
-    <details className="notes-group">
-      <summary>
-        <span>{group.category}</span>
-        <span>{group.items.length} terms</span>
-      </summary>
-      <dl>
-        {group.items.map(([term, definition]) => (
-          <div key={term}>
-            <dt>{term}</dt>
-            <dd>{definition}</dd>
-          </div>
-        ))}
-      </dl>
-    </details>
-  );
-}
-
 export function HomePage() {
+  const experience = experiences[0];
+
   return (
     <>
       <div id="top" />
       <SiteHeader />
       <main>
         <section className="hero" id="home">
-          <div className="drafting-line drafting-line--left" aria-hidden="true" />
           <div className="container-wide hero-grid">
             <div className="hero-copy">
-              <h1>I turn supply chain complexity into clear operating decisions.</h1>
-              <p className="hero-intro">
-                Supply chain student building practical systems for sourcing, materials planning,
-                warehouse operations, and analytics.
+              <p className="hero-name">Shiven Parikh</p>
+              <h1>Global Sourcing &amp; Supplier Risk Portfolio</h1>
+              <p className="hero-subheading">
+                Supply Chain Management student focused on global sourcing, strategic sourcing,
+                supplier risk analytics, landed cost modeling, and AI-assisted sourcing decision
+                systems.
+              </p>
+              <p className="hero-description">
+                I build sourcing models, supplier risk frameworks, landed cost tools, and
+                AI-assisted decision workflows that help compare global suppliers, evaluate tariff
+                and disruption exposure, and support better sourcing recommendations.
               </p>
               <div className="hero-actions">
-                <a className="button button--primary" href="#work">
-                  Explore selected work <Icon name="arrow" />
+                <a className="button button--primary" href="#projects">
+                  View Projects <Icon name="arrow" />
                 </a>
                 <a
                   className="button button--outline"
-                  href="https://www.linkedin.com/in/shiven-parikh"
+                  href={resumeHref}
+                  download="Shiven-Parikh-Resume.pdf"
+                >
+                  Download Resume <Icon name="download" />
+                </a>
+                <a
+                  className="button button--outline"
+                  href={linkedinHref}
                   target="_blank"
                   rel="noreferrer"
                 >
-                  LinkedIn <Icon name="external" />
+                  Connect on LinkedIn <Icon name="external" />
                 </a>
               </div>
-              <p className="hero-meta">Arizona State University · Advanced manufacturing focus</p>
             </div>
 
-            <div className="artifact-stack" aria-label="Selected supply chain project artifacts">
-              <figure className="artifact-window artifact-window--sheet">
-                <figcaption><span className="window-dot" /> BOM / assembly readiness</figcaption>
-                <img src="./assets/supplier-scorecard-preview.png" alt="Supplier scorecard preview" />
-              </figure>
-              <figure className="artifact-window artifact-window--dashboard">
-                <figcaption><span className="window-dot" /> Logistics readiness dashboard</figcaption>
-                <img
-                  src="./assets/ev-assembly-logistics-readiness-dashboard.png"
-                  alt="EV assembly logistics dashboard"
-                />
-              </figure>
-              <figure className="artifact-window artifact-window--network">
-                <figcaption><span className="window-dot" /> Network location model</figcaption>
-                <img
-                  src="./assets/distribution-center-location-strategy-dashboard.png"
-                  alt="Distribution center location dashboard"
-                />
-              </figure>
-            </div>
-          </div>
-
-          <div className="capability-rail">
-            <div className="container-wide capability-rail__inner">
-              <span>Strategic sourcing</span>
-              <span>Materials planning</span>
-              <span>Warehouse operations</span>
-              <span>Supply chain analytics</span>
-              <span>Advanced manufacturing</span>
-            </div>
-          </div>
-        </section>
-
-        <section className="section selected-work" id="work">
-          <div className="container-wide">
-            <div className="section-header">
-              <div>
-                <p className="utility-label">Selected work / 03</p>
-                <h2>Projects built around real operating questions.</h2>
+            <div className="decision-framework" aria-label="Global supplier decision framework">
+              <div className="decision-framework__header">
+                <span>Sourcing decision framework</span>
+                <span>01 / Method</span>
               </div>
-              <a className="text-link" href="./projects.html">
-                View all projects <Icon name="arrow" />
-              </a>
-            </div>
-            <div className="featured-grid">
-              {featuredWork.map((item) => <FeaturedProject item={item} key={item.title} />)}
-            </div>
-          </div>
-        </section>
-
-        <section className="section experience" id="experience">
-          <div className="container-wide">
-            <div className="section-header section-header--compact">
-              <div>
-                <p className="utility-label">Experience / 01</p>
-                <h2>Supply chain operations, observed end to end.</h2>
+              <div className="decision-framework__body">
+                <div className="decision-axis decision-axis--vertical">
+                  <span>Lower exposure</span>
+                  <span>Higher exposure</span>
+                </div>
+                <div className="decision-matrix">
+                  <span className="matrix-point matrix-point--one">Cost</span>
+                  <span className="matrix-point matrix-point--two">Capability</span>
+                  <span className="matrix-point matrix-point--three">Lead time</span>
+                  <span className="matrix-point matrix-point--four">Risk</span>
+                </div>
+                <div className="decision-axis">
+                  <span>Lower value</span>
+                  <span>Higher value</span>
+                </div>
               </div>
-            </div>
-            <div className="experience-layout">
-              <div className="experience-intro">
-                <p className="utility-label">{primaryExperience.company}</p>
-                <h3>{primaryExperience.role}</h3>
-                <p>{primaryExperience.description}</p>
-              </div>
-              <div className="experience-timeline">
-                {experienceSteps.map(([number, title, description]) => (
-                  <article key={number}>
-                    <span>{number}</span>
-                    <h4>{title}</h4>
-                    <p>{description}</p>
-                  </article>
+              <div className="decision-inputs">
+                {["Freight", "Tariffs", "Quality", "Region", "Resilience"].map((input) => (
+                  <span key={input}>{input}</span>
                 ))}
               </div>
             </div>
           </div>
         </section>
 
-        <section className="section capabilities" id="capabilities">
+        <section className="section focus-section" id="focus">
           <div className="container-wide">
-            <div className="section-header section-header--compact">
+            <div className="section-heading">
+              <p className="section-index">01</p>
               <div>
-                <p className="utility-label">Capabilities / 04</p>
-                <h2>A growing toolkit for complex supply chains.</h2>
+                <h2>Current Focus</h2>
+                <p>
+                  Building the commercial, analytical, and technology skills needed to make
+                  stronger global sourcing decisions.
+                </p>
               </div>
             </div>
-            <div className="capability-matrix">
-              {skillGroups.map((group, index) => (
-                <CapabilityColumn group={group} index={index} key={group.category} />
+            <div className="focus-grid">
+              {focusAreas.map((area, index) => (
+                <article className="focus-card" key={area.title}>
+                  <span>{String(index + 1).padStart(2, "0")}</span>
+                  <h3>{area.title}</h3>
+                  <p>{area.description}</p>
+                </article>
               ))}
             </div>
           </div>
         </section>
 
-        <section className="section writing" id="writing">
+        <section className="section projects-section" id="projects">
           <div className="container-wide">
-            <div className="section-header">
+            <div className="section-heading section-heading--with-link">
+              <p className="section-index">02</p>
               <div>
-                <p className="utility-label">Writing / 04</p>
-                <h2>Notes on AI, risk, and what supply chains might become.</h2>
+                <h2>Featured Global Sourcing &amp; Supplier Risk Projects</h2>
+                <p>
+                  Completed models and planned decision tools, ordered around my primary sourcing
+                  focus. Operations work appears as supporting evidence.
+                </p>
               </div>
-              <a
-                className="text-link"
-                href="https://medium.com/@shivenparikh1"
-                target="_blank"
-                rel="noreferrer"
-              >
-                Medium profile <Icon name="external" />
+              <a className="text-link" href="./projects.html">
+                View all projects <Icon name="arrow" />
               </a>
             </div>
-            <div className="writing-list">
-              {articles.map((article, index) => (
-                <WritingRow article={article} index={index} key={article.title} />
+            <div className="project-grid">
+              {featuredProjects.map((project, index) => (
+                <ProjectCard project={project} index={index} key={project.title} />
               ))}
             </div>
           </div>
         </section>
 
-        <section className="field-notes" id="notes">
-          <div className="container-wide">
-            <div className="field-notes__heading">
-              <p className="utility-label">Field notes</p>
-              <p>A working reference of terms gathered through coursework, projects, and operations exposure.</p>
+        <section className="ai-section" id="ai">
+          <div className="container-wide ai-layout">
+            <div>
+              <p className="section-index">03</p>
+              <h2>How I Use AI in Sourcing Analysis</h2>
             </div>
-            <div className="notes-list">
-              {glossary.map((group) => <NotesGroup group={group} key={group.category} />)}
+            <div className="ai-copy">
+              <p>
+                I use AI tools to support supplier research, RFQ comparison, country risk
+                summaries, tariff scenario planning, supplier scorecard development, and sourcing
+                recommendation writing. My goal is not to replace sourcing judgment with AI, but
+                to use AI to research faster, test assumptions, and make stronger sourcing
+                decisions.
+              </p>
+              <ul>
+                {aiApplications.map((application) => <li key={application}>{application}</li>)}
+              </ul>
             </div>
           </div>
         </section>
+
+        <section className="section strategy-section" id="strategies">
+          <div className="container-wide">
+            <div className="section-heading">
+              <p className="section-index">04</p>
+              <div>
+                <h2>Sourcing Strategies I Am Studying</h2>
+                <p>
+                  Each strategy changes the balance between cost, speed, control, resilience, and
+                  supplier dependence.
+                </p>
+              </div>
+            </div>
+            <div className="strategy-list">
+              {sourcingStrategies.map((strategy, index) => (
+                <article className="strategy-card" key={strategy.title}>
+                  <div className="strategy-card__title">
+                    <span>{String(index + 1).padStart(2, "0")}</span>
+                    <h3>{strategy.title}</h3>
+                  </div>
+                  <div>
+                    <strong>What it means</strong>
+                    <p>{strategy.meaning}</p>
+                  </div>
+                  <div>
+                    <strong>When it works</strong>
+                    <p>{strategy.works}</p>
+                  </div>
+                  <div>
+                    <strong>Risks created</strong>
+                    <p>{strategy.risks}</p>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {experience ? (
+          <section className="section experience-section" id="experience">
+            <div className="container-wide experience-layout">
+              <div>
+                <p className="section-index">05</p>
+                <h2>Supporting Operations Experience</h2>
+              </div>
+              <div className="experience-card">
+                <div>
+                  <p className="experience-company">{experience.company}</p>
+                  <h3>{experience.role}</h3>
+                  <p>{experience.description}</p>
+                </div>
+                <ul className="tag-list">
+                  {experience.points.map((point) => <li key={point}>{point}</li>)}
+                </ul>
+                <a className="text-link" href="./projects.html#operations">
+                  See supporting projects <Icon name="arrow" />
+                </a>
+              </div>
+            </div>
+          </section>
+        ) : null}
 
         <section className="contact" id="contact">
           <div className="container-wide contact-grid">
             <div>
-              <p className="utility-label">Available for internships and early-career opportunities</p>
-              <h2>Let’s build clearer systems.</h2>
+              <p className="contact-label">Global sourcing · Supplier risk · Procurement analytics</p>
+              <h2>Let’s build stronger sourcing decisions.</h2>
+              <p>
+                I’m interested in internships and early-career opportunities where I can contribute
+                to sourcing analysis, supplier risk, procurement, and supply-chain decision support.
+              </p>
             </div>
             <div className="contact-actions">
-              <a href="mailto:shivenparikh1@gmail.com"><Icon name="mail" /> Email Shiven</a>
-              <a
-                href="https://www.linkedin.com/in/shiven-parikh"
-                target="_blank"
-                rel="noreferrer"
-              >
+              <a href={emailHref}><Icon name="mail" /> Email Shiven</a>
+              <a href={linkedinHref} target="_blank" rel="noreferrer">
                 LinkedIn <Icon name="external" />
               </a>
-              <a href={resumeHref} target="_blank" rel="noreferrer">
+              <a href={resumeHref} download="Shiven-Parikh-Resume.pdf">
                 Resume <Icon name="download" />
               </a>
             </div>

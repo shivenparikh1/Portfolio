@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { resumeHref } from "../data";
+import { emailHref, linkedinHref, navItems, resumeHref } from "../data";
 import { Icon } from "./Icon";
 
 interface SiteHeaderProps {
@@ -17,9 +17,9 @@ export function SiteHeader({ page = "home" }: SiteHeaderProps) {
             <span>SP</span> / SHIVEN PARIKH
           </a>
           <div className="projects-nav-actions">
-            <a href="./index.html">Portfolio</a>
-            <a className="nav-resume" href={resumeHref} target="_blank" rel="noreferrer">
-              Resume <Icon name="download" />
+            <a href="./index.html">Home</a>
+            <a className="nav-resume" href={resumeHref} download="Shiven-Parikh-Resume.pdf">
+              Download Resume <Icon name="download" />
             </a>
           </div>
         </nav>
@@ -47,11 +47,10 @@ export function SiteHeader({ page = "home" }: SiteHeaderProps) {
           <span />
         </button>
         <div className={`nav-links${menuOpen ? " is-open" : ""}`} id="nav-links">
-          <a href="#work" onClick={closeMenu}>Work</a>
-          <a href="#experience" onClick={closeMenu}>Experience</a>
-          <a href="#capabilities" onClick={closeMenu}>Capabilities</a>
-          <a href="#writing" onClick={closeMenu}>Writing</a>
-          <a className="nav-resume" href={resumeHref} target="_blank" rel="noreferrer" onClick={closeMenu}>
+          {navItems.slice(1, 5).map(([label, id]) => (
+            <a href={`#${id}`} onClick={closeMenu} key={id}>{label}</a>
+          ))}
+          <a className="nav-resume" href={resumeHref} download="Shiven-Parikh-Resume.pdf" onClick={closeMenu}>
             Resume <Icon name="download" />
           </a>
         </div>
@@ -63,10 +62,30 @@ export function SiteHeader({ page = "home" }: SiteHeaderProps) {
 export function SiteFooter() {
   return (
     <footer className="footer">
-      <div className="container-wide">
-        <p><strong>SP / SHIVEN PARIKH</strong></p>
-        <p>Supply Chain Portfolio</p>
-        <a href="#top">Back to top ↑</a>
+      <div className="container-wide footer-grid">
+        <div className="footer-intro">
+          <p className="brand"><span>SP</span> / SHIVEN PARIKH</p>
+          <p>Global sourcing, supplier risk, landed cost, and AI-assisted procurement analysis.</p>
+        </div>
+        <nav aria-label="Footer navigation">
+          <strong>Navigation</strong>
+          <a href="./index.html#focus">Current Focus</a>
+          <a href="./index.html#projects">Projects</a>
+          <a href="./index.html#strategies">Sourcing Strategies</a>
+          <a href="./index.html#experience">Experience</a>
+        </nav>
+        <div>
+          <strong>Contact</strong>
+          <a href={emailHref}>shivenparikh1@gmail.com</a>
+          <a href={linkedinHref} target="_blank" rel="noreferrer">LinkedIn</a>
+          <a href={resumeHref} download="Shiven-Parikh-Resume.pdf">Download Resume</a>
+        </div>
+        <div className="footer-meta">
+          <strong>Portfolio</strong>
+          <a href="./projects.html">All Projects</a>
+          <a href="#top">Back to top</a>
+          <span>© {new Date().getFullYear()} Shiven Parikh</span>
+        </div>
       </div>
     </footer>
   );

@@ -10,6 +10,7 @@ export interface Project {
   tools: string[];
   insights: string[];
   links: ProjectLink[];
+  status?: "Completed" | "In development";
 }
 
 export interface ProjectCategory {
@@ -44,38 +45,92 @@ export interface GlossaryGroup {
 }
 
 export const resumeHref = "./assets/shiven-resume.pdf";
+export const linkedinHref = "https://www.linkedin.com/in/shiven-parikh";
+export const emailHref = "mailto:shivenparikh1@gmail.com";
 
 export const navItems = [
   ["Home", "home"],
-  ["About", "about"],
+  ["Focus", "focus"],
   ["Projects", "projects"],
+  ["AI in Sourcing", "ai"],
+  ["Strategies", "strategies"],
   ["Experience", "experience"],
-  ["Skills", "skills"],
-  ["Writing", "writing"],
-  ["Notes", "glossary"],
   ["Contact", "contact"]
 ];
 
 export const focusAreas = [
   {
-    title: "Advanced Manufacturing",
+    title: "Global Sourcing",
     description:
-      "Exploring supply chain systems used in complex industries where parts, materials, suppliers, and production timelines must be managed with accuracy."
+      "Understanding how companies compare suppliers across countries based on cost, lead time, freight, tariffs, supplier capability, and regional risk."
   },
   {
-    title: "Sourcing & Procurement",
+    title: "Strategic Sourcing",
     description:
-      "Building projects around supplier comparison, landed cost analysis, procurement documentation, and vendor decision-making."
+      "Learning the structured process of analyzing spend, researching supplier markets, building RFQs, comparing suppliers, negotiating, and selecting sourcing strategies."
   },
   {
-    title: "Inventory & Warehouse Operations",
+    title: "Sourcing Strategies",
     description:
-      "Studying how companies receive, verify, store, track, and move products through inward, outward, and reverse logistics processes."
+      "Studying low-cost country sourcing, China Plus One, nearshoring, dual sourcing, and strategic supplier partnerships."
   },
   {
-    title: "Analytics & Decision Support",
+    title: "Supplier Risk Analytics",
     description:
-      "Using spreadsheets, dashboards, and structured analysis to turn supply chain data into clearer business decisions."
+      "Building models that score suppliers based on disruption risk, geopolitical exposure, lead-time volatility, quality risk, and region concentration."
+  },
+  {
+    title: "AI Implementation",
+    description:
+      "Using AI tools to support supplier research, RFQ comparison, country risk summaries, landed cost scenarios, and sourcing recommendations."
+  }
+];
+
+export const sourcingStrategies = [
+  {
+    title: "Low-Cost Country Sourcing",
+    meaning:
+      "Source from markets with structural labor, material, or production cost advantages.",
+    works:
+      "Works when savings remain meaningful after freight, duties, quality controls, and working-capital costs.",
+    risks:
+      "Long lead times, tariff exposure, quality variation, communication gaps, and disruption risk."
+  },
+  {
+    title: "China Plus One",
+    meaning:
+      "Keep selected China capacity while developing an additional sourcing country.",
+    works:
+      "Works when a company needs diversification without abandoning an established supplier ecosystem.",
+    risks:
+      "Duplicate tooling, fragmented volume, qualification time, and hidden dependence on China-based inputs."
+  },
+  {
+    title: "Nearshoring / Regional Sourcing",
+    meaning:
+      "Move supply closer to the primary customer or production market.",
+    works:
+      "Works when speed, responsiveness, lower inventory, and regional trade access offset higher unit costs.",
+    risks:
+      "Limited capacity, smaller supplier pools, wage inflation, and regional concentration."
+  },
+  {
+    title: "Dual Sourcing / Multi-Sourcing",
+    meaning:
+      "Qualify two or more suppliers for the same material, component, or category.",
+    works:
+      "Works for critical items where continuity and negotiation leverage justify added complexity.",
+    risks:
+      "Lower supplier volume, inconsistent specifications, more coordination, and duplicate qualification costs."
+  },
+  {
+    title: "Strategic Supplier Partnerships",
+    meaning:
+      "Build long-term supplier relationships around shared planning, capability, innovation, and performance.",
+    works:
+      "Works when the supplier owns critical knowledge, technology, capacity, or quality capability.",
+    risks:
+      "Supplier dependency, reduced competitive tension, switching barriers, and relationship governance."
   }
 ];
 
@@ -97,88 +152,116 @@ export const experiences: Experience[] = [
 
 export const projects: Project[] = [
   {
-    title: "iPhone Sourcing Cost Sheet Case Study",
+    title: "Global Sourcing Strategy Model",
     description:
-      "Built a multi-sheet sourcing cost model to compare supplier pricing, landed cost, SKU expansion, vendor performance, and final sourcing recommendations. This project connects well to high-tech and semiconductor supply chains because it shows how sourcing decisions depend on cost, supplier reliability, shipping, duties, and total landed cost instead of unit price alone.",
-    skills: ["Sourcing Analysis", "Landed Cost Modeling", "Supplier Comparison", "Procurement Decision Support", "Cost Breakdown"],
-    tools: ["Google Sheets", "Excel", "Google Docs", "Cost Sheet Model", "Case Report PDF"],
-    insights: ["The cheapest supplier is not always the best choice when shipping cost, duties, lead time, and vendor performance are included."],
-    links: [
-      { label: "View Project", href: "https://docs.google.com/spreadsheets/d/15Gr8eBAHjNAZ99r7JHt7nitAAsoYcfwoRmYWrbf8OGs/edit?usp=sharing" },
-      { label: "Case Report PDF", href: "./assets/iphone-sourcing-cost-sheet-case-report.pdf" }
-    ]
-  },
-  {
-    title: "Global Sourcing Framework for AI Microchips",
-    description:
-      "Built a global sourcing comparison for AI microchips across Taiwan, South Korea, and a U.S. domestic hub. This student-built case study connects to semiconductor supply chains by comparing supplier geography, sourcing risk, cost, resilience, and strategic tradeoffs in a high-value component market.",
-    skills: ["Global Sourcing", "Supplier Risk", "Semiconductor Supply Chain", "Cost Comparison", "Sourcing Strategy"],
-    tools: ["Excel", "Google Sheets", "Sourcing Framework", "Scenario Comparison", "Case Report PDF"],
-    insights: ["Microchip sourcing decisions should balance cost, supplier concentration, geopolitical risk, lead time, and supply resilience instead of focusing only on the lowest-cost region."],
+      "A sourcing model comparing supplier options across countries using landed cost, lead time, tariffs, freight, supplier capability, and risk exposure.",
+    skills: ["Global Sourcing", "Landed Cost", "Supplier Comparison", "Sourcing Strategy"],
+    tools: ["Excel", "Google Sheets", "Scenario Comparison", "Sourcing Framework"],
+    insights: ["Global sourcing decisions are stronger when cost, capability, resilience, and regional exposure are evaluated together."],
     links: [
       { label: "Case Report PDF", href: "./assets/global-sourcing-ai-microchip-report.pdf" },
       { label: "Spreadsheet Model", href: "./assets/global-sourcing-ai-microchip-framework.xlsx" }
-    ]
+    ],
+    status: "Completed"
+  },
+  {
+    title: "Supplier Risk Scoring Dashboard",
+    description:
+      "A dashboard that evaluates suppliers by disruption exposure, geopolitical risk, lead-time volatility, quality risk, and sourcing region concentration.",
+    skills: ["Supplier Risk", "Risk Scoring", "Dashboarding", "Analytics"],
+    tools: ["Excel", "Google Sheets", "Weighted Scorecard", "Dashboard Summary"],
+    insights: ["A supplier risk score is most useful when it makes the source of exposure visible instead of reducing every risk to one unexplained number."],
+    links: [
+      { label: "View Scorecard", href: "https://docs.google.com/spreadsheets/d/1isNEYD47TgExA5Wjflqh_QYZmAQzakrAys8E6G4sVKo/edit?usp=sharing" },
+      { label: "Risk Dashboard PDF", href: "./assets/supplier-scorecard-vendor-risk-dashboard.pdf" }
+    ],
+    status: "Completed"
+  },
+  {
+    title: "China Plus One Sourcing Analysis",
+    description:
+      "A sourcing strategy case study comparing China, India, Vietnam, Mexico, and the U.S. as sourcing regions for advanced manufacturing components.",
+    skills: ["China Plus One", "Nearshoring", "Country Risk", "Sourcing Diversification"],
+    tools: ["Country Comparison", "Risk Framework", "Landed Cost Scenarios", "Recommendation Memo"],
+    insights: ["Diversification only improves resilience when the second source has qualified capacity and does not depend on the same upstream inputs."],
+    links: [],
+    status: "In development"
+  },
+  {
+    title: "AI-Assisted RFQ Analyzer",
+    description:
+      "A planned tool that uses AI to compare supplier quotes, identify missing terms, flag red risks, and support supplier selection recommendations.",
+    skills: ["AI Implementation", "RFQ Analysis", "Procurement Analytics", "Supplier Evaluation"],
+    tools: ["Structured Prompts", "Quote Comparison", "Exception Flags", "Recommendation Workflow"],
+    insights: ["AI can accelerate RFQ review, but sourcing teams still need clear criteria, validated inputs, and accountable human judgment."],
+    links: [],
+    status: "In development"
+  },
+  {
+    title: "Landed Cost & Supplier Comparison Model",
+    description:
+      "A model that compares unit cost, freight, duties, tariff exposure, lead time, and total landed cost to support sourcing decisions.",
+    skills: ["Landed Cost", "Supplier Selection", "Cost Modeling", "Sourcing Analysis"],
+    tools: ["Google Sheets", "Excel", "Cost Sheet Model", "Case Report"],
+    insights: ["The lowest unit-price quote can become the wrong sourcing decision after freight, tariffs, duties, and lead-time costs are included."],
+    links: [
+      { label: "View Cost Model", href: "https://docs.google.com/spreadsheets/d/15Gr8eBAHjNAZ99r7JHt7nitAAsoYcfwoRmYWrbf8OGs/edit?usp=sharing" },
+      { label: "Case Report PDF", href: "./assets/iphone-sourcing-cost-sheet-case-report.pdf" }
+    ],
+    status: "Completed"
+  },
+  {
+    title: "Warehouse / Operations Case Study",
+    description:
+      "A supporting operations project documenting warehouse inward, reverse inward, ERP updates, physical verification, and process flow.",
+    skills: ["Warehouse Operations", "Process Mapping", "Reverse Logistics", "ERP Workflow"],
+    tools: ["Process Flowcharts", "ERP Process Notes", "SOP Documentation", "Case Report"],
+    insights: ["Reliable sourcing outcomes still depend on accurate receiving, verification, inventory records, and cross-functional handoffs."],
+    links: [
+      { label: "View Case Study", href: "./assets/warehouse-inward-reverse-inward-case-study.pdf" }
+    ],
+    status: "Completed"
   },
   {
     title: "EV Assembly Logistics Readiness Case Study",
     description:
-      "Built an electric vehicle assembly logistics case study using a bill of materials, kit-readiness analysis, shortage tracking, component risk scoring, and recovery planning. The project shows how materials visibility supports production readiness in an advanced manufacturing environment where missing or high-risk components can delay assembly.",
-    skills: ["Materials Planning", "BOM Analysis", "Kit Readiness", "Shortage Risk Analysis", "Production Logistics"],
-    tools: ["Excel", "Tableau", "BOM Workbook", "Shortage Tracker", "Case Study DOCX"],
-    insights: ["Assembly readiness depends on identifying missing and high-risk components early, assigning recovery ownership, and connecting BOM requirements to shortage priorities."],
+      "Built an electric vehicle assembly logistics case study using a bill of materials, kit-readiness analysis, shortage tracking, component risk scoring, and recovery planning.",
+    skills: ["Materials Planning", "BOM Analysis", "Kit Readiness", "Shortage Risk"],
+    tools: ["Excel", "Tableau", "BOM Workbook", "Shortage Tracker"],
+    insights: ["Production readiness depends on finding high-risk and missing components before they disrupt the assembly plan."],
     links: [
       { label: "View Dashboard", href: "./assets/ev-assembly-logistics-readiness-dashboard.png" },
       { label: "BOM Spreadsheet", href: "./assets/ev-assembly-logistics-bom.xlsx" },
       { label: "Case Study DOCX", href: "./assets/ev-assembly-logistics-readiness-case-study.docx" }
-    ]
+    ],
+    status: "Completed"
   },
   {
     title: "SKU Inventory Tracking Dashboard",
     description:
-      "Created an inventory tracking system to monitor SKU movement, stock levels, reorder alerts, and inventory status. This project shows how inventory control supports better planning in advanced manufacturing environments where missing parts, excess stock, or poor visibility can slow down operations.",
-    skills: ["Inventory Management", "SKU Tracking", "Reorder Point Analysis", "Stock Movement Tracking", "Dashboard Reporting"],
-    tools: ["Google Sheets", "Excel", "Inventory Master Sheet", "Stock Movement Log", "Summary Dashboard"],
-    insights: ["Inventory visibility is one of the most important parts of preventing stockouts, overstocking, and operational delays."],
+      "Created an inventory tracking system to monitor SKU movement, stock levels, reorder alerts, and inventory status.",
+    skills: ["Inventory Management", "SKU Tracking", "Reorder Analysis", "Dashboarding"],
+    tools: ["Google Sheets", "Excel", "Stock Movement Log", "Summary Dashboard"],
+    insights: ["Inventory visibility supports sourcing by revealing demand, stockout exposure, and the timing of replenishment decisions."],
     links: [
-      { label: "View Spreadsheet Dataset", href: "https://docs.google.com/spreadsheets/d/1tRVHwdz5r-wIbCv08SFFiERXUvPXcFvsEIw99Rxj8JI/edit?gid=406111085#gid=406111085" },
-      { label: "View Tableau Dashboard", href: "./assets/supply-chain-inventory-control-dashboard.png" }
-    ]
-  },
-  {
-    title: "Warehouse Inward & Reverse Inward Case Study",
-    description:
-      "Developed a detailed warehouse operations case study based on inward and reverse inward processes at MSwipe. The project covers invoice checking, physical verification, box and device cross-checking, ERP updates, purchase entries, accounting handoff, and reverse logistics flow. This connects to advanced manufacturing because accurate receiving and documentation are critical when handling technical products and serialized inventory.",
-    skills: ["Warehouse Operations", "Inbound Logistics", "Reverse Logistics", "Process Mapping", "ERP Workflow Understanding"],
-    tools: ["Google Docs", "Process Flowcharts", "ERP Process Notes", "SOP Documentation", "Case Report PDF"],
-    insights: ["A strong inward process reduces mismatch risk, improves inventory accuracy, and creates cleaner handoffs between warehouse, operations, and accounting teams."],
-    links: [
-      { label: "View Project", href: "./assets/warehouse-inward-reverse-inward-case-study.pdf" }
-    ]
-  },
-  {
-    title: "Supplier Evaluation Scorecard",
-    description:
-      "Built a supplier evaluation model to compare vendors across cost, lead time, quality, reliability, and overall performance. This project supports advanced manufacturing supply chains because industries like aerospace, defense, and semiconductors depend on suppliers that can deliver consistently, not just cheaply.",
-    skills: ["Supplier Evaluation", "Vendor Scoring", "Risk Analysis", "Procurement Strategy", "Decision Modeling"],
-    tools: ["Google Sheets", "Excel", "Supplier Scorecard", "Weighted Scoring Model", "Dashboard Summary"],
-    insights: ["Supplier selection should balance cost, reliability, quality, and risk instead of focusing only on the lowest quoted price."],
-    links: [
-      { label: "View Project", href: "https://docs.google.com/spreadsheets/d/1isNEYD47TgExA5Wjflqh_QYZmAQzakrAys8E6G4sVKo/edit?usp=sharing" }
-    ]
+      { label: "View Spreadsheet", href: "https://docs.google.com/spreadsheets/d/1tRVHwdz5r-wIbCv08SFFiERXUvPXcFvsEIw99Rxj8JI/edit?gid=406111085#gid=406111085" },
+      { label: "View Dashboard", href: "./assets/supply-chain-inventory-control-dashboard.png" }
+    ],
+    status: "Completed"
   },
   {
     title: "Advanced Manufacturing Distribution Center Location Case Study",
     description:
-      "Created a location strategy case study for selecting a distribution center site for consumer electronics and advanced manufacturing products. The analysis compares cities using factors such as freight access, labor availability, market reach, infrastructure, and business environment to support a final location recommendation.",
-    skills: ["Network Design", "Location Analysis", "Freight Access Evaluation", "Weighted Scoring", "Business Recommendation Writing"],
-    tools: ["Google Sheets", "Excel", "Google Docs", "Scoring Matrix", "Case Report PDF"],
+      "Created a location strategy case study comparing cities on freight access, labor availability, market reach, infrastructure, and business environment.",
+    skills: ["Network Design", "Location Analysis", "Freight Access", "Weighted Scoring"],
+    tools: ["Google Sheets", "Excel", "Scoring Matrix", "Case Report"],
     insights: ["The best distribution center location is not just the cheapest city. It is the site that balances freight access, labor, customer reach, and long-term scalability."],
     links: [
       { label: "View Dashboard", href: "./assets/distribution-center-location-strategy-dashboard.png" },
       { label: "Case Report PDF", href: "./assets/distribution-center-location-strategy-case-report.pdf" },
       { label: "Spreadsheet Model", href: "./assets/distribution-center-location-strategy-model.xlsx" }
-    ]
+    ],
+    status: "Completed"
   },
   {
     title: "AI in Supply Chain Writing Series",
@@ -204,39 +287,39 @@ export const projects: Project[] = [
         label: "Future of Asteroid Mining",
         href: "https://medium.com/@shivenparikh1/beyond-earth-the-trillion-dollar-future-of-asteroid-mining-8c3c6f7253bd"
       }
-    ]
+    ],
+    status: "Completed"
   }
 ];
 
 export const projectCategories: ProjectCategory[] = [
   {
     id: "sourcing",
-    title: "Sourcing & Supplier Management",
-    description: "Cost analysis, supplier evaluation, procurement decisions, and vendor risk.",
-    projectTitles: ["iPhone Sourcing Cost Sheet Case Study", "Global Sourcing Framework for AI Microchips", "Supplier Evaluation Scorecard"]
+    title: "Global Sourcing & Supplier Risk",
+    description: "Primary work in supplier comparison, sourcing strategy, landed cost, risk analytics, and AI-assisted procurement.",
+    projectTitles: [
+      "Global Sourcing Strategy Model",
+      "Supplier Risk Scoring Dashboard",
+      "China Plus One Sourcing Analysis",
+      "AI-Assisted RFQ Analyzer",
+      "Landed Cost & Supplier Comparison Model"
+    ]
   },
   {
     id: "operations",
-    title: "Inventory & Warehouse Operations",
-    description: "Inventory visibility, receiving controls, warehouse processes, and reverse logistics.",
-    projectTitles: ["SKU Inventory Tracking Dashboard", "Warehouse Inward & Reverse Inward Case Study"]
-  },
-  {
-    id: "production",
-    title: "Production & Materials Planning",
-    description: "BOM analysis, kit readiness, component shortages, recovery planning, and production logistics.",
-    projectTitles: ["EV Assembly Logistics Readiness Case Study"]
-  },
-  {
-    id: "network",
-    title: "Network Design & Logistics Analytics",
-    description: "Distribution strategy, location analysis, freight access, and weighted decision models.",
-    projectTitles: ["Advanced Manufacturing Distribution Center Location Case Study"]
+    title: "Supporting Operations & Analytics",
+    description: "Operational evidence that supports sourcing judgment through receiving, inventory, production readiness, and network analysis.",
+    projectTitles: [
+      "Warehouse / Operations Case Study",
+      "EV Assembly Logistics Readiness Case Study",
+      "SKU Inventory Tracking Dashboard",
+      "Advanced Manufacturing Distribution Center Location Case Study"
+    ]
   },
   {
     id: "technology",
-    title: "Technology & Industry Research",
-    description: "AI, supplier risk, business writing, and emerging supply chain technology.",
+    title: "Research & Writing",
+    description: "Writing on AI, supplier risk, emerging technology, and the role of human judgment in supply-chain decisions.",
     projectTitles: ["AI in Supply Chain Writing Series"]
   }
 ];
