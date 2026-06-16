@@ -556,6 +556,14 @@ svg {
   background: var(--white);
 }
 
+.project-card--featured {
+  min-height: 560px;
+  grid-column: 1 / -1;
+  grid-template-columns: minmax(420px, 1.05fr) minmax(420px, 0.95fr);
+  grid-template-rows: 1fr;
+  border-top: 4px solid var(--blue);
+}
+
 .project-card__visual,
 .project-row__visual {
   position: relative;
@@ -571,6 +579,18 @@ svg {
   object-fit: cover;
   object-position: top;
   transition: transform 300ms ease;
+}
+
+.project-card--featured .project-card__visual {
+  border-right: 1px solid var(--line);
+  border-bottom: 0;
+  background: var(--white);
+}
+
+.project-card--featured .project-card__visual img {
+  object-fit: contain;
+  object-position: center;
+  padding: 18px;
 }
 
 .project-card:hover .project-card__visual img,
@@ -653,6 +673,29 @@ svg {
   padding: 28px;
 }
 
+.project-card--featured .project-card__body {
+  padding: 38px;
+}
+
+.project-badge-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+
+.project-badge-list span {
+  border: 1px solid #a9c3e1;
+  border-radius: 2px;
+  padding: 7px 9px;
+  background: #eaf3ff;
+  color: var(--blue-dark);
+  font-family: var(--mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
 .project-card__body h3 {
   margin: 11px 0 14px;
   font-family: var(--serif);
@@ -661,10 +704,22 @@ svg {
   line-height: 1.08;
 }
 
+.project-card--featured .project-card__body h3 {
+  max-width: 680px;
+  font-size: 2.85rem;
+  letter-spacing: 0;
+  line-height: 1.05;
+}
+
 .project-card__body > p:not(.project-card__number) {
   margin-bottom: 20px;
   color: var(--muted);
   font-size: 0.82rem;
+}
+
+.project-card--featured .project-card__body > p:not(.project-card__number) {
+  max-width: 720px;
+  font-size: 0.9rem;
 }
 
 .tag-list {
@@ -688,8 +743,21 @@ svg {
 }
 
 .project-card__body .text-link,
+.project-card__links,
 .project-card__planned {
   margin-top: auto;
+}
+
+.project-card__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.project-card__button {
+  min-height: 44px;
+  padding: 0 14px;
+  font-size: 0.68rem;
 }
 
 .project-card__planned,
@@ -1078,6 +1146,16 @@ svg {
     min-height: 0;
   }
 
+  .project-card--featured {
+    grid-template-columns: 1fr;
+    grid-template-rows: 360px 1fr;
+  }
+
+  .project-card--featured .project-card__visual {
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+  }
+
   .ai-layout {
     gap: 36px;
   }
@@ -1182,8 +1260,26 @@ svg {
     grid-template-rows: 210px 1fr;
   }
 
+  .project-card--featured {
+    grid-template-rows: 280px 1fr;
+  }
+
   .project-card__body {
     padding: 23px;
+  }
+
+  .project-card--featured .project-card__body {
+    padding: 24px;
+  }
+
+  .project-card--featured .project-card__body h3 {
+    font-size: 2.2rem;
+  }
+
+  .project-card__links--featured {
+    display: grid;
+    width: 100%;
+    grid-template-columns: 1fr;
   }
 
   .ai-copy ul {

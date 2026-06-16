@@ -11,6 +11,7 @@ export interface Project {
   insights: string[];
   links: ProjectLink[];
   status?: "Completed" | "In development";
+  badges?: string[];
 }
 
 export interface ProjectCategory {
@@ -47,6 +48,15 @@ export interface GlossaryGroup {
 export const resumeHref = "./assets/shiven-resume.pdf";
 export const linkedinHref = "https://www.linkedin.com/in/shiven-parikh";
 export const emailHref = "mailto:shivenparikh1@gmail.com";
+export const semiconductorProjectTitle =
+  "Semiconductor Packaging Global Sourcing & Supplier Risk Model";
+export const semiconductorProjectHref = "./semiconductor-packaging-sourcing.html";
+export const semiconductorDashboardHref =
+  "./assets/semiconductor-packaging-supplier-risk-dashboard.png";
+export const semiconductorExcelHref =
+  "./assets/semiconductor-packaging-global-sourcing-supplier-risk-model.xlsx";
+export const semiconductorCertificateHref =
+  "./assets/introduction-to-semiconductor-packaging-coursera-certificate.pdf";
 
 export const navItems = [
   ["Home", "home"],
@@ -151,6 +161,41 @@ export const experiences: Experience[] = [
 ];
 
 export const projects: Project[] = [
+  {
+    title: semiconductorProjectTitle,
+    description:
+      "Compared 10 global OSAT suppliers using a weighted sourcing model built around country/trade risk, geographic diversification, technical capability, advanced packaging/AI fit, financial scale, U.S. buyer fit, cost exposure, and data confidence.",
+    skills: [
+      "Global Sourcing Strategy",
+      "Supplier Risk Analysis",
+      "OSAT / Semiconductor Packaging Research",
+      "Weighted Supplier Scoring",
+      "Country and Trade Risk Analysis",
+      "Cost Exposure Modeling",
+      "Data Confidence Scoring",
+      "Tableau Dashboarding",
+      "Excel Modeling",
+      "AI-Assisted Research Workflow"
+    ],
+    tools: [
+      "Excel",
+      "Tableau",
+      "Public Supplier Research",
+      "Weighted Scoring",
+      "AI-Assisted Research"
+    ],
+    insights: [
+      "ASE Technology / ASE Group and Amkor Technology offered the strongest balance of capability, risk exposure, U.S. buyer fit, and sourcing resilience in this public-data portfolio model."
+    ],
+    links: [
+      { label: "View Case Study", href: semiconductorProjectHref },
+      { label: "View Dashboard", href: semiconductorDashboardHref },
+      { label: "View Excel Model", href: semiconductorExcelHref },
+      { label: "View Certificate", href: semiconductorCertificateHref }
+    ],
+    status: "Completed",
+    badges: ["Featured Project", "Newest Project", "Global Sourcing Focus"]
+  },
   {
     title: "Global Sourcing Strategy Model",
     description:
@@ -298,6 +343,7 @@ export const projectCategories: ProjectCategory[] = [
     title: "Global Sourcing & Supplier Risk",
     description: "Primary work in supplier comparison, sourcing strategy, landed cost, risk analytics, and AI-assisted procurement.",
     projectTitles: [
+      semiconductorProjectTitle,
       "Global Sourcing Strategy Model",
       "Supplier Risk Scoring Dashboard",
       "China Plus One Sourcing Analysis",

@@ -4,12 +4,15 @@ import {
   linkedinHref,
   projectCategories,
   projects,
-  resumeHref
+  resumeHref,
+  semiconductorDashboardHref,
+  semiconductorProjectTitle
 } from "./data";
 import { Icon } from "./components/Icon";
 import { SiteFooter, SiteHeader } from "./components/SiteChrome";
 
 const projectPreviews: Partial<Record<string, string>> = {
+  [semiconductorProjectTitle]: semiconductorDashboardHref,
   "Global Sourcing Strategy Model": "./assets/supply-chain-hero.png",
   "Supplier Risk Scoring Dashboard": "./assets/supplier-scorecard-preview.png",
   "Warehouse / Operations Case Study":
@@ -55,8 +58,10 @@ function ProjectVisual({ project, index }: { project: Project; index: number }) 
 }
 
 function ProjectRow({ project, index }: { project: Project; index: number }) {
+  const isSemiconductorProject = project.title === semiconductorProjectTitle;
+
   return (
-    <article className="project-row">
+    <article className={`project-row${isSemiconductorProject ? " project-row--dashboard" : ""}`}>
       <div className="project-row__visual">
         <ProjectVisual project={project} index={index} />
         <span className={`project-status${project.status === "In development" ? " is-planned" : ""}`}>
@@ -64,6 +69,11 @@ function ProjectRow({ project, index }: { project: Project; index: number }) {
         </span>
       </div>
       <div className="project-row__content">
+        {project.badges ? (
+          <div className="project-badge-list" aria-label={`${project.title} labels`}>
+            {project.badges.map((badge) => <span key={badge}>{badge}</span>)}
+          </div>
+        ) : null}
         <p className="project-row__number">Project {String(index + 1).padStart(2, "0")}</p>
         <h3>{project.title}</h3>
         <p>{project.description}</p>

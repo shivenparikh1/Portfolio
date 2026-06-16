@@ -8,7 +8,8 @@ export default defineConfig({
     rollupOptions: {
       input: {
         portfolio: "index.html",
-        projects: "projects.html"
+        projects: "projects.html",
+        semiconductorProject: "semiconductor-packaging-sourcing.html"
       }
     }
   }

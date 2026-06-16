@@ -6,12 +6,15 @@ import {
   linkedinHref,
   projects,
   resumeHref,
+  semiconductorDashboardHref,
+  semiconductorProjectTitle,
   sourcingStrategies
 } from "./data";
 import { Icon } from "./components/Icon";
 import { SiteFooter, SiteHeader } from "./components/SiteChrome";
 
 const featuredProjectTitles = [
+  semiconductorProjectTitle,
   "Global Sourcing Strategy Model",
   "Supplier Risk Scoring Dashboard",
   "China Plus One Sourcing Analysis",
@@ -21,6 +24,7 @@ const featuredProjectTitles = [
 ];
 
 const projectImages: Partial<Record<string, string>> = {
+  [semiconductorProjectTitle]: semiconductorDashboardHref,
   "Global Sourcing Strategy Model": "./assets/supply-chain-hero.png",
   "Supplier Risk Scoring Dashboard": "./assets/supplier-scorecard-preview.png",
   "Warehouse / Operations Case Study":
@@ -43,10 +47,11 @@ const aiApplications = [
 
 function ProjectCard({ project, index }: { project: Project; index: number }) {
   const preview = projectImages[project.title];
-  const primaryLink = project.links[0];
+  const isFeatured = project.title === semiconductorProjectTitle;
+  const visibleLinks = isFeatured ? project.links : project.links.slice(0, 1);
 
   return (
-    <article className="project-card">
+    <article className={`project-card${isFeatured ? " project-card--featured" : ""}`}>
       <div className="project-card__visual">
         {preview ? (
           <img
@@ -70,16 +75,31 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
         </span>
       </div>
       <div className="project-card__body">
+        {project.badges ? (
+          <div className="project-badge-list" aria-label={`${project.title} labels`}>
+            {project.badges.map((badge) => <span key={badge}>{badge}</span>)}
+          </div>
+        ) : null}
         <p className="project-card__number">Project {String(index + 1).padStart(2, "0")}</p>
         <h3>{project.title}</h3>
         <p>{project.description}</p>
         <ul className="tag-list" aria-label={`${project.title} topics`}>
           {project.skills.map((skill) => <li key={skill}>{skill}</li>)}
         </ul>
-        {primaryLink ? (
-          <a className="text-link" href={primaryLink.href} target="_blank" rel="noreferrer">
-            View project <Icon name="arrow" />
-          </a>
+        {visibleLinks.length > 0 ? (
+          <div className={`project-card__links${isFeatured ? " project-card__links--featured" : ""}`}>
+            {visibleLinks.map((link) => (
+              <a
+                className={isFeatured ? "button button--outline project-card__button" : "text-link"}
+                href={link.href}
+                target="_blank"
+                rel="noreferrer"
+                key={link.href}
+              >
+                {isFeatured ? link.label : "View project"} <Icon name="arrow" />
+              </a>
+            ))}
+          </div>
         ) : (
           <span className="project-card__planned">Case study in development</span>
         )}
