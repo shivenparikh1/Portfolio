@@ -15,7 +15,7 @@ import { SiteFooter, SiteHeader } from "./components/SiteChrome";
 
 const featuredProjectTitles = [
   semiconductorProjectTitle,
-  "Global Sourcing Strategy Model",
+  "Global Sourcing Strategy Model for AI Microchips",
   "Supplier Risk Scoring Dashboard",
   "China Plus One Sourcing Analysis",
   "AI-Assisted RFQ Analyzer",
@@ -25,7 +25,8 @@ const featuredProjectTitles = [
 
 const projectImages: Partial<Record<string, string>> = {
   [semiconductorProjectTitle]: semiconductorDashboardHref,
-  "Global Sourcing Strategy Model": "./assets/supply-chain-hero.png",
+  "Global Sourcing Strategy Model for AI Microchips":
+    "./assets/global-sourcing-ai-microchip-preview.png",
   "Supplier Risk Scoring Dashboard": "./assets/supplier-scorecard-preview.png",
   "Warehouse / Operations Case Study":
     "./assets/warehouse-inward-reverse-inward-preview.png"

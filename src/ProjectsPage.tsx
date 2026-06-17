@@ -13,7 +13,8 @@ import { SiteFooter, SiteHeader } from "./components/SiteChrome";
 
 const projectPreviews: Partial<Record<string, string>> = {
   [semiconductorProjectTitle]: semiconductorDashboardHref,
-  "Global Sourcing Strategy Model": "./assets/supply-chain-hero.png",
+  "Global Sourcing Strategy Model for AI Microchips":
+    "./assets/global-sourcing-ai-microchip-preview.png",
   "Supplier Risk Scoring Dashboard": "./assets/supplier-scorecard-preview.png",
   "Warehouse / Operations Case Study":
     "./assets/warehouse-inward-reverse-inward-preview.png",

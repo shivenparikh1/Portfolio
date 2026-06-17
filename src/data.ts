@@ -197,10 +197,10 @@ export const projects: Project[] = [
     badges: ["Featured Project", "Newest Project", "Global Sourcing Focus"]
   },
   {
-    title: "Global Sourcing Strategy Model",
+    title: "Global Sourcing Strategy Model for AI Microchips",
     description:
-      "A sourcing model comparing supplier options across countries using landed cost, lead time, tariffs, freight, supplier capability, and risk exposure.",
-    skills: ["Global Sourcing", "Landed Cost", "Supplier Comparison", "Sourcing Strategy"],
+      "A global sourcing model for AI microchips comparing Taiwan, South Korea, and a U.S. domestic hub across landed cost, lead time, tariffs, supplier capability, and risk exposure.",
+    skills: ["Global Sourcing", "AI Microchips", "Landed Cost", "Supplier Comparison", "Sourcing Strategy"],
     tools: ["Excel", "Google Sheets", "Scenario Comparison", "Sourcing Framework"],
     insights: ["Global sourcing decisions are stronger when cost, capability, resilience, and regional exposure are evaluated together."],
     links: [
@@ -344,7 +344,7 @@ export const projectCategories: ProjectCategory[] = [
     description: "Primary work in supplier comparison, sourcing strategy, landed cost, risk analytics, and AI-assisted procurement.",
     projectTitles: [
       semiconductorProjectTitle,
-      "Global Sourcing Strategy Model",
+      "Global Sourcing Strategy Model for AI Microchips",
       "Supplier Risk Scoring Dashboard",
       "China Plus One Sourcing Analysis",
       "AI-Assisted RFQ Analyzer",
