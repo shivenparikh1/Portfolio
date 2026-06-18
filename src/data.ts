@@ -57,6 +57,10 @@ export const semiconductorExcelHref =
   "./assets/semiconductor-packaging-global-sourcing-supplier-risk-model.xlsx";
 export const semiconductorCertificateHref =
   "./assets/introduction-to-semiconductor-packaging-coursera-certificate.pdf";
+export const sourcingCopilotTitle = "Global Sourcing Copilot";
+export const sourcingCopilotHref = "https://sourcingcopilot.streamlit.app/";
+export const sourcingCopilotPreviewHref =
+  "./assets/global-sourcing-copilot-streamlit-preview.png";
 
 export const navItems = [
   ["Home", "home"],
@@ -195,6 +199,28 @@ export const projects: Project[] = [
     ],
     status: "Completed",
     badges: ["Featured Project", "Newest Project", "Global Sourcing Focus"]
+  },
+  {
+    title: sourcingCopilotTitle,
+    description:
+      "Built a Streamlit sourcing workspace that guides product intake, supplier discovery, scoring framework setup, weekly news review, dashboard comparison, AI insights, and recommendation export.",
+    skills: [
+      "AI-Assisted Sourcing",
+      "Streamlit",
+      "Supplier Comparison",
+      "Landed Cost",
+      "Risk Scoring",
+      "Dashboarding",
+      "Recommendation Memo"
+    ],
+    tools: ["Python", "Streamlit", "Session State", "Sourcing Workflow", "Dashboard UI"],
+    insights: [
+      "A sourcing tool is stronger when it guides the user from requirements intake through supplier scoring, risk review, and recommendation memo export."
+    ],
+    links: [
+      { label: "Launch Streamlit App", href: sourcingCopilotHref }
+    ],
+    status: "Completed"
   },
   {
     title: "Global Sourcing Strategy Model for AI Microchips",
@@ -344,6 +370,7 @@ export const projectCategories: ProjectCategory[] = [
     description: "Primary work in supplier comparison, sourcing strategy, landed cost, risk analytics, and AI-assisted procurement.",
     projectTitles: [
       semiconductorProjectTitle,
+      sourcingCopilotTitle,
       "Global Sourcing Strategy Model for AI Microchips",
       "Supplier Risk Scoring Dashboard",
       "China Plus One Sourcing Analysis",

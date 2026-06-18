@@ -6,13 +6,16 @@ import {
   projects,
   resumeHref,
   semiconductorDashboardHref,
-  semiconductorProjectTitle
+  semiconductorProjectTitle,
+  sourcingCopilotPreviewHref,
+  sourcingCopilotTitle
 } from "./data";
 import { Icon } from "./components/Icon";
 import { SiteFooter, SiteHeader } from "./components/SiteChrome";
 
 const projectPreviews: Partial<Record<string, string>> = {
   [semiconductorProjectTitle]: semiconductorDashboardHref,
+  [sourcingCopilotTitle]: sourcingCopilotPreviewHref,
   "Global Sourcing Strategy Model for AI Microchips":
     "./assets/global-sourcing-ai-microchip-preview.png",
   "Supplier Risk Scoring Dashboard": "./assets/supplier-scorecard-preview.png",

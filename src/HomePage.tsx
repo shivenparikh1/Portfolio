@@ -8,6 +8,8 @@ import {
   resumeHref,
   semiconductorDashboardHref,
   semiconductorProjectTitle,
+  sourcingCopilotPreviewHref,
+  sourcingCopilotTitle,
   sourcingStrategies
 } from "./data";
 import { Icon } from "./components/Icon";
@@ -15,6 +17,7 @@ import { SiteFooter, SiteHeader } from "./components/SiteChrome";
 
 const featuredProjectTitles = [
   semiconductorProjectTitle,
+  sourcingCopilotTitle,
   "Global Sourcing Strategy Model for AI Microchips",
   "Supplier Risk Scoring Dashboard",
   "China Plus One Sourcing Analysis",
@@ -25,6 +28,7 @@ const featuredProjectTitles = [
 
 const projectImages: Partial<Record<string, string>> = {
   [semiconductorProjectTitle]: semiconductorDashboardHref,
+  [sourcingCopilotTitle]: sourcingCopilotPreviewHref,
   "Global Sourcing Strategy Model for AI Microchips":
     "./assets/global-sourcing-ai-microchip-preview.png",
   "Supplier Risk Scoring Dashboard": "./assets/supplier-scorecard-preview.png",
