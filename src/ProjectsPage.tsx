@@ -1,17 +1,29 @@
 import type { Article, Project, ProjectCategory } from "./data";
 import {
+  aiMicrochipCaseTitle,
+  aiMicrochipPreviewHref,
   articles,
+  distributionCenterCaseTitle,
+  distributionCenterDashboardHref,
   emailHref,
   evAssemblyCaseTitle,
   evAssemblyDashboardHref,
   linkedinHref,
   projectCategories,
   projects,
+  purchaseToDispatchCaseTitle,
+  purchaseToDispatchPreviewHref,
   resumeHref,
   semiconductorDashboardHref,
   semiconductorProjectTitle,
+  skuInventoryCaseTitle,
+  skuInventoryDashboardHref,
   sourcingCopilotPreviewHref,
-  sourcingCopilotTitle
+  sourcingCopilotTitle,
+  vendorShippingCaseTitle,
+  vendorShippingPreviewHref,
+  warehouseOperationsCaseTitle,
+  warehouseOperationsPreviewHref
 } from "./data";
 import { Icon } from "./components/Icon";
 import { SiteFooter, SiteHeader } from "./components/SiteChrome";
@@ -19,15 +31,14 @@ import { SiteFooter, SiteHeader } from "./components/SiteChrome";
 const projectPreviews: Partial<Record<string, string>> = {
   [semiconductorProjectTitle]: semiconductorDashboardHref,
   [sourcingCopilotTitle]: sourcingCopilotPreviewHref,
-  "Global Sourcing Strategy Model for AI Microchips":
-    "./assets/global-sourcing-ai-microchip-preview.png",
+  [aiMicrochipCaseTitle]: aiMicrochipPreviewHref,
+  [vendorShippingCaseTitle]: vendorShippingPreviewHref,
   "Supplier Risk Scoring Dashboard": "./assets/supplier-scorecard-preview.png",
-  "Warehouse / Operations Case Study":
-    "./assets/warehouse-inward-reverse-inward-preview.png",
+  [warehouseOperationsCaseTitle]: warehouseOperationsPreviewHref,
   [evAssemblyCaseTitle]: evAssemblyDashboardHref,
-  "SKU Inventory Tracking Dashboard": "./assets/supply-chain-inventory-control-dashboard.png",
-  "Advanced Manufacturing Distribution Center Location Case Study":
-    "./assets/distribution-center-location-strategy-dashboard.png"
+  [skuInventoryCaseTitle]: skuInventoryDashboardHref,
+  [distributionCenterCaseTitle]: distributionCenterDashboardHref,
+  [purchaseToDispatchCaseTitle]: purchaseToDispatchPreviewHref
 };
 
 const projectByTitle = new Map(projects.map((project) => [project.title, project]));

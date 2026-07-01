@@ -57,9 +57,19 @@ export const semiconductorExcelHref =
 export const semiconductorCertificateHref =
   "./assets/introduction-to-semiconductor-packaging-coursera-certificate.pdf";
 export const sourcingCopilotTitle = "Global Sourcing Copilot";
+export const sourcingCopilotCaseHref = "./global-sourcing-copilot.html";
 export const sourcingCopilotHref = "https://sourcingcopilot.streamlit.app/";
 export const sourcingCopilotPreviewHref =
   "./assets/global-sourcing-copilot-streamlit-preview.png";
+export const aiMicrochipCaseTitle =
+  "Global Sourcing Strategy Model for AI Microchips";
+export const aiMicrochipCaseHref = "./global-sourcing-ai-microchip.html";
+export const aiMicrochipReportHref =
+  "./assets/global-sourcing-ai-microchip-report.pdf";
+export const aiMicrochipModelHref =
+  "./assets/global-sourcing-ai-microchip-framework.xlsx";
+export const aiMicrochipPreviewHref =
+  "./assets/global-sourcing-ai-microchip-preview.png";
 export const evAssemblyCaseTitle = "EV Assembly Logistics Readiness Case Study";
 export const evAssemblyCaseHref = "./ev-assembly-logistics-readiness.html";
 export const evAssemblyDashboardHref =
@@ -76,8 +86,40 @@ export const landedCostPdfHref =
 export const landedCostDocHref =
   "./assets/iphone-sourcing-cost-sheet-case-report.docx";
 export const warehouseOperationsCaseTitle = "Warehouse / Operations Case Study";
-export const warehouseOperationsCaseHref =
+export const warehouseOperationsCaseHref = "./warehouse-operations-case-study.html";
+export const warehouseOperationsReportHref =
   "./assets/warehouse-inward-reverse-inward-case-study.pdf";
+export const warehouseOperationsPreviewHref =
+  "./assets/warehouse-inward-reverse-inward-preview.png";
+export const skuInventoryCaseTitle = "SKU Inventory Tracking Dashboard";
+export const skuInventoryCaseHref = "./sku-inventory-tracking.html";
+export const skuInventoryDashboardHref =
+  "./assets/supply-chain-inventory-control-dashboard.png";
+export const skuInventoryModelHref =
+  "https://docs.google.com/spreadsheets/d/1tRVHwdz5r-wIbCv08SFFiERXUvPXcFvsEIw99Rxj8JI/edit?gid=406111085#gid=406111085";
+export const distributionCenterCaseTitle =
+  "Advanced Manufacturing Distribution Center Location Case Study";
+export const distributionCenterCaseHref =
+  "./distribution-center-location-strategy.html";
+export const distributionCenterDashboardHref =
+  "./assets/distribution-center-location-strategy-dashboard.png";
+export const distributionCenterReportHref =
+  "./assets/distribution-center-location-strategy-case-report.pdf";
+export const distributionCenterModelHref =
+  "./assets/distribution-center-location-strategy-model.xlsx";
+export const vendorShippingCaseTitle = "Vendor Shipping Cost Comparison Analysis";
+export const vendorShippingCaseHref = "./vendor-shipping-cost-comparison.html";
+export const vendorShippingReportHref =
+  "./assets/vendor-shipping-cost-comparison-analysis.pdf";
+export const vendorShippingPreviewHref =
+  "./assets/vendor-shipping-cost-comparison-analysis.png";
+export const purchaseToDispatchCaseTitle =
+  "Purchase-to-Dispatch Workflow Analysis";
+export const purchaseToDispatchCaseHref = "./purchase-to-dispatch-workflow.html";
+export const purchaseToDispatchReportHref =
+  "./assets/purchase-to-dispatch-workflow-analysis.pdf";
+export const purchaseToDispatchPreviewHref =
+  "./assets/purchase-to-dispatch-workflow-analysis.png";
 
 export const navItems = [
   ["Home", "home"],
@@ -234,19 +276,21 @@ export const projects: Project[] = [
       "A sourcing tool is stronger when it guides the user from requirements intake through supplier scoring, risk review, and recommendation memo export."
     ],
     links: [
+      { label: "View Case Study", href: sourcingCopilotCaseHref },
       { label: "Launch Streamlit App", href: sourcingCopilotHref }
     ]
   },
   {
-    title: "Global Sourcing Strategy Model for AI Microchips",
+    title: aiMicrochipCaseTitle,
     description:
       "A global sourcing model for AI microchips comparing Taiwan, South Korea, and a U.S. domestic hub across landed cost, lead time, tariffs, supplier capability, and risk exposure.",
     skills: ["Global Sourcing", "AI Microchips", "Landed Cost", "Supplier Comparison", "Sourcing Strategy"],
     tools: ["Excel", "Google Sheets", "Scenario Comparison", "Sourcing Framework"],
     insights: ["Global sourcing decisions are stronger when cost, capability, resilience, and regional exposure are evaluated together."],
     links: [
-      { label: "Case Report", href: "./assets/global-sourcing-ai-microchip-report.pdf" },
-      { label: "Spreadsheet Model", href: "./assets/global-sourcing-ai-microchip-framework.xlsx" }
+      { label: "View Case Study", href: aiMicrochipCaseHref },
+      { label: "Case Report", href: aiMicrochipReportHref },
+      { label: "Spreadsheet Model", href: aiMicrochipModelHref }
     ]
   },
   {
@@ -258,7 +302,7 @@ export const projects: Project[] = [
     insights: ["A supplier risk score is most useful when it makes the source of exposure visible instead of reducing every risk to one unexplained number."],
     links: [
       { label: "View Scorecard", href: "https://docs.google.com/spreadsheets/d/1isNEYD47TgExA5Wjflqh_QYZmAQzakrAys8E6G4sVKo/edit?usp=sharing" },
-      { label: "Risk Dashboard PDF", href: "./assets/supplier-scorecard-vendor-risk-dashboard.pdf" }
+      { label: "Risk Dashboard", href: "./assets/supplier-scorecard-vendor-risk-dashboard.pdf" }
     ]
   },
   {
@@ -283,7 +327,8 @@ export const projects: Project[] = [
     tools: ["Process Flowcharts", "ERP Process Notes", "SOP Documentation", "Case Report"],
     insights: ["Reliable sourcing outcomes still depend on accurate receiving, verification, inventory records, and cross-functional handoffs."],
     links: [
-      { label: "Case Report", href: warehouseOperationsCaseHref }
+      { label: "View Case Study", href: warehouseOperationsCaseHref },
+      { label: "Case Report", href: warehouseOperationsReportHref }
     ]
   },
   {
@@ -301,28 +346,54 @@ export const projects: Project[] = [
     ]
   },
   {
-    title: "SKU Inventory Tracking Dashboard",
+    title: skuInventoryCaseTitle,
     description:
       "Created an inventory tracking system to monitor SKU movement, stock levels, reorder alerts, and inventory status.",
     skills: ["Inventory Management", "SKU Tracking", "Reorder Analysis", "Dashboarding"],
     tools: ["Google Sheets", "Excel", "Stock Movement Log", "Summary Dashboard"],
     insights: ["Inventory visibility supports sourcing by revealing demand, stockout exposure, and the timing of replenishment decisions."],
     links: [
-      { label: "View Spreadsheet", href: "https://docs.google.com/spreadsheets/d/1tRVHwdz5r-wIbCv08SFFiERXUvPXcFvsEIw99Rxj8JI/edit?gid=406111085#gid=406111085" },
-      { label: "View Dashboard", href: "./assets/supply-chain-inventory-control-dashboard.png" }
+      { label: "View Case Study", href: skuInventoryCaseHref },
+      { label: "View Spreadsheet", href: skuInventoryModelHref },
+      { label: "View Dashboard", href: skuInventoryDashboardHref }
     ]
   },
   {
-    title: "Advanced Manufacturing Distribution Center Location Case Study",
+    title: distributionCenterCaseTitle,
     description:
       "Created a location strategy case study comparing cities on freight access, labor availability, market reach, infrastructure, and business environment.",
     skills: ["Network Design", "Location Analysis", "Freight Access", "Weighted Scoring"],
     tools: ["Google Sheets", "Excel", "Scoring Matrix", "Case Report"],
     insights: ["The best distribution center location is not just the cheapest city. It is the site that balances freight access, labor, customer reach, and long-term scalability."],
     links: [
-      { label: "View Dashboard", href: "./assets/distribution-center-location-strategy-dashboard.png" },
-      { label: "Case Report", href: "./assets/distribution-center-location-strategy-case-report.pdf" },
-      { label: "Spreadsheet Model", href: "./assets/distribution-center-location-strategy-model.xlsx" }
+      { label: "View Case Study", href: distributionCenterCaseHref },
+      { label: "View Dashboard", href: distributionCenterDashboardHref },
+      { label: "Case Report", href: distributionCenterReportHref },
+      { label: "Spreadsheet Model", href: distributionCenterModelHref }
+    ]
+  },
+  {
+    title: vendorShippingCaseTitle,
+    description:
+      "Compared a current small-shipment vendor against two alternatives across destination zones, base weights, additional-weight rates, savings, and cost increases.",
+    skills: ["Vendor Comparison", "Freight Cost Analysis", "Small Parcel Shipping", "Cost Savings"],
+    tools: ["Google Sheets", "Cost Comparison Table", "Decision Summary", "Case Report"],
+    insights: ["Option 1 creates a 12.89% average saving versus the current vendor, but the final choice still needs service quality, reliability, and contract terms before execution."],
+    links: [
+      { label: "View Case Study", href: vendorShippingCaseHref },
+      { label: "Case Report", href: vendorShippingReportHref }
+    ]
+  },
+  {
+    title: purchaseToDispatchCaseTitle,
+    description:
+      "Mapped the purchasing-to-dispatch workflow across requester, procurement, vendor, warehouse, finance, logistics, and ERP handoffs.",
+    skills: ["Procure-to-Dispatch", "Process Mapping", "ERP Workflow", "Operational Controls"],
+    tools: ["Workflow Diagram", "Swimlane Analysis", "Risk Points", "Case Report"],
+    insights: ["A standardized checklist across PR, RFQ, vendor comparison, PO, invoice matching, inward verification, ERP update, allocation, and dispatch reduces handoff errors."],
+    links: [
+      { label: "View Case Study", href: purchaseToDispatchCaseHref },
+      { label: "Case Report", href: purchaseToDispatchReportHref }
     ]
   }
 ];
@@ -336,7 +407,8 @@ export const projectCategories: ProjectCategory[] = [
       semiconductorProjectTitle,
       sourcingCopilotTitle,
       landedCostCaseTitle,
-      "Global Sourcing Strategy Model for AI Microchips",
+      aiMicrochipCaseTitle,
+      vendorShippingCaseTitle,
       "Supplier Risk Scoring Dashboard"
     ]
   },
@@ -346,9 +418,10 @@ export const projectCategories: ProjectCategory[] = [
     description: "Operational evidence that supports sourcing judgment through receiving, inventory, production readiness, and network analysis.",
     projectTitles: [
       evAssemblyCaseTitle,
-      "Advanced Manufacturing Distribution Center Location Case Study",
+      distributionCenterCaseTitle,
       warehouseOperationsCaseTitle,
-      "SKU Inventory Tracking Dashboard"
+      purchaseToDispatchCaseTitle,
+      skuInventoryCaseTitle
     ]
   }
 ];
