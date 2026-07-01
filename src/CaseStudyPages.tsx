@@ -315,7 +315,7 @@ export function EVAssemblyCasePage() {
                 {[
                   { label: "View Dashboard", href: evAssemblyDashboardHref },
                   { label: "Open BOM Workbook", href: evAssemblyBomHref },
-                  { label: "Original Word Report", href: evAssemblyDocHref }
+                  { label: "Case Report", href: evAssemblyDocHref }
                 ].map((item) => (
                   <a
                     className="button button--outline"
@@ -509,8 +509,8 @@ export function LandedCostCasePage() {
               <div className="case-actions">
                 {[
                   { label: "Open Cost Model", href: landedCostModelHref },
-                  { label: "Open Case PDF", href: landedCostPdfHref },
-                  { label: "Original Word Report", href: landedCostDocHref }
+                  { label: "Case Report", href: landedCostPdfHref },
+                  { label: "Case Report", href: landedCostDocHref }
                 ].map((item) => (
                   <a
                     className="button button--outline"

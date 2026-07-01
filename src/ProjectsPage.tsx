@@ -79,9 +79,6 @@ function ProjectRow({ project, index }: { project: Project; index: number }) {
     <article className={`project-row${isSemiconductorProject ? " project-row--dashboard" : ""}`}>
       <div className="project-row__visual">
         <ProjectVisual project={project} index={index} />
-        <span className="project-status">
-          {project.status}
-        </span>
       </div>
       <div className="project-row__content">
         {project.badges ? (

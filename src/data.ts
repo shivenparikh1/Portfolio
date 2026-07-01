@@ -10,7 +10,6 @@ export interface Project {
   tools: string[];
   insights: string[];
   links: ProjectLink[];
-  status?: "Completed";
   badges?: string[];
 }
 
@@ -76,6 +75,9 @@ export const landedCostPdfHref =
   "./assets/iphone-sourcing-cost-sheet-case-report.pdf";
 export const landedCostDocHref =
   "./assets/iphone-sourcing-cost-sheet-case-report.docx";
+export const warehouseOperationsCaseTitle = "Warehouse / Operations Case Study";
+export const warehouseOperationsCaseHref =
+  "./assets/warehouse-inward-reverse-inward-case-study.pdf";
 
 export const navItems = [
   ["Home", "home"],
@@ -212,7 +214,6 @@ export const projects: Project[] = [
       { label: "View Excel Model", href: semiconductorExcelHref },
       { label: "View Certificate", href: semiconductorCertificateHref }
     ],
-    status: "Completed",
     badges: ["Featured Project", "Newest Project", "Global Sourcing Focus"]
   },
   {
@@ -234,8 +235,7 @@ export const projects: Project[] = [
     ],
     links: [
       { label: "Launch Streamlit App", href: sourcingCopilotHref }
-    ],
-    status: "Completed"
+    ]
   },
   {
     title: "Global Sourcing Strategy Model for AI Microchips",
@@ -245,10 +245,9 @@ export const projects: Project[] = [
     tools: ["Excel", "Google Sheets", "Scenario Comparison", "Sourcing Framework"],
     insights: ["Global sourcing decisions are stronger when cost, capability, resilience, and regional exposure are evaluated together."],
     links: [
-      { label: "Case Report PDF", href: "./assets/global-sourcing-ai-microchip-report.pdf" },
+      { label: "Case Report", href: "./assets/global-sourcing-ai-microchip-report.pdf" },
       { label: "Spreadsheet Model", href: "./assets/global-sourcing-ai-microchip-framework.xlsx" }
-    ],
-    status: "Completed"
+    ]
   },
   {
     title: "Supplier Risk Scoring Dashboard",
@@ -260,8 +259,7 @@ export const projects: Project[] = [
     links: [
       { label: "View Scorecard", href: "https://docs.google.com/spreadsheets/d/1isNEYD47TgExA5Wjflqh_QYZmAQzakrAys8E6G4sVKo/edit?usp=sharing" },
       { label: "Risk Dashboard PDF", href: "./assets/supplier-scorecard-vendor-risk-dashboard.pdf" }
-    ],
-    status: "Completed"
+    ]
   },
   {
     title: landedCostCaseTitle,
@@ -273,22 +271,20 @@ export const projects: Project[] = [
     links: [
       { label: "View Case Study", href: landedCostCaseHref },
       { label: "View Cost Model", href: landedCostModelHref },
-      { label: "Case Report PDF", href: landedCostPdfHref },
-      { label: "Original Word Report", href: landedCostDocHref }
-    ],
-    status: "Completed"
+      { label: "Case Report", href: landedCostPdfHref },
+      { label: "Case Report", href: landedCostDocHref }
+    ]
   },
   {
-    title: "Warehouse / Operations Case Study",
+    title: warehouseOperationsCaseTitle,
     description:
       "A supporting operations project documenting warehouse inward, reverse inward, ERP updates, physical verification, and process flow.",
     skills: ["Warehouse Operations", "Process Mapping", "Reverse Logistics", "ERP Workflow"],
     tools: ["Process Flowcharts", "ERP Process Notes", "SOP Documentation", "Case Report"],
     insights: ["Reliable sourcing outcomes still depend on accurate receiving, verification, inventory records, and cross-functional handoffs."],
     links: [
-      { label: "View Case Study", href: "./assets/warehouse-inward-reverse-inward-case-study.pdf" }
-    ],
-    status: "Completed"
+      { label: "Case Report", href: warehouseOperationsCaseHref }
+    ]
   },
   {
     title: evAssemblyCaseTitle,
@@ -301,9 +297,8 @@ export const projects: Project[] = [
       { label: "View Case Study", href: evAssemblyCaseHref },
       { label: "View Dashboard", href: evAssemblyDashboardHref },
       { label: "BOM Spreadsheet", href: evAssemblyBomHref },
-      { label: "Original Word Report", href: evAssemblyDocHref }
-    ],
-    status: "Completed"
+      { label: "Case Report", href: evAssemblyDocHref }
+    ]
   },
   {
     title: "SKU Inventory Tracking Dashboard",
@@ -315,8 +310,7 @@ export const projects: Project[] = [
     links: [
       { label: "View Spreadsheet", href: "https://docs.google.com/spreadsheets/d/1tRVHwdz5r-wIbCv08SFFiERXUvPXcFvsEIw99Rxj8JI/edit?gid=406111085#gid=406111085" },
       { label: "View Dashboard", href: "./assets/supply-chain-inventory-control-dashboard.png" }
-    ],
-    status: "Completed"
+    ]
   },
   {
     title: "Advanced Manufacturing Distribution Center Location Case Study",
@@ -327,10 +321,9 @@ export const projects: Project[] = [
     insights: ["The best distribution center location is not just the cheapest city. It is the site that balances freight access, labor, customer reach, and long-term scalability."],
     links: [
       { label: "View Dashboard", href: "./assets/distribution-center-location-strategy-dashboard.png" },
-      { label: "Case Report PDF", href: "./assets/distribution-center-location-strategy-case-report.pdf" },
+      { label: "Case Report", href: "./assets/distribution-center-location-strategy-case-report.pdf" },
       { label: "Spreadsheet Model", href: "./assets/distribution-center-location-strategy-model.xlsx" }
-    ],
-    status: "Completed"
+    ]
   }
 ];
 
@@ -354,7 +347,7 @@ export const projectCategories: ProjectCategory[] = [
     projectTitles: [
       evAssemblyCaseTitle,
       "Advanced Manufacturing Distribution Center Location Case Study",
-      "Warehouse / Operations Case Study",
+      warehouseOperationsCaseTitle,
       "SKU Inventory Tracking Dashboard"
     ]
   }

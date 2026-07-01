@@ -13,7 +13,8 @@ import {
   semiconductorProjectTitle,
   sourcingCopilotPreviewHref,
   sourcingCopilotTitle,
-  sourcingStrategies
+  sourcingStrategies,
+  warehouseOperationsCaseHref
 } from "./data";
 import { Icon } from "./components/Icon";
 import { SiteFooter, SiteHeader } from "./components/SiteChrome";
@@ -51,7 +52,8 @@ const aiApplications = [
 function ProjectCard({ project, index }: { project: Project; index: number }) {
   const preview = projectImages[project.title];
   const isFeatured = project.title === semiconductorProjectTitle;
-  const visibleLinks = isFeatured ? project.links : project.links.slice(0, 1);
+  const showAllLinks = isFeatured || project.title === evAssemblyCaseTitle;
+  const visibleLinks = showAllLinks ? project.links : project.links.slice(0, 1);
 
   return (
     <article className={`project-card${isFeatured ? " project-card--featured" : ""}`}>
@@ -73,9 +75,6 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
             </div>
           </div>
         )}
-        <span className="project-status">
-          {project.status}
-        </span>
       </div>
       <div className="project-card__body">
         {project.badges ? (
@@ -99,7 +98,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
                 rel={getLinkTarget(link.href) ? "noreferrer" : undefined}
                 key={link.href}
               >
-                {isFeatured ? link.label : "View project"} <Icon name="arrow" />
+                {link.label} <Icon name="arrow" />
               </a>
             ))}
           </div>
@@ -227,7 +226,7 @@ export function HomePage() {
             <div className="section-heading">
               <p className="section-index">02</p>
               <div>
-                <h2>Featured Supply Chain &amp; Sourcing Projects</h2>
+                <h2>Featured Projects</h2>
                 <p>
                   Three strongest portfolio pieces: semiconductor packaging sourcing, Global
                   Sourcing Copilot, and EV assembly logistics readiness.
@@ -321,8 +320,8 @@ export function HomePage() {
                 <ul className="tag-list">
                   {experience.points.map((point) => <li key={point}>{point}</li>)}
                 </ul>
-                <a className="text-link" href="./projects.html#operations">
-                  See supporting projects <Icon name="arrow" />
+                <a className="text-link" href={warehouseOperationsCaseHref}>
+                  Warehouse / Operations Case Study <Icon name="arrow" />
                 </a>
               </div>
             </div>
