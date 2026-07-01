@@ -65,7 +65,7 @@ export function SiteFooter() {
       <div className="container-wide footer-grid">
         <div className="footer-intro">
           <p className="brand"><span>SP</span> / SHIVEN PARIKH</p>
-          <p>Global sourcing, supplier risk, landed cost, and AI-assisted procurement analysis.</p>
+          <p>Supply chain, sourcing, supplier risk, landed cost, logistics, and AI-assisted procurement analysis.</p>
         </div>
         <nav aria-label="Footer navigation">
           <strong>Navigation</strong>
@@ -82,7 +82,7 @@ export function SiteFooter() {
           <a href={resumeHref} download="Shiven-Parikh-Resume.pdf">Download Resume</a>
         </div>
         <div className="footer-meta">
-          <strong>Portfolio</strong>
+          <strong>Dashboard</strong>
           <a href="./projects.html">All Projects</a>
           <a href="#top">Back to top</a>
           <span>© {new Date().getFullYear()} Shiven Parikh</span>

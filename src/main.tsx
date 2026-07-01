@@ -6,7 +6,7 @@ import "./styles.css";
 const root = document.querySelector<HTMLDivElement>("#root");
 
 if (!root) {
-  throw new Error("Portfolio root element was not found.");
+  throw new Error("Dashboard root element was not found.");
 }
 
 createRoot(root).render(

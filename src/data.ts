@@ -61,6 +61,21 @@ export const sourcingCopilotTitle = "Global Sourcing Copilot";
 export const sourcingCopilotHref = "https://sourcingcopilot.streamlit.app/";
 export const sourcingCopilotPreviewHref =
   "./assets/global-sourcing-copilot-streamlit-preview.png";
+export const evAssemblyCaseTitle = "EV Assembly Logistics Readiness Case Study";
+export const evAssemblyCaseHref = "./ev-assembly-logistics-readiness.html";
+export const evAssemblyDashboardHref =
+  "./assets/ev-assembly-logistics-readiness-dashboard.png";
+export const evAssemblyBomHref = "./assets/ev-assembly-logistics-bom.xlsx";
+export const evAssemblyDocHref =
+  "./assets/ev-assembly-logistics-readiness-case-study.docx";
+export const landedCostCaseTitle = "Landed Cost & Supplier Comparison Model";
+export const landedCostCaseHref = "./landed-cost-supplier-comparison.html";
+export const landedCostModelHref =
+  "https://docs.google.com/spreadsheets/d/15Gr8eBAHjNAZ99r7JHt7nitAAsoYcfwoRmYWrbf8OGs/edit?usp=sharing";
+export const landedCostPdfHref =
+  "./assets/iphone-sourcing-cost-sheet-case-report.pdf";
+export const landedCostDocHref =
+  "./assets/iphone-sourcing-cost-sheet-case-report.docx";
 
 export const navItems = [
   ["Home", "home"],
@@ -249,15 +264,17 @@ export const projects: Project[] = [
     status: "Completed"
   },
   {
-    title: "Landed Cost & Supplier Comparison Model",
+    title: landedCostCaseTitle,
     description:
       "A model that compares unit cost, freight, duties, tariff exposure, lead time, and total landed cost to support sourcing decisions.",
     skills: ["Landed Cost", "Supplier Selection", "Cost Modeling", "Sourcing Analysis"],
     tools: ["Google Sheets", "Excel", "Cost Sheet Model", "Case Report"],
     insights: ["The lowest unit-price quote can become the wrong sourcing decision after freight, tariffs, duties, and lead-time costs are included."],
     links: [
-      { label: "View Cost Model", href: "https://docs.google.com/spreadsheets/d/15Gr8eBAHjNAZ99r7JHt7nitAAsoYcfwoRmYWrbf8OGs/edit?usp=sharing" },
-      { label: "Case Report PDF", href: "./assets/iphone-sourcing-cost-sheet-case-report.pdf" }
+      { label: "View Case Study", href: landedCostCaseHref },
+      { label: "View Cost Model", href: landedCostModelHref },
+      { label: "Case Report PDF", href: landedCostPdfHref },
+      { label: "Original Word Report", href: landedCostDocHref }
     ],
     status: "Completed"
   },
@@ -274,16 +291,17 @@ export const projects: Project[] = [
     status: "Completed"
   },
   {
-    title: "EV Assembly Logistics Readiness Case Study",
+    title: evAssemblyCaseTitle,
     description:
       "Built an electric vehicle assembly logistics case study using a bill of materials, kit-readiness analysis, shortage tracking, component risk scoring, and recovery planning.",
     skills: ["Materials Planning", "BOM Analysis", "Kit Readiness", "Shortage Risk"],
     tools: ["Excel", "Tableau", "BOM Workbook", "Shortage Tracker"],
     insights: ["Production readiness depends on finding high-risk and missing components before they disrupt the assembly plan."],
     links: [
-      { label: "View Dashboard", href: "./assets/ev-assembly-logistics-readiness-dashboard.png" },
-      { label: "BOM Spreadsheet", href: "./assets/ev-assembly-logistics-bom.xlsx" },
-      { label: "Case Study DOCX", href: "./assets/ev-assembly-logistics-readiness-case-study.docx" }
+      { label: "View Case Study", href: evAssemblyCaseHref },
+      { label: "View Dashboard", href: evAssemblyDashboardHref },
+      { label: "BOM Spreadsheet", href: evAssemblyBomHref },
+      { label: "Original Word Report", href: evAssemblyDocHref }
     ],
     status: "Completed"
   },
@@ -319,25 +337,25 @@ export const projects: Project[] = [
 export const projectCategories: ProjectCategory[] = [
   {
     id: "sourcing",
-    title: "Global Sourcing & Supplier Risk",
+    title: "Sourcing Strategy, Cost & Supplier Risk",
     description: "Primary work in supplier comparison, sourcing strategy, landed cost, risk analytics, and AI-assisted procurement.",
     projectTitles: [
       semiconductorProjectTitle,
       sourcingCopilotTitle,
+      landedCostCaseTitle,
       "Global Sourcing Strategy Model for AI Microchips",
-      "Landed Cost & Supplier Comparison Model",
       "Supplier Risk Scoring Dashboard"
     ]
   },
   {
     id: "operations",
-    title: "Supporting Operations & Analytics",
+    title: "Operations, Logistics & Network Analytics",
     description: "Operational evidence that supports sourcing judgment through receiving, inventory, production readiness, and network analysis.",
     projectTitles: [
-      "EV Assembly Logistics Readiness Case Study",
+      evAssemblyCaseTitle,
+      "Advanced Manufacturing Distribution Center Location Case Study",
       "Warehouse / Operations Case Study",
-      "SKU Inventory Tracking Dashboard",
-      "Advanced Manufacturing Distribution Center Location Case Study"
+      "SKU Inventory Tracking Dashboard"
     ]
   }
 ];

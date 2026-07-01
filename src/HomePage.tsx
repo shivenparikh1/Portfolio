@@ -2,6 +2,8 @@ import type { Article, Project } from "./data";
 import {
   articles,
   emailHref,
+  evAssemblyCaseTitle,
+  evAssemblyDashboardHref,
   experiences,
   focusAreas,
   linkedinHref,
@@ -19,20 +21,23 @@ import { SiteFooter, SiteHeader } from "./components/SiteChrome";
 const featuredProjectTitles = [
   semiconductorProjectTitle,
   sourcingCopilotTitle,
-  "EV Assembly Logistics Readiness Case Study"
+  evAssemblyCaseTitle
 ];
 
 const projectImages: Partial<Record<string, string>> = {
   [semiconductorProjectTitle]: semiconductorDashboardHref,
   [sourcingCopilotTitle]: sourcingCopilotPreviewHref,
-  "EV Assembly Logistics Readiness Case Study":
-    "./assets/ev-assembly-logistics-readiness-dashboard.png"
+  [evAssemblyCaseTitle]: evAssemblyDashboardHref
 };
 
 const featuredProjects = featuredProjectTitles.flatMap((title) => {
   const project = projects.find((candidate) => candidate.title === title);
   return project ? [project] : [];
 });
+
+function getLinkTarget(href: string) {
+  return /^https?:\/\//.test(href) ? "_blank" : undefined;
+}
 
 const aiApplications = [
   "Supplier research",
@@ -90,8 +95,8 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
               <a
                 className={isFeatured ? "button button--outline project-card__button" : "text-link"}
                 href={link.href}
-                target="_blank"
-                rel="noreferrer"
+                target={getLinkTarget(link.href)}
+                rel={getLinkTarget(link.href) ? "noreferrer" : undefined}
                 key={link.href}
               >
                 {isFeatured ? link.label : "View project"} <Icon name="arrow" />
@@ -130,16 +135,16 @@ export function HomePage() {
           <div className="container-wide hero-grid">
             <div className="hero-copy">
               <p className="hero-name">Shiven Parikh</p>
-              <h1>Global Sourcing &amp; Supplier Risk Portfolio</h1>
+              <h1>Supply Chain &amp; Sourcing Dashboard</h1>
               <p className="hero-subheading">
-                Supply Chain Management student focused on global sourcing, strategic sourcing,
-                supplier risk analytics, landed cost modeling, and AI-assisted sourcing decision
-                systems.
+                Supply Chain Management student focused on strategic sourcing, supplier risk
+                analytics, landed cost modeling, production readiness, and AI-assisted sourcing
+                decision systems.
               </p>
               <p className="hero-description">
-                I build sourcing models, supplier risk frameworks, landed cost tools, and
-                AI-assisted decision workflows that help compare global suppliers, evaluate tariff
-                and disruption exposure, and support better sourcing recommendations.
+                I build sourcing models, supplier risk frameworks, landed cost tools, logistics
+                readiness dashboards, and AI-assisted decision workflows that help compare suppliers,
+                evaluate tariff and disruption exposure, and support better supply chain decisions.
               </p>
               <div className="hero-actions">
                 <a className="button button--primary" href="#projects">
@@ -222,7 +227,7 @@ export function HomePage() {
             <div className="section-heading">
               <p className="section-index">02</p>
               <div>
-                <h2>Featured Global Sourcing &amp; Supplier Risk Projects</h2>
+                <h2>Featured Supply Chain &amp; Sourcing Projects</h2>
                 <p>
                   Three strongest portfolio pieces: semiconductor packaging sourcing, Global
                   Sourcing Copilot, and EV assembly logistics readiness.

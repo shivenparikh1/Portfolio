@@ -9,7 +9,9 @@ export default defineConfig({
       input: {
         portfolio: "index.html",
         projects: "projects.html",
-        semiconductorProject: "semiconductor-packaging-sourcing.html"
+        semiconductorProject: "semiconductor-packaging-sourcing.html",
+        evAssemblyCase: "ev-assembly-logistics-readiness.html",
+        landedCostCase: "landed-cost-supplier-comparison.html"
       }
     }
   }

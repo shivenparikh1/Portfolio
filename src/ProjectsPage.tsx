@@ -2,6 +2,8 @@ import type { Article, Project, ProjectCategory } from "./data";
 import {
   articles,
   emailHref,
+  evAssemblyCaseTitle,
+  evAssemblyDashboardHref,
   linkedinHref,
   projectCategories,
   projects,
@@ -22,8 +24,7 @@ const projectPreviews: Partial<Record<string, string>> = {
   "Supplier Risk Scoring Dashboard": "./assets/supplier-scorecard-preview.png",
   "Warehouse / Operations Case Study":
     "./assets/warehouse-inward-reverse-inward-preview.png",
-  "EV Assembly Logistics Readiness Case Study":
-    "./assets/ev-assembly-logistics-readiness-dashboard.png",
+  [evAssemblyCaseTitle]: evAssemblyDashboardHref,
   "SKU Inventory Tracking Dashboard": "./assets/supply-chain-inventory-control-dashboard.png",
   "Advanced Manufacturing Distribution Center Location Case Study":
     "./assets/distribution-center-location-strategy-dashboard.png"
@@ -41,6 +42,10 @@ function getProjectsForCategory(category: ProjectCategory) {
     const project = projectByTitle.get(title);
     return project ? [project] : [];
   });
+}
+
+function getLinkTarget(href: string) {
+  return /^https?:\/\//.test(href) ? "_blank" : undefined;
 }
 
 function ProjectVisual({ project, index }: { project: Project; index: number }) {
@@ -103,7 +108,12 @@ function ProjectRow({ project, index }: { project: Project; index: number }) {
         {project.links.length > 0 ? (
           <div className="project-links">
             {project.links.map((link) => (
-              <a href={link.href} target="_blank" rel="noreferrer" key={link.href}>
+              <a
+                href={link.href}
+                target={getLinkTarget(link.href)}
+                rel={getLinkTarget(link.href) ? "noreferrer" : undefined}
+                key={link.href}
+              >
                 {link.label} <Icon name="arrow" />
               </a>
             ))}
@@ -114,14 +124,14 @@ function ProjectRow({ project, index }: { project: Project; index: number }) {
   );
 }
 
-function CategorySection({ category }: { category: ProjectCategory }) {
+function CategorySection({ category, index }: { category: ProjectCategory; index: number }) {
   const categoryProjects = getProjectsForCategory(category);
 
   return (
     <section className="project-category-section" id={category.id}>
       <div className="category-heading">
         <div>
-          <p className="section-index">{String(categoryProjects.length).padStart(2, "0")}</p>
+          <p className="section-index">{String(index + 1).padStart(2, "0")}</p>
           <h2>{category.title}</h2>
         </div>
         <p>{category.description}</p>
@@ -159,11 +169,11 @@ export function ProjectsPage() {
           <div className="container-wide">
             <p className="projects-name">Shiven Parikh</p>
             <div className="projects-hero__layout">
-              <h1>Global Sourcing &amp; Supplier Risk Projects</h1>
+              <h1>Supply Chain &amp; Sourcing Projects</h1>
               <p>
-                Models, dashboards, case studies, and completed tools focused on global supplier
-                comparison, sourcing strategy, risk exposure, landed cost, and AI-assisted
-                procurement decisions.
+                Models, dashboards, case studies, and completed tools focused on supplier
+                comparison, sourcing strategy, landed cost, production readiness, logistics
+                operations, and AI-assisted procurement decisions.
               </p>
             </div>
             <nav className="category-nav" aria-label="Project categories">
@@ -177,14 +187,14 @@ export function ProjectsPage() {
         </section>
 
         <div className="container-wide project-library">
-          {projectCategories.map((category) => (
-            <CategorySection category={category} key={category.id} />
+          {projectCategories.map((category, index) => (
+            <CategorySection category={category} index={index} key={category.id} />
           ))}
 
           <section className="project-category-section articles-library" id="articles">
             <div className="category-heading">
               <div>
-                <p className="section-index">{String(articles.length).padStart(2, "0")}</p>
+                <p className="section-index">{String(projectCategories.length + 1).padStart(2, "0")}</p>
                 <h2>Articles &amp; Writing</h2>
               </div>
               <p>
