@@ -1,5 +1,6 @@
-import type { Project } from "./data";
+import type { Article, Project } from "./data";
 import {
+  articles,
   emailHref,
   experiences,
   focusAreas,
@@ -18,20 +19,14 @@ import { SiteFooter, SiteHeader } from "./components/SiteChrome";
 const featuredProjectTitles = [
   semiconductorProjectTitle,
   sourcingCopilotTitle,
-  "Global Sourcing Strategy Model for AI Microchips",
-  "Supplier Risk Scoring Dashboard",
-  "Landed Cost & Supplier Comparison Model",
-  "Warehouse / Operations Case Study"
+  "EV Assembly Logistics Readiness Case Study"
 ];
 
 const projectImages: Partial<Record<string, string>> = {
   [semiconductorProjectTitle]: semiconductorDashboardHref,
   [sourcingCopilotTitle]: sourcingCopilotPreviewHref,
-  "Global Sourcing Strategy Model for AI Microchips":
-    "./assets/global-sourcing-ai-microchip-preview.png",
-  "Supplier Risk Scoring Dashboard": "./assets/supplier-scorecard-preview.png",
-  "Warehouse / Operations Case Study":
-    "./assets/warehouse-inward-reverse-inward-preview.png"
+  "EV Assembly Logistics Readiness Case Study":
+    "./assets/ev-assembly-logistics-readiness-dashboard.png"
 };
 
 const featuredProjects = featuredProjectTitles.flatMap((title) => {
@@ -87,7 +82,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
         <h3>{project.title}</h3>
         <p>{project.description}</p>
         <ul className="tag-list" aria-label={`${project.title} topics`}>
-          {project.skills.map((skill) => <li key={skill}>{skill}</li>)}
+          {project.skills.slice(0, 5).map((skill) => <li key={skill}>{skill}</li>)}
         </ul>
         {visibleLinks.length > 0 ? (
           <div className={`project-card__links${isFeatured ? " project-card__links--featured" : ""}`}>
@@ -106,6 +101,20 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
         ) : null}
       </div>
     </article>
+  );
+}
+
+function ArticleCard({ article, index }: { article: Article; index: number }) {
+  return (
+    <a className="article-card" href={article.href} target="_blank" rel="noreferrer">
+      <p className="article-card__number">Article {String(index + 1).padStart(2, "0")}</p>
+      <h3>{article.title}</h3>
+      <p>{article.description}</p>
+      <ul className="tag-list" aria-label={`${article.title} topics`}>
+        {article.skills.map((skill) => <li key={skill}>{skill}</li>)}
+      </ul>
+      <span>Read article <Icon name="external" /></span>
+    </a>
   );
 }
 
@@ -210,23 +219,25 @@ export function HomePage() {
 
         <section className="section projects-section" id="projects">
           <div className="container-wide">
-            <div className="section-heading section-heading--with-link">
+            <div className="section-heading">
               <p className="section-index">02</p>
               <div>
                 <h2>Featured Global Sourcing &amp; Supplier Risk Projects</h2>
                 <p>
-                  Completed models, dashboards, tools, and case studies, ordered around my primary
-                  sourcing focus. Operations work appears as supporting evidence.
+                  Three strongest portfolio pieces: semiconductor packaging sourcing, Global
+                  Sourcing Copilot, and EV assembly logistics readiness.
                 </p>
               </div>
-              <a className="text-link" href="./projects.html">
-                View all projects <Icon name="arrow" />
-              </a>
             </div>
             <div className="project-grid">
               {featuredProjects.map((project, index) => (
                 <ProjectCard project={project} index={index} key={project.title} />
               ))}
+            </div>
+            <div className="projects-cta">
+              <a className="button button--primary button--large" href="./projects.html">
+                View the rest of my projects <Icon name="arrow" />
+              </a>
             </div>
           </div>
         </section>
@@ -312,6 +323,26 @@ export function HomePage() {
             </div>
           </section>
         ) : null}
+
+        <section className="section articles-section" id="articles">
+          <div className="container-wide">
+            <div className="section-heading">
+              <p className="section-index">06</p>
+              <div>
+                <h2>Articles &amp; Writing</h2>
+                <p>
+                  Four short writing pieces on AI, supplier risk, emerging technology, and how
+                  judgment fits into supply-chain analysis.
+                </p>
+              </div>
+            </div>
+            <div className="article-grid">
+              {articles.map((article, index) => (
+                <ArticleCard article={article} index={index} key={article.href} />
+              ))}
+            </div>
+          </div>
+        </section>
 
         <section className="contact" id="contact">
           <div className="container-wide contact-grid">

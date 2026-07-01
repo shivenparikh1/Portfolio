@@ -313,33 +313,6 @@ export const projects: Project[] = [
       { label: "Spreadsheet Model", href: "./assets/distribution-center-location-strategy-model.xlsx" }
     ],
     status: "Completed"
-  },
-  {
-    title: "AI in Supply Chain Writing Series",
-    description:
-      "Wrote a supply chain article series exploring how AI is changing supplier risk management, supply chain volatility, and decision-making. This project shows interest in the future of supply chain technology and how analytics, automation, and human judgment can work together in complex industries.",
-    skills: ["Supply Chain Writing", "AI Research", "Supplier Risk Thinking", "Business Communication", "Industry Analysis"],
-    tools: ["Medium", "Google Docs", "Research Sources", "AI Tools", "LinkedIn"],
-    insights: ["AI can improve supply chain visibility and decision-making, but it only works well when people understand the process, data, and business context behind it."],
-    links: [
-      {
-        label: "AI and Humans",
-        href: "https://medium.com/@shivenparikh1/ai-and-humans-in-supply-chain-the-coworker-we-didnt-hire-but-now-have-to-work-with-a5c4e3711006"
-      },
-      {
-        label: "Same Prompt, Different Brain",
-        href: "https://medium.com/@shivenparikh1/same-prompt-different-brain-why-no-two-ai-models-give-you-the-same-response-88c65e0f6ac4"
-      },
-      {
-        label: "AI and Supplier Risk",
-        href: "https://medium.com/@shivenparikh1/how-ai-is-changing-supplier-risk-management-36f9109d4e4c"
-      },
-      {
-        label: "Future of Asteroid Mining",
-        href: "https://medium.com/@shivenparikh1/beyond-earth-the-trillion-dollar-future-of-asteroid-mining-8c3c6f7253bd"
-      }
-    ],
-    status: "Completed"
   }
 ];
 
@@ -352,8 +325,8 @@ export const projectCategories: ProjectCategory[] = [
       semiconductorProjectTitle,
       sourcingCopilotTitle,
       "Global Sourcing Strategy Model for AI Microchips",
-      "Supplier Risk Scoring Dashboard",
-      "Landed Cost & Supplier Comparison Model"
+      "Landed Cost & Supplier Comparison Model",
+      "Supplier Risk Scoring Dashboard"
     ]
   },
   {
@@ -361,17 +334,11 @@ export const projectCategories: ProjectCategory[] = [
     title: "Supporting Operations & Analytics",
     description: "Operational evidence that supports sourcing judgment through receiving, inventory, production readiness, and network analysis.",
     projectTitles: [
-      "Warehouse / Operations Case Study",
       "EV Assembly Logistics Readiness Case Study",
+      "Warehouse / Operations Case Study",
       "SKU Inventory Tracking Dashboard",
       "Advanced Manufacturing Distribution Center Location Case Study"
     ]
-  },
-  {
-    id: "technology",
-    title: "Research & Writing",
-    description: "Writing on AI, supplier risk, emerging technology, and the role of human judgment in supply-chain decisions.",
-    projectTitles: ["AI in Supply Chain Writing Series"]
   }
 ];
 

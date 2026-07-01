@@ -1,5 +1,6 @@
-import type { Project, ProjectCategory } from "./data";
+import type { Article, Project, ProjectCategory } from "./data";
 import {
+  articles,
   emailHref,
   linkedinHref,
   projectCategories,
@@ -29,6 +30,11 @@ const projectPreviews: Partial<Record<string, string>> = {
 };
 
 const projectByTitle = new Map(projects.map((project) => [project.title, project]));
+
+const projectNavItems = [
+  ...projectCategories.map((category) => ({ id: category.id, title: category.title })),
+  { id: "articles", title: "Articles & Writing" }
+];
 
 function getProjectsForCategory(category: ProjectCategory) {
   return category.projectTitles.flatMap((title) => {
@@ -82,7 +88,7 @@ function ProjectRow({ project, index }: { project: Project; index: number }) {
         <h3>{project.title}</h3>
         <p>{project.description}</p>
         <ul className="tag-list" aria-label={`${project.title} tags`}>
-          {project.skills.map((skill) => <li key={skill}>{skill}</li>)}
+          {project.skills.slice(0, 5).map((skill) => <li key={skill}>{skill}</li>)}
         </ul>
         <div className="project-detail-grid">
           <div>
@@ -129,6 +135,20 @@ function CategorySection({ category }: { category: ProjectCategory }) {
   );
 }
 
+function ArticleCard({ article, index }: { article: Article; index: number }) {
+  return (
+    <a className="article-card" href={article.href} target="_blank" rel="noreferrer">
+      <p className="article-card__number">Article {String(index + 1).padStart(2, "0")}</p>
+      <h3>{article.title}</h3>
+      <p>{article.description}</p>
+      <ul className="tag-list" aria-label={`${article.title} topics`}>
+        {article.skills.map((skill) => <li key={skill}>{skill}</li>)}
+      </ul>
+      <span>Read article <Icon name="external" /></span>
+    </a>
+  );
+}
+
 export function ProjectsPage() {
   return (
     <>
@@ -147,9 +167,9 @@ export function ProjectsPage() {
               </p>
             </div>
             <nav className="category-nav" aria-label="Project categories">
-              {projectCategories.map((category, index) => (
-                <a href={`#${category.id}`} key={category.id}>
-                  <span>0{index + 1}</span>{category.title}
+              {projectNavItems.map((item, index) => (
+                <a href={`#${item.id}`} key={item.id}>
+                  <span>0{index + 1}</span>{item.title}
                 </a>
               ))}
             </nav>
@@ -160,6 +180,24 @@ export function ProjectsPage() {
           {projectCategories.map((category) => (
             <CategorySection category={category} key={category.id} />
           ))}
+
+          <section className="project-category-section articles-library" id="articles">
+            <div className="category-heading">
+              <div>
+                <p className="section-index">{String(articles.length).padStart(2, "0")}</p>
+                <h2>Articles &amp; Writing</h2>
+              </div>
+              <p>
+                Four separate article links instead of one combined writing project, so each piece
+                can stand on its own.
+              </p>
+            </div>
+            <div className="article-grid">
+              {articles.map((article, index) => (
+                <ArticleCard article={article} index={index} key={article.href} />
+              ))}
+            </div>
+          </section>
         </div>
 
         <section className="contact projects-contact">

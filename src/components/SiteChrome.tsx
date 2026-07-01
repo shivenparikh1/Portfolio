@@ -73,6 +73,7 @@ export function SiteFooter() {
           <a href="./index.html#projects">Projects</a>
           <a href="./index.html#strategies">Sourcing Strategies</a>
           <a href="./index.html#experience">Experience</a>
+          <a href="./index.html#articles">Articles</a>
         </nav>
         <div>
           <strong>Contact</strong>
