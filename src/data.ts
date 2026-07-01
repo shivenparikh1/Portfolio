@@ -10,7 +10,7 @@ export interface Project {
   tools: string[];
   insights: string[];
   links: ProjectLink[];
-  status?: "Completed" | "In development";
+  status?: "Completed";
   badges?: string[];
 }
 
@@ -249,26 +249,6 @@ export const projects: Project[] = [
     status: "Completed"
   },
   {
-    title: "China Plus One Sourcing Analysis",
-    description:
-      "A sourcing strategy case study comparing China, India, Vietnam, Mexico, and the U.S. as sourcing regions for advanced manufacturing components.",
-    skills: ["China Plus One", "Nearshoring", "Country Risk", "Sourcing Diversification"],
-    tools: ["Country Comparison", "Risk Framework", "Landed Cost Scenarios", "Recommendation Memo"],
-    insights: ["Diversification only improves resilience when the second source has qualified capacity and does not depend on the same upstream inputs."],
-    links: [],
-    status: "In development"
-  },
-  {
-    title: "AI-Assisted RFQ Analyzer",
-    description:
-      "A planned tool that uses AI to compare supplier quotes, identify missing terms, flag red risks, and support supplier selection recommendations.",
-    skills: ["AI Implementation", "RFQ Analysis", "Procurement Analytics", "Supplier Evaluation"],
-    tools: ["Structured Prompts", "Quote Comparison", "Exception Flags", "Recommendation Workflow"],
-    insights: ["AI can accelerate RFQ review, but sourcing teams still need clear criteria, validated inputs, and accountable human judgment."],
-    links: [],
-    status: "In development"
-  },
-  {
     title: "Landed Cost & Supplier Comparison Model",
     description:
       "A model that compares unit cost, freight, duties, tariff exposure, lead time, and total landed cost to support sourcing decisions.",
@@ -373,8 +353,6 @@ export const projectCategories: ProjectCategory[] = [
       sourcingCopilotTitle,
       "Global Sourcing Strategy Model for AI Microchips",
       "Supplier Risk Scoring Dashboard",
-      "China Plus One Sourcing Analysis",
-      "AI-Assisted RFQ Analyzer",
       "Landed Cost & Supplier Comparison Model"
     ]
   },

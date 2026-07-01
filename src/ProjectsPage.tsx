@@ -68,7 +68,7 @@ function ProjectRow({ project, index }: { project: Project; index: number }) {
     <article className={`project-row${isSemiconductorProject ? " project-row--dashboard" : ""}`}>
       <div className="project-row__visual">
         <ProjectVisual project={project} index={index} />
-        <span className={`project-status${project.status === "In development" ? " is-planned" : ""}`}>
+        <span className="project-status">
           {project.status}
         </span>
       </div>
@@ -102,9 +102,7 @@ function ProjectRow({ project, index }: { project: Project; index: number }) {
               </a>
             ))}
           </div>
-        ) : (
-          <p className="project-row__planned">Case study in development</p>
-        )}
+        ) : null}
       </div>
     </article>
   );
@@ -143,7 +141,7 @@ export function ProjectsPage() {
             <div className="projects-hero__layout">
               <h1>Global Sourcing &amp; Supplier Risk Projects</h1>
               <p>
-                Models, dashboards, case studies, and planned tools focused on global supplier
+                Models, dashboards, case studies, and completed tools focused on global supplier
                 comparison, sourcing strategy, risk exposure, landed cost, and AI-assisted
                 procurement decisions.
               </p>

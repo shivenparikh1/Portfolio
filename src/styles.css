@@ -662,10 +662,6 @@ svg {
   text-transform: uppercase;
 }
 
-.project-status.is-planned {
-  background: var(--teal);
-}
-
 .project-card__body {
   display: flex;
   align-items: flex-start;
@@ -743,8 +739,7 @@ svg {
 }
 
 .project-card__body .text-link,
-.project-card__links,
-.project-card__planned {
+.project-card__links {
   margin-top: auto;
 }
 
@@ -758,15 +753,6 @@ svg {
   min-height: 44px;
   padding: 0 14px;
   font-size: 0.68rem;
-}
-
-.project-card__planned,
-.project-row__planned {
-  color: var(--teal);
-  font-family: var(--mono);
-  font-size: 0.66rem;
-  font-weight: 500;
-  text-transform: uppercase;
 }
 
 .ai-section {

@@ -20,8 +20,6 @@ const featuredProjectTitles = [
   sourcingCopilotTitle,
   "Global Sourcing Strategy Model for AI Microchips",
   "Supplier Risk Scoring Dashboard",
-  "China Plus One Sourcing Analysis",
-  "AI-Assisted RFQ Analyzer",
   "Landed Cost & Supplier Comparison Model",
   "Warehouse / Operations Case Study"
 ];
@@ -75,7 +73,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
             </div>
           </div>
         )}
-        <span className={`project-status${project.status === "In development" ? " is-planned" : ""}`}>
+        <span className="project-status">
           {project.status}
         </span>
       </div>
@@ -105,9 +103,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
               </a>
             ))}
           </div>
-        ) : (
-          <span className="project-card__planned">Case study in development</span>
-        )}
+        ) : null}
       </div>
     </article>
   );
@@ -219,8 +215,8 @@ export function HomePage() {
               <div>
                 <h2>Featured Global Sourcing &amp; Supplier Risk Projects</h2>
                 <p>
-                  Completed models and planned decision tools, ordered around my primary sourcing
-                  focus. Operations work appears as supporting evidence.
+                  Completed models, dashboards, tools, and case studies, ordered around my primary
+                  sourcing focus. Operations work appears as supporting evidence.
                 </p>
               </div>
               <a className="text-link" href="./projects.html">
