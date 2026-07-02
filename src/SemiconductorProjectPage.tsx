@@ -3,7 +3,6 @@ import {
   semiconductorCertificateHref,
   semiconductorDashboardHref,
   semiconductorExcelHref,
-  semiconductorProjectHref,
   semiconductorProjectTitle
 } from "./data";
 import { Icon } from "./components/Icon";
@@ -69,7 +68,6 @@ const dashboardResults = [
 ];
 
 const deliverables = [
-  { label: "Full Case Study Report", href: semiconductorProjectHref },
   { label: "Excel Sourcing Model", href: semiconductorExcelHref },
   { label: "Tableau Dashboard Screenshot", href: semiconductorDashboardHref },
   {
@@ -140,7 +138,7 @@ export function SemiconductorProjectPage() {
                 cost exposure, and long-term sourcing resilience.
               </p>
               <div className="case-actions">
-                {deliverables.slice(1).map((item) => (
+                {deliverables.map((item) => (
                   <a className="button button--outline" href={item.href} target="_blank" rel="noreferrer" key={item.href}>
                     {item.label} <Icon name="arrow" />
                   </a>

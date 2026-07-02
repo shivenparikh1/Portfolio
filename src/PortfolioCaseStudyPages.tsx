@@ -2,14 +2,11 @@ import {
   aiMicrochipCaseTitle,
   aiMicrochipModelHref,
   aiMicrochipPreviewHref,
-  aiMicrochipReportHref,
   distributionCenterCaseTitle,
   distributionCenterDashboardHref,
   distributionCenterModelHref,
-  distributionCenterReportHref,
   purchaseToDispatchCaseTitle,
   purchaseToDispatchPreviewHref,
-  purchaseToDispatchReportHref,
   skuInventoryCaseTitle,
   skuInventoryDashboardHref,
   skuInventoryModelHref,
@@ -18,10 +15,8 @@ import {
   sourcingCopilotTitle,
   vendorShippingCaseTitle,
   vendorShippingPreviewHref,
-  vendorShippingReportHref,
   warehouseOperationsCaseTitle,
-  warehouseOperationsPreviewHref,
-  warehouseOperationsReportHref
+  warehouseOperationsPreviewHref
 } from "./data";
 import type { ProjectLink } from "./data";
 import { Icon } from "./components/Icon";
@@ -280,7 +275,7 @@ function PortfolioCaseStudyPage({ study }: { study: CaseStudyContent }) {
 
 const sourcingCopilotStudy: CaseStudyContent = {
   title: sourcingCopilotTitle,
-  badges: ["Case Study", "AI Sourcing Tool"],
+  badges: ["AI Sourcing Tool", "Interactive Workflow"],
   subtitle:
     "A Streamlit sourcing workspace that moves from product intake to supplier discovery, scoring, market/news review, dashboard comparison, AI insight generation, and recommendation export.",
   summary:
@@ -417,13 +412,12 @@ const sourcingCopilotStudy: CaseStudyContent = {
 
 const aiMicrochipStudy: CaseStudyContent = {
   title: aiMicrochipCaseTitle,
-  badges: ["Case Study", "Global Sourcing"],
+  badges: ["Global Sourcing", "Semiconductor Risk"],
   subtitle:
     "A public-data sourcing model comparing Taiwan, South Korea, and a U.S. domestic hub for AI microchip supply-chain resilience.",
   summary:
     "The project evaluates advanced semiconductor sourcing strategy through capability, geopolitical exposure, lead time, tariffs, capacity, supplier criticality, and substitution difficulty. The recommendation is not to replace Asia, but to build a multi-region resilience layer.",
   actions: [
-    { label: "Case Report", href: aiMicrochipReportHref },
     { label: "Spreadsheet Model", href: aiMicrochipModelHref }
   ],
   visual: {
@@ -600,7 +594,7 @@ const warehouseOperationsStudy: CaseStudyContent = {
   summary:
     "The case explains how serial-numbered payment devices move through physical scanning, ERP validation, flat-file updates, quality checks, repair loops, field returns, courier dispatch, and final installation closure.",
   actions: [
-    { label: "Case Report", href: warehouseOperationsReportHref }
+    { label: "View Process Preview", href: warehouseOperationsPreviewHref }
   ],
   visual: {
     kind: "image",
@@ -760,14 +754,13 @@ const warehouseOperationsStudy: CaseStudyContent = {
 
 const distributionCenterStudy: CaseStudyContent = {
   title: distributionCenterCaseTitle,
-  badges: ["Case Study", "Network Analytics"],
+  badges: ["Network Analytics", "Location Strategy"],
   subtitle:
     "A U.S. distribution center location strategy model comparing Chicago, Dallas-Fort Worth, Atlanta, Phoenix, and Columbus for a consumer electronics distributor.",
   summary:
     "The project uses public data and a weighted scorecard to compare market demand, freight access, logistics infrastructure, labor availability, growth potential, and cost environment. Chicago wins, with Dallas-Fort Worth as the strongest alternative.",
   actions: [
     { label: "View Dashboard", href: distributionCenterDashboardHref },
-    { label: "Case Report", href: distributionCenterReportHref },
     { label: "Spreadsheet Model", href: distributionCenterModelHref }
   ],
   visual: {
@@ -922,13 +915,13 @@ const distributionCenterStudy: CaseStudyContent = {
 
 const vendorShippingStudy: CaseStudyContent = {
   title: vendorShippingCaseTitle,
-  badges: ["Case Study", "Freight Cost"],
+  badges: ["Freight Cost", "Vendor Comparison"],
   subtitle:
     "A small-shipment vendor comparison model that compares current rates against two alternate vendor options by destination category and weight tier.",
   summary:
     "The project calculates savings and cost increases across within-city, within-state, within-zone, metro, rest-of-India, and special-destination shipments. Option 1 is recommended based on cost, with a note that service and contract factors still matter.",
   actions: [
-    { label: "Case Report", href: vendorShippingReportHref }
+    { label: "View Cost Sheet", href: vendorShippingPreviewHref }
   ],
   visual: {
     kind: "image",
@@ -1048,13 +1041,13 @@ const vendorShippingStudy: CaseStudyContent = {
 
 const purchaseToDispatchStudy: CaseStudyContent = {
   title: purchaseToDispatchCaseTitle,
-  badges: ["Case Study", "Workflow Analysis"],
+  badges: ["Workflow Analysis", "Procure to Dispatch"],
   subtitle:
     "A swimlane workflow analysis showing how a purchase request moves through procurement, vendor selection, receiving, accounting, stock allocation, dispatch, and ERP updates.",
   summary:
     "The project maps the handoffs that turn a business need into an approved purchase, vendor quotation, purchase order, goods receipt, inward entry, stock allocation, pick list, dispatch, and final stock update.",
   actions: [
-    { label: "Case Report", href: purchaseToDispatchReportHref }
+    { label: "View Workflow Diagram", href: purchaseToDispatchPreviewHref }
   ],
   visual: {
     kind: "image",
@@ -1163,7 +1156,7 @@ const purchaseToDispatchStudy: CaseStudyContent = {
 
 const skuInventoryStudy: CaseStudyContent = {
   title: skuInventoryCaseTitle,
-  badges: ["Case Study", "Inventory Dashboard"],
+  badges: ["Inventory Dashboard", "SKU Tracking"],
   subtitle:
     "An inventory tracking dashboard for SKU movement, available stock, reorder alerts, low-stock exposure, location value, and stock-status monitoring.",
   summary:

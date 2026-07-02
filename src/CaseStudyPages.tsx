@@ -2,12 +2,9 @@ import type { ReactNode } from "react";
 import {
   evAssemblyBomHref,
   evAssemblyDashboardHref,
-  evAssemblyDocHref,
   evAssemblyCaseTitle,
   landedCostCaseTitle,
-  landedCostDocHref,
-  landedCostModelHref,
-  landedCostPdfHref
+  landedCostModelHref
 } from "./data";
 import { Icon } from "./components/Icon";
 import { SiteFooter, SiteHeader } from "./components/SiteChrome";
@@ -314,8 +311,7 @@ export function EVAssemblyCasePage() {
               <div className="case-actions">
                 {[
                   { label: "View Dashboard", href: evAssemblyDashboardHref },
-                  { label: "Open BOM Workbook", href: evAssemblyBomHref },
-                  { label: "Case Report", href: evAssemblyDocHref }
+                  { label: "Open BOM Workbook", href: evAssemblyBomHref }
                 ].map((item) => (
                   <a
                     className="button button--outline"
@@ -492,7 +488,7 @@ export function LandedCostCasePage() {
           <div className="container-wide case-hero__grid">
             <div className="case-hero__copy">
               <div className="project-badge-list">
-                <span>Case Study</span>
+                <span>Sourcing Model</span>
                 <span>Landed Cost</span>
               </div>
               <p className="projects-name">Shiven Parikh</p>
@@ -508,9 +504,7 @@ export function LandedCostCasePage() {
               </p>
               <div className="case-actions">
                 {[
-                  { label: "Open Cost Model", href: landedCostModelHref },
-                  { label: "Case Report", href: landedCostPdfHref },
-                  { label: "Case Report", href: landedCostDocHref }
+                  { label: "Open Cost Model", href: landedCostModelHref }
                 ].map((item) => (
                   <a
                     className="button button--outline"

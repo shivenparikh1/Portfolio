@@ -64,31 +64,21 @@ export const sourcingCopilotPreviewHref =
 export const aiMicrochipCaseTitle =
   "Global Sourcing Strategy Model for AI Microchips";
 export const aiMicrochipCaseHref = "./global-sourcing-ai-microchip.html";
-export const aiMicrochipReportHref =
-  "./assets/global-sourcing-ai-microchip-report.pdf";
 export const aiMicrochipModelHref =
   "./assets/global-sourcing-ai-microchip-framework.xlsx";
 export const aiMicrochipPreviewHref =
   "./assets/global-sourcing-ai-microchip-preview.png";
-export const evAssemblyCaseTitle = "EV Assembly Logistics Readiness Case Study";
+export const evAssemblyCaseTitle = "EV Assembly Logistics Readiness";
 export const evAssemblyCaseHref = "./ev-assembly-logistics-readiness.html";
 export const evAssemblyDashboardHref =
   "./assets/ev-assembly-logistics-readiness-dashboard.png";
 export const evAssemblyBomHref = "./assets/ev-assembly-logistics-bom.xlsx";
-export const evAssemblyDocHref =
-  "./assets/ev-assembly-logistics-readiness-case-study.docx";
 export const landedCostCaseTitle = "Landed Cost & Supplier Comparison Model";
 export const landedCostCaseHref = "./landed-cost-supplier-comparison.html";
 export const landedCostModelHref =
   "https://docs.google.com/spreadsheets/d/15Gr8eBAHjNAZ99r7JHt7nitAAsoYcfwoRmYWrbf8OGs/edit?usp=sharing";
-export const landedCostPdfHref =
-  "./assets/iphone-sourcing-cost-sheet-case-report.pdf";
-export const landedCostDocHref =
-  "./assets/iphone-sourcing-cost-sheet-case-report.docx";
 export const warehouseOperationsCaseTitle = "Warehouse / Operations Case Study";
 export const warehouseOperationsCaseHref = "./warehouse-operations-case-study.html";
-export const warehouseOperationsReportHref =
-  "./assets/warehouse-inward-reverse-inward-case-study.pdf";
 export const warehouseOperationsPreviewHref =
   "./assets/warehouse-inward-reverse-inward-preview.png";
 export const skuInventoryCaseTitle = "SKU Inventory Tracking Dashboard";
@@ -98,26 +88,20 @@ export const skuInventoryDashboardHref =
 export const skuInventoryModelHref =
   "https://docs.google.com/spreadsheets/d/1tRVHwdz5r-wIbCv08SFFiERXUvPXcFvsEIw99Rxj8JI/edit?gid=406111085#gid=406111085";
 export const distributionCenterCaseTitle =
-  "Advanced Manufacturing Distribution Center Location Case Study";
+  "Advanced Manufacturing Distribution Center Location Strategy";
 export const distributionCenterCaseHref =
   "./distribution-center-location-strategy.html";
 export const distributionCenterDashboardHref =
   "./assets/distribution-center-location-strategy-dashboard.png";
-export const distributionCenterReportHref =
-  "./assets/distribution-center-location-strategy-case-report.pdf";
 export const distributionCenterModelHref =
   "./assets/distribution-center-location-strategy-model.xlsx";
 export const vendorShippingCaseTitle = "Vendor Shipping Cost Comparison Analysis";
 export const vendorShippingCaseHref = "./vendor-shipping-cost-comparison.html";
-export const vendorShippingReportHref =
-  "./assets/vendor-shipping-cost-comparison-analysis.pdf";
 export const vendorShippingPreviewHref =
   "./assets/vendor-shipping-cost-comparison-analysis.png";
 export const purchaseToDispatchCaseTitle =
   "Purchase-to-Dispatch Workflow Analysis";
 export const purchaseToDispatchCaseHref = "./purchase-to-dispatch-workflow.html";
-export const purchaseToDispatchReportHref =
-  "./assets/purchase-to-dispatch-workflow-analysis.pdf";
 export const purchaseToDispatchPreviewHref =
   "./assets/purchase-to-dispatch-workflow-analysis.png";
 
@@ -289,7 +273,6 @@ export const projects: Project[] = [
     insights: ["Global sourcing decisions are stronger when cost, capability, resilience, and regional exposure are evaluated together."],
     links: [
       { label: "View Case Study", href: aiMicrochipCaseHref },
-      { label: "Case Report", href: aiMicrochipReportHref },
       { label: "Spreadsheet Model", href: aiMicrochipModelHref }
     ]
   },
@@ -310,13 +293,11 @@ export const projects: Project[] = [
     description:
       "A model that compares unit cost, freight, duties, tariff exposure, lead time, and total landed cost to support sourcing decisions.",
     skills: ["Landed Cost", "Supplier Selection", "Cost Modeling", "Sourcing Analysis"],
-    tools: ["Google Sheets", "Excel", "Cost Sheet Model", "Case Report"],
+    tools: ["Google Sheets", "Excel", "Cost Sheet Model", "Supplier Dashboard"],
     insights: ["The lowest unit-price quote can become the wrong sourcing decision after freight, tariffs, duties, and lead-time costs are included."],
     links: [
       { label: "View Case Study", href: landedCostCaseHref },
-      { label: "View Cost Model", href: landedCostModelHref },
-      { label: "Case Report", href: landedCostPdfHref },
-      { label: "Case Report", href: landedCostDocHref }
+      { label: "View Cost Model", href: landedCostModelHref }
     ]
   },
   {
@@ -324,25 +305,23 @@ export const projects: Project[] = [
     description:
       "A supporting operations project documenting warehouse inward, reverse inward, ERP updates, physical verification, and process flow.",
     skills: ["Warehouse Operations", "Process Mapping", "Reverse Logistics", "ERP Workflow"],
-    tools: ["Process Flowcharts", "ERP Process Notes", "SOP Documentation", "Case Report"],
+    tools: ["Process Flowcharts", "ERP Process Notes", "SOP Documentation"],
     insights: ["Reliable sourcing outcomes still depend on accurate receiving, verification, inventory records, and cross-functional handoffs."],
     links: [
-      { label: "View Case Study", href: warehouseOperationsCaseHref },
-      { label: "Case Report", href: warehouseOperationsReportHref }
+      { label: "View Case Study", href: warehouseOperationsCaseHref }
     ]
   },
   {
     title: evAssemblyCaseTitle,
     description:
-      "Built an electric vehicle assembly logistics case study using a bill of materials, kit-readiness analysis, shortage tracking, component risk scoring, and recovery planning.",
+      "Built an electric vehicle assembly logistics readiness model using a bill of materials, kit-readiness analysis, shortage tracking, component risk scoring, and recovery planning.",
     skills: ["Materials Planning", "BOM Analysis", "Kit Readiness", "Shortage Risk"],
     tools: ["Excel", "Tableau", "BOM Workbook", "Shortage Tracker"],
     insights: ["Production readiness depends on finding high-risk and missing components before they disrupt the assembly plan."],
     links: [
       { label: "View Case Study", href: evAssemblyCaseHref },
       { label: "View Dashboard", href: evAssemblyDashboardHref },
-      { label: "BOM Spreadsheet", href: evAssemblyBomHref },
-      { label: "Case Report", href: evAssemblyDocHref }
+      { label: "BOM Spreadsheet", href: evAssemblyBomHref }
     ]
   },
   {
@@ -361,14 +340,13 @@ export const projects: Project[] = [
   {
     title: distributionCenterCaseTitle,
     description:
-      "Created a location strategy case study comparing cities on freight access, labor availability, market reach, infrastructure, and business environment.",
+      "Created a location strategy model comparing cities on freight access, labor availability, market reach, infrastructure, and business environment.",
     skills: ["Network Design", "Location Analysis", "Freight Access", "Weighted Scoring"],
-    tools: ["Google Sheets", "Excel", "Scoring Matrix", "Case Report"],
+    tools: ["Google Sheets", "Excel", "Scoring Matrix", "Dashboard"],
     insights: ["The best distribution center location is not just the cheapest city. It is the site that balances freight access, labor, customer reach, and long-term scalability."],
     links: [
       { label: "View Case Study", href: distributionCenterCaseHref },
       { label: "View Dashboard", href: distributionCenterDashboardHref },
-      { label: "Case Report", href: distributionCenterReportHref },
       { label: "Spreadsheet Model", href: distributionCenterModelHref }
     ]
   },
@@ -377,11 +355,10 @@ export const projects: Project[] = [
     description:
       "Compared a current small-shipment vendor against two alternatives across destination zones, base weights, additional-weight rates, savings, and cost increases.",
     skills: ["Vendor Comparison", "Freight Cost Analysis", "Small Parcel Shipping", "Cost Savings"],
-    tools: ["Google Sheets", "Cost Comparison Table", "Decision Summary", "Case Report"],
+    tools: ["Google Sheets", "Cost Comparison Table", "Decision Summary"],
     insights: ["Option 1 creates a 12.89% average saving versus the current vendor, but the final choice still needs service quality, reliability, and contract terms before execution."],
     links: [
-      { label: "View Case Study", href: vendorShippingCaseHref },
-      { label: "Case Report", href: vendorShippingReportHref }
+      { label: "View Case Study", href: vendorShippingCaseHref }
     ]
   },
   {
@@ -389,11 +366,10 @@ export const projects: Project[] = [
     description:
       "Mapped the purchasing-to-dispatch workflow across requester, procurement, vendor, warehouse, finance, logistics, and ERP handoffs.",
     skills: ["Procure-to-Dispatch", "Process Mapping", "ERP Workflow", "Operational Controls"],
-    tools: ["Workflow Diagram", "Swimlane Analysis", "Risk Points", "Case Report"],
+    tools: ["Workflow Diagram", "Swimlane Analysis", "Risk Points"],
     insights: ["A standardized checklist across PR, RFQ, vendor comparison, PO, invoice matching, inward verification, ERP update, allocation, and dispatch reduces handoff errors."],
     links: [
-      { label: "View Case Study", href: purchaseToDispatchCaseHref },
-      { label: "Case Report", href: purchaseToDispatchReportHref }
+      { label: "View Case Study", href: purchaseToDispatchCaseHref }
     ]
   }
 ];
