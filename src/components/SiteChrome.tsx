@@ -82,7 +82,7 @@ export function SiteFooter() {
           <a href={resumeHref} download="Shiven-Parikh-Resume.pdf">Download Resume</a>
         </div>
         <div className="footer-meta">
-          <strong>Dashboard</strong>
+          <strong>Portfolio</strong>
           <a href="./projects.html">All Projects</a>
           <a href="#top">Back to top</a>
           <span>© {new Date().getFullYear()} Shiven Parikh</span>

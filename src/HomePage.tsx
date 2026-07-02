@@ -134,7 +134,7 @@ export function HomePage() {
           <div className="container-wide hero-grid">
             <div className="hero-copy">
               <p className="hero-name">Shiven Parikh</p>
-              <h1>Supply Chain &amp; Sourcing Dashboard</h1>
+              <h1>Supply Chain &amp; Sourcing Portfolio</h1>
               <p className="hero-subheading">
                 Supply Chain Management student focused on strategic sourcing, supplier risk
                 analytics, landed cost modeling, production readiness, and AI-assisted sourcing
