@@ -1,9 +1,8 @@
 import type { Article, Project } from "./data";
 import {
-  aiMicrochipCaseTitle,
-  aiMicrochipPreviewHref,
   articles,
   emailHref,
+  evAssemblyDashboardHref,
   evAssemblyCaseTitle,
   experiences,
   focusAreas,
@@ -14,8 +13,6 @@ import {
   resumeHref,
   semiconductorDashboardHref,
   semiconductorProjectTitle,
-  sourcingCopilotPreviewHref,
-  sourcingCopilotTitle,
   sourcingStrategies,
   warehouseOperationsCaseHref,
   warehouseOperationsCaseTitle
@@ -26,15 +23,13 @@ import { SiteFooter, SiteHeader } from "./components/SiteChrome";
 const featuredProjectTitles = [
   semiconductorProjectTitle,
   globalSourcingPredictorTitle,
-  sourcingCopilotTitle,
-  aiMicrochipCaseTitle
+  evAssemblyCaseTitle
 ];
 
 const projectImages: Partial<Record<string, string>> = {
   [semiconductorProjectTitle]: semiconductorDashboardHref,
   [globalSourcingPredictorTitle]: globalSourcingPredictorPreviewHref,
-  [sourcingCopilotTitle]: sourcingCopilotPreviewHref,
-  [aiMicrochipCaseTitle]: aiMicrochipPreviewHref
+  [evAssemblyCaseTitle]: evAssemblyDashboardHref
 };
 
 const featuredProjects = featuredProjectTitles.flatMap((title) => {
@@ -61,7 +56,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
   const showAllLinks =
     isFeatured ||
     project.title === globalSourcingPredictorTitle ||
-    project.title === aiMicrochipCaseTitle;
+    project.title === evAssemblyCaseTitle;
   const visibleLinks = showAllLinks ? project.links : project.links.slice(0, 1);
 
   return (
@@ -75,7 +70,6 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
           />
         ) : (
           <div className="project-card__model" aria-hidden="true">
-            <span>{String(index + 1).padStart(2, "0")}</span>
             <div>
               <i />
               <i />
@@ -91,7 +85,6 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
             {project.badges.map((badge) => <span key={badge}>{badge}</span>)}
           </div>
         ) : null}
-        <p className="project-card__number">Project {String(index + 1).padStart(2, "0")}</p>
         <h3>{project.title}</h3>
         <p>{project.description}</p>
         <ul className="tag-list" aria-label={`${project.title} topics`}>
@@ -117,10 +110,9 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
   );
 }
 
-function ArticleCard({ article, index }: { article: Article; index: number }) {
+function ArticleCard({ article }: { article: Article }) {
   return (
     <a className="article-card" href={article.href} target="_blank" rel="noreferrer">
-      <p className="article-card__number">Article {String(index + 1).padStart(2, "0")}</p>
       <h3>{article.title}</h3>
       <p>{article.description}</p>
       <ul className="tag-list" aria-label={`${article.title} topics`}>
@@ -179,7 +171,7 @@ export function HomePage() {
             <div className="decision-framework" aria-label="Global supplier decision framework">
               <div className="decision-framework__header">
                 <span>Sourcing decision framework</span>
-                <span>01 / Method</span>
+                <span>Method</span>
               </div>
               <div className="decision-framework__body">
                 <div className="decision-axis decision-axis--vertical">
@@ -209,7 +201,6 @@ export function HomePage() {
         <section className="section focus-section" id="focus">
           <div className="container-wide">
             <div className="section-heading">
-              <p className="section-index">01</p>
               <div>
                 <h2>Current Focus</h2>
                 <p>
@@ -219,9 +210,8 @@ export function HomePage() {
               </div>
             </div>
             <div className="focus-grid">
-              {focusAreas.map((area, index) => (
+              {focusAreas.map((area) => (
                 <article className="focus-card" key={area.title}>
-                  <span>{String(index + 1).padStart(2, "0")}</span>
                   <h3>{area.title}</h3>
                   <p>{area.description}</p>
                 </article>
@@ -233,7 +223,6 @@ export function HomePage() {
         <section className="section projects-section" id="projects">
           <div className="container-wide">
             <div className="section-heading">
-              <p className="section-index">02</p>
               <div>
                 <h2>Featured Projects</h2>
                 <p>
@@ -258,7 +247,6 @@ export function HomePage() {
         <section className="ai-section" id="ai">
           <div className="container-wide ai-layout">
             <div>
-              <p className="section-index">03</p>
               <h2>How I Use AI in Sourcing Analysis</h2>
             </div>
             <div className="ai-copy">
@@ -279,7 +267,6 @@ export function HomePage() {
         <section className="section strategy-section" id="strategies">
           <div className="container-wide">
             <div className="section-heading">
-              <p className="section-index">04</p>
               <div>
                 <h2>Sourcing Strategies I Am Studying</h2>
                 <p>
@@ -289,10 +276,9 @@ export function HomePage() {
               </div>
             </div>
             <div className="strategy-list">
-              {sourcingStrategies.map((strategy, index) => (
+              {sourcingStrategies.map((strategy) => (
                 <article className="strategy-card" key={strategy.title}>
                   <div className="strategy-card__title">
-                    <span>{String(index + 1).padStart(2, "0")}</span>
                     <h3>{strategy.title}</h3>
                   </div>
                   <div>
@@ -317,7 +303,6 @@ export function HomePage() {
           <section className="section experience-section" id="experience">
             <div className="container-wide experience-layout">
               <div>
-                <p className="section-index">05</p>
                 <h2>Supporting Operations Experience</h2>
               </div>
               <div className="experience-card">
@@ -340,7 +325,6 @@ export function HomePage() {
         <section className="section articles-section" id="articles">
           <div className="container-wide">
             <div className="section-heading">
-              <p className="section-index">06</p>
               <div>
                 <h2>Articles &amp; Writing</h2>
                 <p>
@@ -350,8 +334,8 @@ export function HomePage() {
               </div>
             </div>
             <div className="article-grid">
-              {articles.map((article, index) => (
-                <ArticleCard article={article} index={index} key={article.href} />
+              {articles.map((article) => (
+                <ArticleCard article={article} key={article.href} />
               ))}
             </div>
           </div>

@@ -18,6 +18,7 @@ export function SiteHeader({ page = "home" }: SiteHeaderProps) {
           </a>
           <div className="projects-nav-actions">
             <a href="./index.html">Home</a>
+            <a href="./index.html#articles">Articles</a>
             <a className="nav-resume" href={resumeHref} download="Shiven-Parikh-Resume.pdf">
               Download Resume <Icon name="download" />
             </a>
@@ -47,7 +48,7 @@ export function SiteHeader({ page = "home" }: SiteHeaderProps) {
           <span />
         </button>
         <div className={`nav-links${menuOpen ? " is-open" : ""}`} id="nav-links">
-          {navItems.slice(1, 5).map(([label, id]) => (
+          {navItems.slice(1, 6).map(([label, id]) => (
             <a href={`#${id}`} onClick={closeMenu} key={id}>{label}</a>
           ))}
           <a className="nav-resume" href={resumeHref} download="Shiven-Parikh-Resume.pdf" onClick={closeMenu}>

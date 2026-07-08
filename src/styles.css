@@ -441,14 +441,14 @@ svg {
 
 .section-heading {
   display: grid;
-  grid-template-columns: 64px minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1fr);
   gap: 22px;
   align-items: start;
   margin-bottom: 46px;
 }
 
 .section-heading--with-link {
-  grid-template-columns: 64px minmax(0, 1fr) auto;
+  grid-template-columns: minmax(0, 1fr) auto;
 }
 
 .section-heading h2,
@@ -523,13 +523,11 @@ svg {
 }
 
 .focus-card > span {
-  color: var(--teal);
-  font-family: var(--mono);
-  font-size: 0.65rem;
+  display: none;
 }
 
 .focus-card h3 {
-  margin: 62px 0 18px;
+  margin: 0 0 18px;
   font-family: var(--serif);
   font-size: 1.35rem;
   letter-spacing: -0.025em;
@@ -617,7 +615,7 @@ svg {
 .project-card__model {
   display: grid;
   height: 100%;
-  grid-template-columns: 64px 1fr;
+  grid-template-columns: 1fr;
   background:
     linear-gradient(90deg, rgba(11, 99, 206, 0.08) 1px, transparent 1px),
     linear-gradient(rgba(11, 99, 206, 0.08) 1px, transparent 1px),
@@ -693,7 +691,7 @@ svg {
 }
 
 .project-card__body h3 {
-  margin: 11px 0 14px;
+  margin: 0 0 14px;
   font-family: var(--serif);
   font-size: clamp(1.55rem, 2.4vw, 2.4rem);
   letter-spacing: -0.035em;
@@ -707,13 +705,13 @@ svg {
   line-height: 1.05;
 }
 
-.project-card__body > p:not(.project-card__number) {
+.project-card__body > p {
   margin-bottom: 20px;
   color: var(--muted);
   font-size: 0.82rem;
 }
 
-.project-card--featured .project-card__body > p:not(.project-card__number) {
+.project-card--featured .project-card__body > p {
   max-width: 720px;
   font-size: 0.9rem;
 }
@@ -721,21 +719,29 @@ svg {
 .tag-list {
   display: flex;
   flex-wrap: wrap;
-  gap: 7px;
+  gap: 8px 18px;
   margin: 0 0 24px;
   padding: 0;
   list-style: none;
 }
 
 .tag-list li {
-  border: 1px solid #bed0e5;
-  border-radius: 2px;
-  padding: 6px 8px;
-  background: #f3f7fc;
-  color: var(--blue-dark);
-  font-family: var(--mono);
-  font-size: 0.58rem;
-  text-transform: uppercase;
+  position: relative;
+  color: #486075;
+  font-size: 0.72rem;
+  font-weight: 750;
+  line-height: 1.35;
+}
+
+.tag-list li + li::before {
+  position: absolute;
+  top: 0.6em;
+  left: -11px;
+  width: 4px;
+  height: 4px;
+  border-radius: 999px;
+  background: var(--teal);
+  content: "";
 }
 
 .project-card__body .text-link,
@@ -761,7 +767,7 @@ svg {
 
 .article-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 18px;
 }
 
@@ -788,15 +794,6 @@ svg {
   transform: translateY(-3px);
 }
 
-.article-card__number {
-  margin-bottom: 28px;
-  color: var(--blue);
-  font-family: var(--mono);
-  font-size: 0.62rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
 .article-card h3 {
   margin-bottom: 13px;
   font-family: var(--serif);
@@ -805,7 +802,7 @@ svg {
   line-height: 1.12;
 }
 
-.article-card > p:not(.article-card__number) {
+.article-card > p {
   margin-bottom: 18px;
   color: var(--muted);
   font-size: 0.76rem;
@@ -892,7 +889,6 @@ svg {
   border-left: 1px solid var(--line);
 }
 
-.strategy-card__title span,
 .strategy-card strong {
   display: block;
   margin-bottom: 10px;
@@ -1169,11 +1165,11 @@ svg {
 
   .section-heading,
   .section-heading--with-link {
-    grid-template-columns: 42px 1fr;
+    grid-template-columns: 1fr;
   }
 
   .section-heading .text-link {
-    grid-column: 2;
+    grid-column: auto;
   }
 
   .focus-grid,
@@ -1196,7 +1192,7 @@ svg {
   }
 
   .focus-card h3 {
-    margin-top: 28px;
+    margin-top: 0;
   }
 
   .project-card {

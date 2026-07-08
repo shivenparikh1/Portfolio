@@ -120,6 +120,7 @@ export const navItems = [
   ["Home", "home"],
   ["Focus", "focus"],
   ["Projects", "projects"],
+  ["Articles", "articles"],
   ["AI in Sourcing", "ai"],
   ["Strategies", "strategies"],
   ["Experience", "experience"],

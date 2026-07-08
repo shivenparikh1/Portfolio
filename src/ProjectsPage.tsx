@@ -1,19 +1,19 @@
-import type { Article, Project, ProjectCategory } from "./data";
+import { useState } from "react";
+import type { Project, ProjectCategory } from "./data";
 import {
   aiMicrochipCaseTitle,
   aiMicrochipPreviewHref,
-  articles,
   distributionCenterCaseTitle,
   distributionCenterDashboardHref,
   emailHref,
   evAssemblyCaseTitle,
   evAssemblyDashboardHref,
+  globalSourcingPredictorPreviewHref,
+  globalSourcingPredictorTitle,
   linkedinHref,
   projectCategories,
   projects,
   resumeHref,
-  globalSourcingPredictorPreviewHref,
-  globalSourcingPredictorTitle,
   semiconductorDashboardHref,
   semiconductorProjectTitle,
   skuInventoryCaseTitle,
@@ -27,6 +27,11 @@ import {
 } from "./data";
 import { Icon } from "./components/Icon";
 import { SiteFooter, SiteHeader } from "./components/SiteChrome";
+
+interface ProjectEntry {
+  category: ProjectCategory;
+  project: Project;
+}
 
 const projectPreviews: Partial<Record<string, string>> = {
   [semiconductorProjectTitle]: semiconductorDashboardHref,
@@ -43,23 +48,26 @@ const projectPreviews: Partial<Record<string, string>> = {
 
 const projectByTitle = new Map(projects.map((project) => [project.title, project]));
 
-const projectNavItems = [
-  ...projectCategories.map((category) => ({ id: category.id, title: category.title })),
-  { id: "articles", title: "Articles & Writing" }
-];
+const projectLibrary: ProjectEntry[] = projectCategories.flatMap((category) =>
+  category.projectTitles.flatMap((title) => {
+    const project = projectByTitle.get(title);
+    return project ? [{ category, project }] : [];
+  })
+);
+
+const defaultProjectTitle = projectLibrary[0]?.project.title ?? "";
 
 function getProjectsForCategory(category: ProjectCategory) {
-  return category.projectTitles.flatMap((title) => {
-    const project = projectByTitle.get(title);
-    return project ? [project] : [];
-  });
+  return projectLibrary
+    .filter((entry) => entry.category.id === category.id)
+    .map((entry) => entry.project);
 }
 
 function getLinkTarget(href: string) {
   return /^https?:\/\//.test(href) ? "_blank" : undefined;
 }
 
-function ProjectVisual({ project, index }: { project: Project; index: number }) {
+function ProjectVisual({ project }: { project: Project }) {
   const preview = projectPreviews[project.title];
 
   if (preview) {
@@ -67,14 +75,14 @@ function ProjectVisual({ project, index }: { project: Project; index: number }) 
       <img
         src={preview}
         alt={`${project.title} project preview`}
-        loading={index === 0 ? "eager" : "lazy"}
+        loading="eager"
       />
     );
   }
 
   return (
     <div className="project-visual__fallback" aria-hidden="true">
-      <span>Decision model / {String(index + 1).padStart(2, "0")}</span>
+      <span>Decision model</span>
       <strong>{project.skills.slice(0, 3).join(" / ")}</strong>
       <div className="fallback-table">
         <i /><i /><i /><i /><i /><i />
@@ -83,91 +91,105 @@ function ProjectVisual({ project, index }: { project: Project; index: number }) 
   );
 }
 
-function ProjectRow({ project, index }: { project: Project; index: number }) {
-  const isSemiconductorProject = project.title === semiconductorProjectTitle;
+function ProjectDetail({ entry }: { entry: ProjectEntry }) {
+  const { category, project } = entry;
+  const isDashboardProject =
+    project.title === semiconductorProjectTitle ||
+    project.title === globalSourcingPredictorTitle ||
+    project.title === evAssemblyCaseTitle;
 
   return (
-    <article className={`project-row${isSemiconductorProject ? " project-row--dashboard" : ""}`}>
-      <div className="project-row__visual">
-        <ProjectVisual project={project} index={index} />
-      </div>
-      <div className="project-row__content">
-        {project.badges ? (
-          <div className="project-badge-list" aria-label={`${project.title} labels`}>
-            {project.badges.map((badge) => <span key={badge}>{badge}</span>)}
-          </div>
-        ) : null}
-        <p className="project-row__number">Project {String(index + 1).padStart(2, "0")}</p>
-        <h3>{project.title}</h3>
-        <p>{project.description}</p>
-        <ul className="tag-list" aria-label={`${project.title} tags`}>
-          {project.skills.slice(0, 5).map((skill) => <li key={skill}>{skill}</li>)}
-        </ul>
-        <div className="project-detail-grid">
-          <div>
-            <span>Approach and tools</span>
-            <p>{project.tools.join(" · ")}</p>
-          </div>
-          <div>
-            <span>Key takeaway</span>
-            <p>{project.insights[0]}</p>
-          </div>
-        </div>
-        {project.links.length > 0 ? (
-          <div className="project-links">
-            {project.links.map((link) => (
-              <a
-                href={link.href}
-                target={getLinkTarget(link.href)}
-                rel={getLinkTarget(link.href) ? "noreferrer" : undefined}
-                key={link.href}
-              >
-                {link.label} <Icon name="arrow" />
-              </a>
-            ))}
-          </div>
-        ) : null}
-      </div>
-    </article>
-  );
-}
-
-function CategorySection({ category, index }: { category: ProjectCategory; index: number }) {
-  const categoryProjects = getProjectsForCategory(category);
-
-  return (
-    <section className="project-category-section" id={category.id}>
-      <div className="category-heading">
+    <section className="project-detail-panel" aria-live="polite">
+      <div className="project-detail-heading">
         <div>
-          <p className="section-index">{String(index + 1).padStart(2, "0")}</p>
-          <h2>{category.title}</h2>
+          <p className="project-detail__category">{category.title}</p>
+          <h2>{project.title}</h2>
         </div>
-        <p>{category.description}</p>
+        <p>{project.description}</p>
       </div>
-      <div className="project-rows">
-        {categoryProjects.map((project, index) => (
-          <ProjectRow project={project} index={index} key={project.title} />
-        ))}
-      </div>
+
+      <article className={`project-row project-row--selected${isDashboardProject ? " project-row--dashboard" : ""}`}>
+        <div className="project-row__visual">
+          <ProjectVisual project={project} />
+        </div>
+        <div className="project-row__content">
+          {project.badges ? (
+            <div className="project-badge-list" aria-label={`${project.title} labels`}>
+              {project.badges.map((badge) => <span key={badge}>{badge}</span>)}
+            </div>
+          ) : null}
+          <h3>{project.title}</h3>
+          <ul className="tag-list" aria-label={`${project.title} tags`}>
+            {project.skills.slice(0, 5).map((skill) => <li key={skill}>{skill}</li>)}
+          </ul>
+          <div className="project-detail-grid">
+            <div>
+              <span>Approach and tools</span>
+              <p>{project.tools.join(" · ")}</p>
+            </div>
+            <div>
+              <span>Key takeaway</span>
+              <p>{project.insights[0]}</p>
+            </div>
+          </div>
+          {project.links.length > 0 ? (
+            <div className="project-links">
+              {project.links.map((link) => (
+                <a
+                  href={link.href}
+                  target={getLinkTarget(link.href)}
+                  rel={getLinkTarget(link.href) ? "noreferrer" : undefined}
+                  key={link.href}
+                >
+                  {link.label} <Icon name="arrow" />
+                </a>
+              ))}
+            </div>
+          ) : null}
+        </div>
+      </article>
     </section>
   );
 }
 
-function ArticleCard({ article, index }: { article: Article; index: number }) {
+function ProjectSelector({
+  onSelect,
+  selectedTitle
+}: {
+  onSelect: (title: string) => void;
+  selectedTitle: string;
+}) {
   return (
-    <a className="article-card" href={article.href} target="_blank" rel="noreferrer">
-      <p className="article-card__number">Article {String(index + 1).padStart(2, "0")}</p>
-      <h3>{article.title}</h3>
-      <p>{article.description}</p>
-      <ul className="tag-list" aria-label={`${article.title} topics`}>
-        {article.skills.map((skill) => <li key={skill}>{skill}</li>)}
-      </ul>
-      <span>Read article <Icon name="external" /></span>
-    </a>
+    <aside className="project-sidebar" aria-label="Project navigation">
+      <p className="project-sidebar__label">Project Library</p>
+      {projectCategories.map((category) => (
+        <section className="project-sidebar__group" key={category.id}>
+          <h2>{category.title}</h2>
+          <div className="project-sidebar__list">
+            {getProjectsForCategory(category).map((project) => (
+              <button
+                className={project.title === selectedTitle ? "is-selected" : undefined}
+                type="button"
+                aria-pressed={project.title === selectedTitle}
+                onClick={() => onSelect(project.title)}
+                key={project.title}
+              >
+                <span>{project.title}</span>
+                <small>{project.skills.slice(0, 2).join(" · ")}</small>
+              </button>
+            ))}
+          </div>
+        </section>
+      ))}
+    </aside>
   );
 }
 
 export function ProjectsPage() {
+  const [selectedProjectTitle, setSelectedProjectTitle] = useState(defaultProjectTitle);
+  const selectedEntry =
+    projectLibrary.find((entry) => entry.project.title === selectedProjectTitle) ?? projectLibrary[0];
+
   return (
     <>
       <div id="top" />
@@ -179,43 +201,19 @@ export function ProjectsPage() {
             <div className="projects-hero__layout">
               <h1>Supply Chain &amp; Sourcing Projects</h1>
               <p>
-                Sourcing models, supplier risk frameworks, landed cost tools, and supporting
-                operations projects focused on global sourcing, semiconductor supplier risk, and
-                AI-assisted sourcing intelligence.
+                Select one project from the library to review its summary, skills, tools,
+                takeaway, and links without scrolling through every project at once.
               </p>
             </div>
-            <nav className="category-nav" aria-label="Project categories">
-              {projectNavItems.map((item, index) => (
-                <a href={`#${item.id}`} key={item.id}>
-                  <span>0{index + 1}</span>{item.title}
-                </a>
-              ))}
-            </nav>
           </div>
         </section>
 
-        <div className="container-wide project-library">
-          {projectCategories.map((category, index) => (
-            <CategorySection category={category} index={index} key={category.id} />
-          ))}
-
-          <section className="project-category-section articles-library" id="articles">
-            <div className="category-heading">
-              <div>
-                <p className="section-index">{String(projectCategories.length + 1).padStart(2, "0")}</p>
-                <h2>Articles &amp; Writing</h2>
-              </div>
-              <p>
-                Selected writing on supply chain disruption, AI in sourcing, supplier risk, and
-                emerging technology.
-              </p>
-            </div>
-            <div className="article-grid">
-              {articles.map((article, index) => (
-                <ArticleCard article={article} index={index} key={article.href} />
-              ))}
-            </div>
-          </section>
+        <div className="container-wide project-library project-selector-layout">
+          <ProjectSelector
+            selectedTitle={selectedEntry?.project.title ?? ""}
+            onSelect={setSelectedProjectTitle}
+          />
+          {selectedEntry ? <ProjectDetail entry={selectedEntry} /> : null}
         </div>
 
         <section className="contact projects-contact">
