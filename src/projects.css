@@ -8,10 +8,6 @@
 }
 
 .projects-hero__layout {
-  display: grid;
-  grid-template-columns: minmax(0, 1.4fr) minmax(300px, 0.6fr);
-  gap: 72px;
-  align-items: end;
   margin-bottom: 68px;
 }
 

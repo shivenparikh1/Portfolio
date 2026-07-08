@@ -200,10 +200,6 @@ export function ProjectsPage() {
             <p className="projects-name">Shiven Parikh</p>
             <div className="projects-hero__layout">
               <h1>Supply Chain &amp; Sourcing Projects</h1>
-              <p>
-                Select one project from the library to review its summary, skills, tools,
-                takeaway, and links without scrolling through every project at once.
-              </p>
             </div>
           </div>
         </section>

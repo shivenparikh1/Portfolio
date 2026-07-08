@@ -18,10 +18,6 @@ export function SiteHeader({ page = "home" }: SiteHeaderProps) {
           </a>
           <div className="projects-nav-actions">
             <a href="./index.html">Home</a>
-            <a href="./index.html#articles">Articles</a>
-            <a className="nav-resume" href={resumeHref} download="Shiven-Parikh-Resume.pdf">
-              Download Resume <Icon name="download" />
-            </a>
           </div>
         </nav>
       </header>
