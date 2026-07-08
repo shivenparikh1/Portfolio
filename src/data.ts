@@ -68,6 +68,8 @@ export const globalSourcingPredictorHref =
   "https://global-sourcing-predictor-dashboard.vercel.app";
 export const globalSourcingPredictorGithubHref =
   "https://github.com/shivenparikh1/global-sourcing-predictor-dashboard";
+export const globalSourcingPredictorPreviewHref =
+  "./assets/global-sourcing-predictor-command-center-preview.png";
 export const aiMicrochipCaseTitle =
   "AI Microchip Global Sourcing Risk Framework";
 export const aiMicrochipCaseHref = "./global-sourcing-ai-microchip.html";

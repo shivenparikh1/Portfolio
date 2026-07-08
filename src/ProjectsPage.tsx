@@ -12,6 +12,8 @@ import {
   projectCategories,
   projects,
   resumeHref,
+  globalSourcingPredictorPreviewHref,
+  globalSourcingPredictorTitle,
   semiconductorDashboardHref,
   semiconductorProjectTitle,
   skuInventoryCaseTitle,
@@ -28,6 +30,7 @@ import { SiteFooter, SiteHeader } from "./components/SiteChrome";
 
 const projectPreviews: Partial<Record<string, string>> = {
   [semiconductorProjectTitle]: semiconductorDashboardHref,
+  [globalSourcingPredictorTitle]: globalSourcingPredictorPreviewHref,
   [sourcingCopilotTitle]: sourcingCopilotPreviewHref,
   [aiMicrochipCaseTitle]: aiMicrochipPreviewHref,
   [vendorShippingCaseTitle]: vendorShippingPreviewHref,

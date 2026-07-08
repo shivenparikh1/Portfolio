@@ -7,6 +7,7 @@ import {
   evAssemblyCaseTitle,
   experiences,
   focusAreas,
+  globalSourcingPredictorPreviewHref,
   globalSourcingPredictorTitle,
   linkedinHref,
   projects,
@@ -31,6 +32,7 @@ const featuredProjectTitles = [
 
 const projectImages: Partial<Record<string, string>> = {
   [semiconductorProjectTitle]: semiconductorDashboardHref,
+  [globalSourcingPredictorTitle]: globalSourcingPredictorPreviewHref,
   [sourcingCopilotTitle]: sourcingCopilotPreviewHref,
   [aiMicrochipCaseTitle]: aiMicrochipPreviewHref
 };
