@@ -79,7 +79,8 @@ export const landedCostCaseHref = "./landed-cost-supplier-comparison.html";
 export const landedCostModelHref =
   "https://docs.google.com/spreadsheets/d/15Gr8eBAHjNAZ99r7JHt7nitAAsoYcfwoRmYWrbf8OGs/edit?usp=sharing";
 export const warehouseOperationsCaseTitle = "MSWIPE Warehouse / Operations Case Study";
-export const warehouseOperationsCaseHref = "./warehouse-operations-case-study.html";
+export const warehouseOperationsCaseHref =
+  "./assets/warehouse-inward-reverse-inward-case-study.pdf";
 export const warehouseOperationsPreviewHref =
   "./assets/warehouse-inward-reverse-inward-preview.png";
 export const skuInventoryCaseTitle = "Warehouse SKU & Reorder Alert Dashboard";
