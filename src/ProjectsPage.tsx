@@ -118,7 +118,6 @@ function ProjectDetail({ entry }: { entry: ProjectEntry }) {
               {project.badges.map((badge) => <span key={badge}>{badge}</span>)}
             </div>
           ) : null}
-          <h3>{project.title}</h3>
           <ul className="tag-list" aria-label={`${project.title} tags`}>
             {project.skills.slice(0, 5).map((skill) => <li key={skill}>{skill}</li>)}
           </ul>
