@@ -1,9 +1,10 @@
 import type { Article, Project } from "./data";
 import {
+  aiMicrochipCaseTitle,
+  aiMicrochipPreviewHref,
   articles,
   emailHref,
   evAssemblyCaseTitle,
-  evAssemblyDashboardHref,
   experiences,
   focusAreas,
   linkedinHref,
@@ -14,7 +15,8 @@ import {
   sourcingCopilotPreviewHref,
   sourcingCopilotTitle,
   sourcingStrategies,
-  warehouseOperationsCaseHref
+  warehouseOperationsCaseHref,
+  warehouseOperationsCaseTitle
 } from "./data";
 import { Icon } from "./components/Icon";
 import { SiteFooter, SiteHeader } from "./components/SiteChrome";
@@ -22,13 +24,13 @@ import { SiteFooter, SiteHeader } from "./components/SiteChrome";
 const featuredProjectTitles = [
   semiconductorProjectTitle,
   sourcingCopilotTitle,
-  evAssemblyCaseTitle
+  aiMicrochipCaseTitle
 ];
 
 const projectImages: Partial<Record<string, string>> = {
   [semiconductorProjectTitle]: semiconductorDashboardHref,
   [sourcingCopilotTitle]: sourcingCopilotPreviewHref,
-  [evAssemblyCaseTitle]: evAssemblyDashboardHref
+  [aiMicrochipCaseTitle]: aiMicrochipPreviewHref
 };
 
 const featuredProjects = featuredProjectTitles.flatMap((title) => {
@@ -52,7 +54,7 @@ const aiApplications = [
 function ProjectCard({ project, index }: { project: Project; index: number }) {
   const preview = projectImages[project.title];
   const isFeatured = project.title === semiconductorProjectTitle;
-  const showAllLinks = isFeatured || project.title === evAssemblyCaseTitle;
+  const showAllLinks = isFeatured || project.title === aiMicrochipCaseTitle;
   const visibleLinks = showAllLinks ? project.links : project.links.slice(0, 1);
 
   return (
@@ -134,16 +136,16 @@ export function HomePage() {
           <div className="container-wide hero-grid">
             <div className="hero-copy">
               <p className="hero-name">Shiven Parikh</p>
-              <h1>Supply Chain &amp; Sourcing Portfolio</h1>
+              <h1>Global Sourcing &amp; Supplier Risk Portfolio</h1>
               <p className="hero-subheading">
-                Supply Chain Management student focused on strategic sourcing, supplier risk
-                analytics, landed cost modeling, production readiness, and AI-assisted sourcing
+                Supply Chain Management student focused on global sourcing, semiconductor
+                supplier risk, landed cost modeling, supplier scorecards, and AI-assisted sourcing
                 decision systems.
               </p>
               <p className="hero-description">
-                I build sourcing models, supplier risk frameworks, landed cost tools, logistics
-                readiness dashboards, and AI-assisted decision workflows that help compare suppliers,
-                evaluate tariff and disruption exposure, and support better supply chain decisions.
+                I build sourcing models, supplier risk frameworks, landed cost tools, and
+                AI-assisted decision workflows that compare suppliers, evaluate country and tariff
+                exposure, and support stronger global sourcing decisions.
               </p>
               <div className="hero-actions">
                 <a className="button button--primary" href="#projects">
@@ -228,8 +230,8 @@ export function HomePage() {
               <div>
                 <h2>Featured Projects</h2>
                 <p>
-                  Three strongest portfolio pieces: semiconductor packaging sourcing, Global
-                  Sourcing Copilot, and EV assembly logistics readiness.
+                  Featured projects focused on semiconductor sourcing, supplier risk scoring,
+                  global sourcing strategy, and AI-assisted sourcing workflows.
                 </p>
               </div>
             </div>
@@ -321,7 +323,7 @@ export function HomePage() {
                   {experience.points.map((point) => <li key={point}>{point}</li>)}
                 </ul>
                 <a className="text-link" href={warehouseOperationsCaseHref}>
-                  Warehouse / Operations Case Study <Icon name="arrow" />
+                  {warehouseOperationsCaseTitle} <Icon name="arrow" />
                 </a>
               </div>
             </div>
@@ -335,8 +337,8 @@ export function HomePage() {
               <div>
                 <h2>Articles &amp; Writing</h2>
                 <p>
-                  Four short writing pieces on AI, supplier risk, emerging technology, and how
-                  judgment fits into supply-chain analysis.
+                  Selected writing on supply chain disruption, AI in sourcing, supplier risk, and
+                  emerging technology.
                 </p>
               </div>
             </div>

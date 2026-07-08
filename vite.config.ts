@@ -17,7 +17,6 @@ export default defineConfig({
         warehouseOperationsCase: "warehouse-operations-case-study.html",
         distributionCenterCase: "distribution-center-location-strategy.html",
         vendorShippingCase: "vendor-shipping-cost-comparison.html",
-        purchaseToDispatchCase: "purchase-to-dispatch-workflow.html",
         skuInventoryCase: "sku-inventory-tracking.html"
       }
     }

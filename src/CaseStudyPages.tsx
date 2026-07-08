@@ -109,7 +109,7 @@ const evSummaryItems = [
   },
   {
     label: "Model type",
-    value: "Mock EV assembly logistics model with Excel workbook logic and a Tableau readiness dashboard"
+    value: "Simulated EV assembly logistics model with Excel workbook logic and a Tableau readiness dashboard"
   }
 ];
 
@@ -220,7 +220,7 @@ const landedSummaryItems = [
   },
   {
     label: "Model type",
-    value: "Mock sourcing cost model built across five sheets and summarized into a final sourcing dashboard"
+    value: "Simulated sourcing cost model built across five sheets and summarized into a final sourcing dashboard"
   }
 ];
 
@@ -298,7 +298,7 @@ export function EVAssemblyCasePage() {
               <p className="projects-name">Shiven Parikh</p>
               <h1>{evAssemblyCaseTitle}</h1>
               <p className="case-hero__subtitle">
-                A mock EV production-readiness model connecting BOM structure, supplier data,
+                A simulated EV production-readiness model connecting BOM structure, supplier data,
                 inventory availability, kitting status, shortage escalation, risk scoring, and a
                 Tableau operations dashboard.
               </p>
@@ -311,7 +311,7 @@ export function EVAssemblyCasePage() {
               <div className="case-actions">
                 {[
                   { label: "View Dashboard", href: evAssemblyDashboardHref },
-                  { label: "Open BOM Workbook", href: evAssemblyBomHref }
+                  { label: "View Spreadsheet", href: evAssemblyBomHref }
                 ].map((item) => (
                   <a
                     className="button button--outline"
@@ -343,7 +343,7 @@ export function EVAssemblyCasePage() {
 
           <DetailSection title="Project Overview" eyebrow="01">
             <p>
-              This case study models the material readiness process for a mock electric vehicle
+              This case study models the material readiness process for a simulated electric vehicle
               assembly operation. It connects a simplified bill of materials, supplier assignments,
               inventory availability, kitting readiness, active shortages, production risk, and a
               Tableau dashboard into one operations review workflow.
@@ -458,7 +458,7 @@ export function EVAssemblyCasePage() {
 
           <DetailSection title="Limitations and Future Improvements" eyebrow="11">
             <p>
-              The model uses mock data and manual risk weights. It does not connect to live ERP, WMS,
+              The model uses simulated data and manual risk weights. It does not connect to live ERP, WMS,
               MRP, purchase orders, receiving inspection, or transportation variability. A production
               version could add supplier promise dates, receipt dates, warehouse locations, quality
               holds, supplier scorecard history, build-day sequencing, and scenario analysis for
@@ -498,13 +498,13 @@ export function LandedCostCasePage() {
                 SKU-level planning, supplier quote comparison, and an executive sourcing dashboard.
               </p>
               <p className="case-hero__summary">
-                The project uses iPhones as a mock product category to show how sourcing decisions
+                The project uses iPhones as a simulated product category to show how sourcing decisions
                 change when demand, supplier type, freight, insurance, import duty, fees, warranty,
                 lead time, MOQ, risk, margin, and final recommendations are evaluated together.
               </p>
               <div className="case-actions">
                 {[
-                  { label: "Open Cost Model", href: landedCostModelHref }
+                  { label: "View Spreadsheet", href: landedCostModelHref }
                 ].map((item) => (
                   <a
                     className="button button--outline"
@@ -564,7 +564,7 @@ export function LandedCostCasePage() {
               variations across model, storage size, color, supplier, demand level, and pricing.
             </p>
             <p>
-              The case is a mock sourcing analysis for portfolio and learning purposes. Supplier
+              The case is a portfolio sourcing analysis for learning purposes. Supplier
               discounts, demand levels, costs, and recommendations are assumed for modeling and
               demonstration.
             </p>

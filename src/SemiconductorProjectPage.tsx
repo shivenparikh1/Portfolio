@@ -68,10 +68,10 @@ const dashboardResults = [
 ];
 
 const deliverables = [
-  { label: "Excel Sourcing Model", href: semiconductorExcelHref },
-  { label: "Tableau Dashboard Screenshot", href: semiconductorDashboardHref },
+  { label: "View Excel Model", href: semiconductorExcelHref },
+  { label: "View Dashboard", href: semiconductorDashboardHref },
   {
-    label: "Coursera Certificate",
+    label: "View Certificate",
     href: semiconductorCertificateHref
   }
 ];
@@ -174,6 +174,14 @@ export function SemiconductorProjectPage() {
               U.S.-based technology hardware buyer. The model compares suppliers across technical
               capability, country and trade risk, geographic diversification, cost exposure, data
               confidence, and sourcing resilience.
+            </p>
+            <p>
+              Built to help a U.S.-based semiconductor buyer identify preferred, conditional, and
+              high-risk OSAT suppliers under geopolitical, technical, and sourcing constraints.
+            </p>
+            <p>
+              OSAT means outsourced semiconductor assembly and test, the supplier layer responsible
+              for chip packaging, assembly, and testing.
             </p>
             <p>
               It should be read as a portfolio sourcing model based on public data and

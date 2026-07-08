@@ -5,7 +5,6 @@ import {
   distributionCenterCaseTitle,
   distributionCenterDashboardHref,
   distributionCenterModelHref,
-  purchaseToDispatchCaseTitle,
   purchaseToDispatchPreviewHref,
   skuInventoryCaseTitle,
   skuInventoryDashboardHref,
@@ -14,7 +13,9 @@ import {
   sourcingCopilotPreviewHref,
   sourcingCopilotTitle,
   vendorShippingCaseTitle,
+  vendorShippingPdfHref,
   vendorShippingPreviewHref,
+  vendorShippingSpreadsheetHref,
   warehouseOperationsCaseTitle,
   warehouseOperationsPreviewHref
 } from "./data";
@@ -60,6 +61,7 @@ type CaseVisual =
 
 type ContentBlock =
   | { kind: "paragraph"; text: string }
+  | { kind: "image"; src: string; alt: string; caption: string }
   | { kind: "callout"; text: string }
   | { kind: "metrics"; items: MetricItem[] }
   | { kind: "list"; items: string[]; ordered?: boolean }
@@ -174,6 +176,13 @@ function renderBlock(block: ContentBlock) {
   switch (block.kind) {
     case "paragraph":
       return <p key={block.text}>{block.text}</p>;
+    case "image":
+      return (
+        <figure className="case-dashboard" key={block.src}>
+          <img src={block.src} alt={block.alt} />
+          <figcaption>{block.caption}</figcaption>
+        </figure>
+      );
     case "callout":
       return <p className="callout" key={block.text}>{block.text}</p>;
     case "metrics":
@@ -235,19 +244,21 @@ function PortfolioCaseStudyPage({ study }: { study: CaseStudyContent }) {
               <h1>{study.title}</h1>
               <p className="case-hero__subtitle">{study.subtitle}</p>
               <p className="case-hero__summary">{study.summary}</p>
-              <div className="case-actions">
-                {study.actions.map((item) => (
-                  <a
-                    className="button button--outline"
-                    href={item.href}
-                    target={getLinkTarget(item.href)}
-                    rel={getLinkTarget(item.href) ? "noreferrer" : undefined}
-                    key={item.href}
-                  >
-                    {item.label} <Icon name="arrow" />
-                  </a>
-                ))}
-              </div>
+              {study.actions.length > 0 ? (
+                <div className="case-actions">
+                  {study.actions.map((item) => (
+                    <a
+                      className="button button--outline"
+                      href={item.href}
+                      target={getLinkTarget(item.href)}
+                      rel={getLinkTarget(item.href) ? "noreferrer" : undefined}
+                      key={item.href}
+                    >
+                      {item.label} <Icon name="arrow" />
+                    </a>
+                  ))}
+                </div>
+              ) : null}
             </div>
             <CaseVisualBlock visual={study.visual} />
           </div>
@@ -277,11 +288,11 @@ const sourcingCopilotStudy: CaseStudyContent = {
   title: sourcingCopilotTitle,
   badges: ["AI Sourcing Tool", "Interactive Workflow"],
   subtitle:
-    "A Streamlit sourcing workspace that moves from product intake to supplier discovery, scoring, market/news review, dashboard comparison, AI insight generation, and recommendation export.",
+    "A Streamlit sourcing workspace that moves from supplier intake to landed cost comparison, risk scoring, weighted decision logic, market signals, and final award recommendation.",
   summary:
-    "This project turns a sourcing analysis workflow into an interactive tool. Instead of treating supplier comparison as one static spreadsheet, the app guides the user through the decision path that a sourcing analyst would follow.",
+    "This project turns a sourcing analysis workflow into an interactive sourcing decision assistant. Instead of treating supplier comparison as one static spreadsheet, the prototype guides the user through the decision path that a sourcing analyst would follow.",
   actions: [
-    { label: "Launch Streamlit App", href: sourcingCopilotHref },
+    { label: "Launch App", href: sourcingCopilotHref },
     { label: "View App Preview", href: sourcingCopilotPreviewHref }
   ],
   visual: {
@@ -293,7 +304,7 @@ const sourcingCopilotStudy: CaseStudyContent = {
   summaryItems: [
     {
       label: "Project category",
-      value: "AI-assisted sourcing workflow / supplier research / comparison dashboard"
+      value: "AI-assisted sourcing workflow / supplier comparison / award recommendation"
     },
     {
       label: "Business question",
@@ -302,7 +313,7 @@ const sourcingCopilotStudy: CaseStudyContent = {
     },
     {
       label: "Model type",
-      value: "Interactive Streamlit app using guided tabs, session state, scoring, and recommendation output"
+      value: "Rule-based sourcing copilot prototype using guided tabs, session state, scoring, and recommendation output"
     }
   ],
   sections: [
@@ -313,7 +324,7 @@ const sourcingCopilotStudy: CaseStudyContent = {
         {
           kind: "paragraph",
           text:
-            "Global Sourcing Copilot is built as a practical sourcing assistant. The app organizes product intake, supplier discovery, scoring setup, weekly market/news review, dashboard comparison, AI-assisted insights, and recommendation export into one guided flow."
+            "Global Sourcing Copilot is built as a practical sourcing assistant. The app organizes product intake, supplier discovery, scoring setup, market signals, dashboard comparison, AI-assisted insights, and recommendation export into one guided flow."
         },
         {
           kind: "paragraph",
@@ -335,7 +346,7 @@ const sourcingCopilotStudy: CaseStudyContent = {
               ["Product intake", "Capture product category, buying context, and sourcing goal.", "Keeps the supplier search tied to a specific need."],
               ["Supplier discovery", "Organize candidate suppliers and source notes.", "Creates a comparison set before scoring begins."],
               ["Scoring setup", "Define cost, risk, lead time, quality, and capability criteria.", "Makes the recommendation explainable."],
-              ["News review", "Review current market or disruption context.", "Adds external risk signals to the sourcing view."],
+              ["Market Signals", "Review relevant sourcing news, tariff updates, disruption context, and supplier-risk context.", "Helps users consider current market exposure before final award."],
               ["Dashboard comparison", "Compare suppliers visually across the selected criteria.", "Helps identify tradeoffs quickly."],
               ["AI insights", "Generate structured observations and recommendations.", "Turns model output into decision language."],
               ["Export", "Package the recommendation for sharing.", "Creates a recruiter-ready or stakeholder-ready memo."]
@@ -414,11 +425,11 @@ const aiMicrochipStudy: CaseStudyContent = {
   title: aiMicrochipCaseTitle,
   badges: ["Global Sourcing", "Semiconductor Risk"],
   subtitle:
-    "A public-data sourcing model comparing Taiwan, South Korea, and a U.S. domestic hub for AI microchip supply-chain resilience.",
+    "A regional semiconductor sourcing framework comparing Taiwan, South Korea, and U.S. domestic hub exposure across geopolitical risk, lead time, trade cost, capacity bottlenecks, supplier criticality, and substitution difficulty.",
   summary:
     "The project evaluates advanced semiconductor sourcing strategy through capability, geopolitical exposure, lead time, tariffs, capacity, supplier criticality, and substitution difficulty. The recommendation is not to replace Asia, but to build a multi-region resilience layer.",
   actions: [
-    { label: "Spreadsheet Model", href: aiMicrochipModelHref }
+    { label: "View Spreadsheet", href: aiMicrochipModelHref }
   ],
   visual: {
     kind: "image",
@@ -449,7 +460,7 @@ const aiMicrochipStudy: CaseStudyContent = {
         {
           kind: "paragraph",
           text:
-            "The model recommends a multi-region sourcing strategy. Taiwan and South Korea remain critical for advanced foundry, packaging, HBM memory, wafer supply, and semiconductor capability. The U.S. domestic hub should be developed as a resilience layer for emergency supply, faster replenishment, distribution support, and risk reduction."
+            "Recommended strategy: Taiwan for advanced foundry and packaging capability, South Korea for memory and HBM exposure, and U.S. suppliers as resilience and backup capacity rather than full replacement."
         },
         {
           kind: "callout",
@@ -590,12 +601,10 @@ const warehouseOperationsStudy: CaseStudyContent = {
   title: warehouseOperationsCaseTitle,
   badges: ["Case Study", "Warehouse Operations"],
   subtitle:
-    "A supply chain operations case study on Mswipe MPOS device lifecycle, fresh inward, reverse inward, ERP controls, QC, RMA, allocation, dispatch, and installation linkage.",
+    "A real internship-based operations case study on MSWIPE MPOS device lifecycle, fresh inward, reverse inward, ERP controls, QC, RMA, allocation, dispatch, and installation linkage.",
   summary:
     "The case explains how serial-numbered payment devices move through physical scanning, ERP validation, flat-file updates, quality checks, repair loops, field returns, courier dispatch, and final installation closure.",
-  actions: [
-    { label: "View Process Preview", href: warehouseOperationsPreviewHref }
-  ],
+  actions: [],
   visual: {
     kind: "image",
     src: warehouseOperationsPreviewHref,
@@ -732,6 +741,24 @@ const warehouseOperationsStudy: CaseStudyContent = {
     },
     {
       eyebrow: "07",
+      title: "Procure-to-Dispatch Workflow Map",
+      blocks: [
+        {
+          kind: "paragraph",
+          text:
+            "This supporting workflow map shows how a purchase request moves through requester, procurement, supplier, warehouse, finance, logistics, and ERP handoffs before stock is dispatched and updated."
+        },
+        {
+          kind: "image",
+          src: purchaseToDispatchPreviewHref,
+          alt: "Procure-to-dispatch workflow map",
+          caption:
+            "Procure-to-Dispatch Workflow Map showing requester, procurement, supplier, warehouse, finance, logistics, and ERP handoffs."
+        }
+      ]
+    },
+    {
+      eyebrow: "08",
       title: "Skills Demonstrated",
       blocks: [
         {
@@ -761,7 +788,7 @@ const distributionCenterStudy: CaseStudyContent = {
     "The project uses public data and a weighted scorecard to compare market demand, freight access, logistics infrastructure, labor availability, growth potential, and cost environment. Chicago wins, with Dallas-Fort Worth as the strongest alternative.",
   actions: [
     { label: "View Dashboard", href: distributionCenterDashboardHref },
-    { label: "Spreadsheet Model", href: distributionCenterModelHref }
+    { label: "View Spreadsheet", href: distributionCenterModelHref }
   ],
   visual: {
     kind: "image",
@@ -921,7 +948,8 @@ const vendorShippingStudy: CaseStudyContent = {
   summary:
     "The project calculates savings and cost increases across within-city, within-state, within-zone, metro, rest-of-India, and special-destination shipments. Option 1 is recommended based on cost, with a note that service and contract factors still matter.",
   actions: [
-    { label: "View Cost Sheet", href: vendorShippingPreviewHref }
+    { label: "View PDF", href: vendorShippingPdfHref },
+    { label: "Open Spreadsheet", href: vendorShippingSpreadsheetHref }
   ],
   visual: {
     kind: "image",
@@ -1032,121 +1060,6 @@ const vendorShippingStudy: CaseStudyContent = {
             "Savings Analysis",
             "Procurement Decision Support",
             "Logistics Cost Control"
-          ]
-        }
-      ]
-    }
-  ]
-};
-
-const purchaseToDispatchStudy: CaseStudyContent = {
-  title: purchaseToDispatchCaseTitle,
-  badges: ["Workflow Analysis", "Procure to Dispatch"],
-  subtitle:
-    "A swimlane workflow analysis showing how a purchase request moves through procurement, vendor selection, receiving, accounting, stock allocation, dispatch, and ERP updates.",
-  summary:
-    "The project maps the handoffs that turn a business need into an approved purchase, vendor quotation, purchase order, goods receipt, inward entry, stock allocation, pick list, dispatch, and final stock update.",
-  actions: [
-    { label: "View Workflow Diagram", href: purchaseToDispatchPreviewHref }
-  ],
-  visual: {
-    kind: "image",
-    src: purchaseToDispatchPreviewHref,
-    alt: "Purchase-to-dispatch workflow analysis swimlane",
-    caption: "Swimlane workflow across requester, procurement, vendor, warehouse, finance, logistics, and ERP/system updates."
-  },
-  summaryItems: [
-    {
-      label: "Project category",
-      value: "Procure-to-dispatch workflow / process mapping / operational handoff controls"
-    },
-    {
-      label: "Business question",
-      value:
-        "Where can errors enter the purchase-to-dispatch flow, and what checklist controls reduce ordering, receiving, ERP, and dispatch mismatches?"
-    },
-    {
-      label: "Model type",
-      value: "Workflow diagram with swimlanes, approval loop, risk points, and improvement recommendation"
-    }
-  ],
-  sections: [
-    {
-      eyebrow: "01",
-      title: "Workflow Overview",
-      blocks: [
-        {
-          kind: "table",
-          label: "Purchase-to-dispatch workflow stages",
-          table: {
-            columns: ["Stage", "Process Step", "Control Point"],
-            rows: [
-              ["Requester / Department", "Need identified and purchase request created.", "PR / indent request should include complete item, quantity, and need details."],
-              ["Procurement", "Approval check, RFQ sent, vendor comparison, vendor selected, PO issued.", "Approval loop and vendor comparison prevent unsupported buying decisions."],
-              ["Vendor", "Quotation sent, sales invoice sent, goods delivered.", "Quotation, invoice, and delivered goods must match the purchase requirement."],
-              ["Warehouse", "Goods arrive, physical verification, quantity/condition decision, inward entry, stock allocated, pick list created.", "PO, invoice, and quantity checks reduce receiving errors."],
-              ["Finance / Accounting", "Invoice review and accounting update.", "Finance review connects physical receipt to the accounting record."],
-              ["Logistics / Dispatch", "Dispatch record is created and goods move outbound.", "Pick list and dispatch record connect stock allocation to shipment."],
-              ["ERP / System", "ERP stock updated and final stock updated.", "System updates close the loop so inventory reflects real movement."]
-            ]
-          }
-        }
-      ]
-    },
-    {
-      eyebrow: "02",
-      title: "Key Risk Points",
-      blocks: [
-        {
-          kind: "list",
-          ordered: true,
-          items: [
-            "Incorrect purchase-request details can cause ordering errors.",
-            "Choosing the lowest-cost vendor without checking reliability can cause delivery delays.",
-            "Incorrect ERP updates can create inventory mismatch between physical stock and system stock."
-          ]
-        }
-      ]
-    },
-    {
-      eyebrow: "03",
-      title: "Improvement Recommendation",
-      blocks: [
-        {
-          kind: "callout",
-          text:
-            "Use a standardized checklist across PR, RFQ, vendor comparison, PO, invoice matching, inward verification, ERP update, allocation, and dispatch to reduce errors and improve process tracking."
-        },
-        {
-          kind: "table",
-          label: "Purchase-to-dispatch checklist controls",
-          table: {
-            columns: ["Checklist Area", "What To Confirm", "Risk Reduced"],
-            rows: [
-              ["Purchase request", "Item, quantity, specifications, requester, need date, and approval path.", "Wrong item ordered or incomplete buying request."],
-              ["RFQ and vendor comparison", "Cost, lead time, quality, terms, reliability, and vendor history.", "Lowest-cost choice that fails operationally."],
-              ["PO and invoice match", "PO number, ordered quantity, invoice quantity, rate, tax, and delivery details.", "Payment and receipt mismatches."],
-              ["Physical verification", "Quantity, condition, delivered product, and damage/shortage notes.", "Incorrect inward entry or hidden damage."],
-              ["ERP and dispatch", "Stock location, allocation, pick list, dispatch record, and final stock update.", "Inventory mismatch after outbound movement."]
-            ]
-          }
-        }
-      ]
-    },
-    {
-      eyebrow: "04",
-      title: "Skills Demonstrated",
-      blocks: [
-        {
-          kind: "tags",
-          items: [
-            "Procure-to-Dispatch",
-            "Workflow Mapping",
-            "PR / RFQ / PO Logic",
-            "Invoice Matching",
-            "Physical Verification",
-            "ERP Updates",
-            "Dispatch Controls"
           ]
         }
       ]
@@ -1302,10 +1215,6 @@ export function DistributionCenterCasePage() {
 
 export function VendorShippingCasePage() {
   return <PortfolioCaseStudyPage study={vendorShippingStudy} />;
-}
-
-export function PurchaseToDispatchCasePage() {
-  return <PortfolioCaseStudyPage study={purchaseToDispatchStudy} />;
 }
 
 export function SKUInventoryCasePage() {

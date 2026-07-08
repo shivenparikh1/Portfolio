@@ -11,8 +11,6 @@ import {
   linkedinHref,
   projectCategories,
   projects,
-  purchaseToDispatchCaseTitle,
-  purchaseToDispatchPreviewHref,
   resumeHref,
   semiconductorDashboardHref,
   semiconductorProjectTitle,
@@ -37,8 +35,7 @@ const projectPreviews: Partial<Record<string, string>> = {
   [warehouseOperationsCaseTitle]: warehouseOperationsPreviewHref,
   [evAssemblyCaseTitle]: evAssemblyDashboardHref,
   [skuInventoryCaseTitle]: skuInventoryDashboardHref,
-  [distributionCenterCaseTitle]: distributionCenterDashboardHref,
-  [purchaseToDispatchCaseTitle]: purchaseToDispatchPreviewHref
+  [distributionCenterCaseTitle]: distributionCenterDashboardHref
 };
 
 const projectByTitle = new Map(projects.map((project) => [project.title, project]));
@@ -179,9 +176,9 @@ export function ProjectsPage() {
             <div className="projects-hero__layout">
               <h1>Supply Chain &amp; Sourcing Projects</h1>
               <p>
-                Models, dashboards, case studies, and completed tools focused on supplier
-                comparison, sourcing strategy, landed cost, production readiness, logistics
-                operations, and AI-assisted procurement decisions.
+                Sourcing models, supplier risk frameworks, landed cost tools, and supporting
+                operations projects focused on global sourcing, semiconductor supplier risk, and
+                AI-assisted sourcing intelligence.
               </p>
             </div>
             <nav className="category-nav" aria-label="Project categories">
@@ -206,8 +203,8 @@ export function ProjectsPage() {
                 <h2>Articles &amp; Writing</h2>
               </div>
               <p>
-                Four separate article links instead of one combined writing project, so each piece
-                can stand on its own.
+                Selected writing on supply chain disruption, AI in sourcing, supplier risk, and
+                emerging technology.
               </p>
             </div>
             <div className="article-grid">

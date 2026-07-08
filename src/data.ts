@@ -56,13 +56,14 @@ export const semiconductorExcelHref =
   "./assets/semiconductor-packaging-global-sourcing-supplier-risk-model.xlsx";
 export const semiconductorCertificateHref =
   "./assets/introduction-to-semiconductor-packaging-coursera-certificate.pdf";
-export const sourcingCopilotTitle = "Global Sourcing Copilot";
+export const sourcingCopilotTitle =
+  "Global Sourcing Copilot: Supplier Comparison & Award Recommendation Tool";
 export const sourcingCopilotCaseHref = "./global-sourcing-copilot.html";
 export const sourcingCopilotHref = "https://sourcingcopilot.streamlit.app/";
 export const sourcingCopilotPreviewHref =
   "./assets/global-sourcing-copilot-streamlit-preview.png";
 export const aiMicrochipCaseTitle =
-  "Global Sourcing Strategy Model for AI Microchips";
+  "AI Microchip Global Sourcing Risk Framework";
 export const aiMicrochipCaseHref = "./global-sourcing-ai-microchip.html";
 export const aiMicrochipModelHref =
   "./assets/global-sourcing-ai-microchip-framework.xlsx";
@@ -77,18 +78,18 @@ export const landedCostCaseTitle = "Landed Cost & Supplier Comparison Model";
 export const landedCostCaseHref = "./landed-cost-supplier-comparison.html";
 export const landedCostModelHref =
   "https://docs.google.com/spreadsheets/d/15Gr8eBAHjNAZ99r7JHt7nitAAsoYcfwoRmYWrbf8OGs/edit?usp=sharing";
-export const warehouseOperationsCaseTitle = "Warehouse / Operations Case Study";
+export const warehouseOperationsCaseTitle = "MSWIPE Warehouse / Operations Case Study";
 export const warehouseOperationsCaseHref = "./warehouse-operations-case-study.html";
 export const warehouseOperationsPreviewHref =
   "./assets/warehouse-inward-reverse-inward-preview.png";
-export const skuInventoryCaseTitle = "SKU Inventory Tracking Dashboard";
+export const skuInventoryCaseTitle = "Warehouse SKU & Reorder Alert Dashboard";
 export const skuInventoryCaseHref = "./sku-inventory-tracking.html";
 export const skuInventoryDashboardHref =
   "./assets/supply-chain-inventory-control-dashboard.png";
 export const skuInventoryModelHref =
   "https://docs.google.com/spreadsheets/d/1tRVHwdz5r-wIbCv08SFFiERXUvPXcFvsEIw99Rxj8JI/edit?gid=406111085#gid=406111085";
 export const distributionCenterCaseTitle =
-  "Advanced Manufacturing Distribution Center Location Strategy";
+  "U.S. Distribution Center Location Strategy Model";
 export const distributionCenterCaseHref =
   "./distribution-center-location-strategy.html";
 export const distributionCenterDashboardHref =
@@ -97,11 +98,12 @@ export const distributionCenterModelHref =
   "./assets/distribution-center-location-strategy-model.xlsx";
 export const vendorShippingCaseTitle = "Vendor Shipping Cost Comparison Analysis";
 export const vendorShippingCaseHref = "./vendor-shipping-cost-comparison.html";
+export const vendorShippingPdfHref =
+  "./assets/vendor-shipping-cost-comparison-analysis.pdf";
+export const vendorShippingSpreadsheetHref =
+  "./assets/vendor-shipping-cost-comparison-analysis.xlsx";
 export const vendorShippingPreviewHref =
   "./assets/vendor-shipping-cost-comparison-analysis.png";
-export const purchaseToDispatchCaseTitle =
-  "Purchase-to-Dispatch Workflow Analysis";
-export const purchaseToDispatchCaseHref = "./purchase-to-dispatch-workflow.html";
 export const purchaseToDispatchPreviewHref =
   "./assets/purchase-to-dispatch-workflow-analysis.png";
 
@@ -119,27 +121,27 @@ export const focusAreas = [
   {
     title: "Global Sourcing",
     description:
-      "Understanding how companies compare suppliers across countries based on cost, lead time, freight, tariffs, supplier capability, and regional risk."
+      "Understanding how companies compare suppliers across countries based on landed cost, lead time, freight, tariffs, supplier capability, contract terms, and regional risk."
   },
   {
-    title: "Strategic Sourcing",
+    title: "Semiconductor Supply Chains",
     description:
-      "Learning the structured process of analyzing spend, researching supplier markets, building RFQs, comparing suppliers, negotiating, and selecting sourcing strategies."
-  },
-  {
-    title: "Sourcing Strategies",
-    description:
-      "Studying low-cost country sourcing, China Plus One, nearshoring, dual sourcing, and strategic supplier partnerships."
+      "Studying how semiconductor sourcing depends on OSAT suppliers, foundries, packaging capability, advanced packaging demand, geographic concentration, and supplier resilience."
   },
   {
     title: "Supplier Risk Analytics",
     description:
-      "Building models that score suppliers based on disruption risk, geopolitical exposure, lead-time volatility, quality risk, and region concentration."
+      "Building models that score suppliers based on disruption exposure, geopolitical risk, lead-time volatility, quality risk, financial scale, and data confidence."
   },
   {
-    title: "AI Implementation",
+    title: "Landed Cost & Trade Exposure",
     description:
-      "Using AI tools to support supplier research, RFQ comparison, country risk summaries, landed cost scenarios, and sourcing recommendations."
+      "Analyzing how freight, duties, tariffs, insurance, payment terms, supplier location, and trade policy change the true cost of sourcing decisions."
+  },
+  {
+    title: "AI-Assisted Sourcing",
+    description:
+      "Using AI tools to support supplier research, RFQ comparison, country risk summaries, tariff scenario planning, supplier scorecards, and sourcing recommendation writing."
   }
 ];
 
@@ -211,18 +213,13 @@ export const projects: Project[] = [
   {
     title: semiconductorProjectTitle,
     description:
-      "Compared 10 global OSAT suppliers using a weighted sourcing model built around country/trade risk, geographic diversification, technical capability, advanced packaging/AI fit, financial scale, U.S. buyer fit, cost exposure, and data confidence.",
+      "Compared 10 global OSAT suppliers using a weighted sourcing model built around country and trade risk, geographic diversification, technical capability, advanced packaging and AI fit, financial scale, U.S. buyer fit, cost exposure, and data confidence.",
     skills: [
       "Global Sourcing Strategy",
       "Supplier Risk Analysis",
-      "OSAT / Semiconductor Packaging Research",
+      "OSAT / Semiconductor Packaging",
       "Weighted Supplier Scoring",
-      "Country and Trade Risk Analysis",
-      "Cost Exposure Modeling",
-      "Data Confidence Scoring",
-      "Tableau Dashboarding",
-      "Excel Modeling",
-      "AI-Assisted Research Workflow"
+      "Country and Trade Risk Analysis"
     ],
     tools: [
       "Excel",
@@ -232,7 +229,7 @@ export const projects: Project[] = [
       "AI-Assisted Research"
     ],
     insights: [
-      "ASE Technology / ASE Group and Amkor Technology offered the strongest balance of capability, risk exposure, U.S. buyer fit, and sourcing resilience in this public-data portfolio model."
+      "Built to help a U.S.-based semiconductor buyer identify preferred, conditional, and high-risk OSAT suppliers under geopolitical, technical, and sourcing constraints. OSAT means outsourced semiconductor assembly and test, the supplier layer responsible for chip packaging, assembly, and testing."
     ],
     links: [
       { label: "View Case Study", href: semiconductorProjectHref },
@@ -245,35 +242,33 @@ export const projects: Project[] = [
   {
     title: sourcingCopilotTitle,
     description:
-      "Built a Streamlit sourcing workspace that guides product intake, supplier discovery, scoring framework setup, weekly news review, dashboard comparison, AI insights, and recommendation export.",
+      "A sourcing workspace that guides supplier intake, landed cost comparison, risk scoring, weighted decision logic, and final award recommendations.",
     skills: [
       "AI-Assisted Sourcing",
-      "Streamlit",
       "Supplier Comparison",
       "Landed Cost",
       "Risk Scoring",
-      "Dashboarding",
       "Recommendation Memo"
     ],
-    tools: ["Python", "Streamlit", "Session State", "Sourcing Workflow", "Dashboard UI"],
+    tools: ["Python", "Streamlit", "Rule-Based Scoring", "Sourcing Workflow", "Dashboard UI"],
     insights: [
-      "A sourcing tool is stronger when it guides the user from requirements intake through supplier scoring, risk review, and recommendation memo export."
+      "A rule-based sourcing copilot prototype is stronger when it guides the user from requirements intake through supplier scoring, landed cost comparison, market signals, and award recommendation."
     ],
     links: [
       { label: "View Case Study", href: sourcingCopilotCaseHref },
-      { label: "Launch Streamlit App", href: sourcingCopilotHref }
+      { label: "Launch App", href: sourcingCopilotHref }
     ]
   },
   {
     title: aiMicrochipCaseTitle,
     description:
-      "A global sourcing model for AI microchips comparing Taiwan, South Korea, and a U.S. domestic hub across landed cost, lead time, tariffs, supplier capability, and risk exposure.",
-    skills: ["Global Sourcing", "AI Microchips", "Landed Cost", "Supplier Comparison", "Sourcing Strategy"],
+      "A regional semiconductor sourcing framework comparing Taiwan, South Korea, and U.S. domestic hub exposure across geopolitical risk, lead time, trade cost, capacity bottlenecks, supplier criticality, and substitution difficulty.",
+    skills: ["Global Sourcing", "AI Microchips", "Semiconductor Supply Chain", "Scenario Analysis", "Supplier Risk"],
     tools: ["Excel", "Google Sheets", "Scenario Comparison", "Sourcing Framework"],
-    insights: ["Global sourcing decisions are stronger when cost, capability, resilience, and regional exposure are evaluated together."],
+    insights: ["Recommended strategy: Taiwan for advanced foundry and packaging capability, South Korea for memory and HBM exposure, and U.S. suppliers as resilience and backup capacity rather than full replacement."],
     links: [
       { label: "View Case Study", href: aiMicrochipCaseHref },
-      { label: "Spreadsheet Model", href: aiMicrochipModelHref }
+      { label: "View Spreadsheet", href: aiMicrochipModelHref }
     ]
   },
   {
@@ -284,27 +279,27 @@ export const projects: Project[] = [
     tools: ["Excel", "Google Sheets", "Weighted Scorecard", "Dashboard Summary"],
     insights: ["A supplier risk score is most useful when it makes the source of exposure visible instead of reducing every risk to one unexplained number."],
     links: [
-      { label: "View Scorecard", href: "https://docs.google.com/spreadsheets/d/1isNEYD47TgExA5Wjflqh_QYZmAQzakrAys8E6G4sVKo/edit?usp=sharing" },
-      { label: "Risk Dashboard", href: "./assets/supplier-scorecard-vendor-risk-dashboard.pdf" }
+      { label: "View Spreadsheet", href: "https://docs.google.com/spreadsheets/d/1isNEYD47TgExA5Wjflqh_QYZmAQzakrAys8E6G4sVKo/edit?usp=sharing" },
+      { label: "View Dashboard", href: "./assets/supplier-scorecard-vendor-risk-dashboard.pdf" }
     ]
   },
   {
     title: landedCostCaseTitle,
     description:
-      "A model that compares unit cost, freight, duties, tariff exposure, lead time, and total landed cost to support sourcing decisions.",
+      "A foundational sourcing model built to practice landed cost, supplier comparison, demand-based quantity planning, and sourcing recommendation logic.",
     skills: ["Landed Cost", "Supplier Selection", "Cost Modeling", "Sourcing Analysis"],
     tools: ["Google Sheets", "Excel", "Cost Sheet Model", "Supplier Dashboard"],
     insights: ["The lowest unit-price quote can become the wrong sourcing decision after freight, tariffs, duties, and lead-time costs are included."],
     links: [
       { label: "View Case Study", href: landedCostCaseHref },
-      { label: "View Cost Model", href: landedCostModelHref }
+      { label: "View Spreadsheet", href: landedCostModelHref }
     ]
   },
   {
     title: warehouseOperationsCaseTitle,
     description:
-      "A supporting operations project documenting warehouse inward, reverse inward, ERP updates, physical verification, and process flow.",
-    skills: ["Warehouse Operations", "Process Mapping", "Reverse Logistics", "ERP Workflow"],
+      "A real internship-based operations case study documenting warehouse inward, reverse inward, ERP controls, physical verification, QC, RMA, allocation, dispatch, and process improvement opportunities.",
+    skills: ["Warehouse Operations", "Process Mapping", "Reverse Logistics", "ERP Workflow", "Inventory Control"],
     tools: ["Process Flowcharts", "ERP Process Notes", "SOP Documentation"],
     insights: ["Reliable sourcing outcomes still depend on accurate receiving, verification, inventory records, and cross-functional handoffs."],
     links: [
@@ -314,20 +309,20 @@ export const projects: Project[] = [
   {
     title: evAssemblyCaseTitle,
     description:
-      "Built an electric vehicle assembly logistics readiness model using a bill of materials, kit-readiness analysis, shortage tracking, component risk scoring, and recovery planning.",
+      "A supporting operations project showing how supplier and inventory risk can create production-readiness issues across BOM structure, kit readiness, shortage tracking, component risk scoring, and recovery planning.",
     skills: ["Materials Planning", "BOM Analysis", "Kit Readiness", "Shortage Risk"],
     tools: ["Excel", "Tableau", "BOM Workbook", "Shortage Tracker"],
     insights: ["Production readiness depends on finding high-risk and missing components before they disrupt the assembly plan."],
     links: [
       { label: "View Case Study", href: evAssemblyCaseHref },
       { label: "View Dashboard", href: evAssemblyDashboardHref },
-      { label: "BOM Spreadsheet", href: evAssemblyBomHref }
+      { label: "View Spreadsheet", href: evAssemblyBomHref }
     ]
   },
   {
     title: skuInventoryCaseTitle,
     description:
-      "Created an inventory tracking system to monitor SKU movement, stock levels, reorder alerts, and inventory status.",
+      "A warehouse inventory dashboard tracking SKU availability, inventory value, reorder alerts, stock movement, and low-stock risk across multiple warehouse locations.",
     skills: ["Inventory Management", "SKU Tracking", "Reorder Analysis", "Dashboarding"],
     tools: ["Google Sheets", "Excel", "Stock Movement Log", "Summary Dashboard"],
     insights: ["Inventory visibility supports sourcing by revealing demand, stockout exposure, and the timing of replenishment decisions."],
@@ -340,14 +335,14 @@ export const projects: Project[] = [
   {
     title: distributionCenterCaseTitle,
     description:
-      "Created a location strategy model comparing cities on freight access, labor availability, market reach, infrastructure, and business environment.",
+      "A weighted network-design model comparing Chicago, Dallas-Fort Worth, Atlanta, Phoenix, and Columbus for a consumer electronics distribution center.",
     skills: ["Network Design", "Location Analysis", "Freight Access", "Weighted Scoring"],
     tools: ["Google Sheets", "Excel", "Scoring Matrix", "Dashboard"],
-    insights: ["The best distribution center location is not just the cheapest city. It is the site that balances freight access, labor, customer reach, and long-term scalability."],
+    insights: ["The best distribution center location is not just the cheapest city. It is the site that balances freight access, labor, customer reach, infrastructure, and long-term scalability."],
     links: [
       { label: "View Case Study", href: distributionCenterCaseHref },
       { label: "View Dashboard", href: distributionCenterDashboardHref },
-      { label: "Spreadsheet Model", href: distributionCenterModelHref }
+      { label: "View Spreadsheet", href: distributionCenterModelHref }
     ]
   },
   {
@@ -358,18 +353,8 @@ export const projects: Project[] = [
     tools: ["Google Sheets", "Cost Comparison Table", "Decision Summary"],
     insights: ["Option 1 creates a 12.89% average saving versus the current vendor, but the final choice still needs service quality, reliability, and contract terms before execution."],
     links: [
-      { label: "View Case Study", href: vendorShippingCaseHref }
-    ]
-  },
-  {
-    title: purchaseToDispatchCaseTitle,
-    description:
-      "Mapped the purchasing-to-dispatch workflow across requester, procurement, vendor, warehouse, finance, logistics, and ERP handoffs.",
-    skills: ["Procure-to-Dispatch", "Process Mapping", "ERP Workflow", "Operational Controls"],
-    tools: ["Workflow Diagram", "Swimlane Analysis", "Risk Points"],
-    insights: ["A standardized checklist across PR, RFQ, vendor comparison, PO, invoice matching, inward verification, ERP update, allocation, and dispatch reduces handoff errors."],
-    links: [
-      { label: "View Case Study", href: purchaseToDispatchCaseHref }
+      { label: "View PDF", href: vendorShippingPdfHref },
+      { label: "Open Spreadsheet", href: vendorShippingSpreadsheetHref }
     ]
   }
 ];
@@ -382,10 +367,10 @@ export const projectCategories: ProjectCategory[] = [
     projectTitles: [
       semiconductorProjectTitle,
       sourcingCopilotTitle,
-      landedCostCaseTitle,
       aiMicrochipCaseTitle,
-      vendorShippingCaseTitle,
-      "Supplier Risk Scoring Dashboard"
+      landedCostCaseTitle,
+      "Supplier Risk Scoring Dashboard",
+      vendorShippingCaseTitle
     ]
   },
   {
@@ -393,10 +378,9 @@ export const projectCategories: ProjectCategory[] = [
     title: "Operations, Logistics & Network Analytics",
     description: "Operational evidence that supports sourcing judgment through receiving, inventory, production readiness, and network analysis.",
     projectTitles: [
+      warehouseOperationsCaseTitle,
       evAssemblyCaseTitle,
       distributionCenterCaseTitle,
-      warehouseOperationsCaseTitle,
-      purchaseToDispatchCaseTitle,
       skuInventoryCaseTitle
     ]
   }
@@ -423,9 +407,22 @@ export const skillGroups: SkillGroup[] = [
 
 export const articles: Article[] = [
   {
+    title: "Global Supply Chains Are Not Back to Normal",
+    description:
+      "Explores why modern supply chains are no longer returning to a stable normal, but adapting to permanent disruption, volatility, trade risk, and sourcing complexity.",
+    skills: ["Global Sourcing", "Supply Chain Risk", "Trade Disruption"],
+    href: "https://medium.com/@shivenparikh1/global-supply-chains-are-not-back-to-normal-they-are-just-getting-better-at-being-weird-516aee75cace"
+  },
+  {
+    title: "How AI Is Changing Supplier Risk Management",
+    description: "Explores how AI can identify supplier risk, hidden fragility, early warning signals, and disruptions beyond first-tier suppliers.",
+    skills: ["Supplier Risk", "AI in Sourcing", "Supply Chain Visibility"],
+    href: "https://medium.com/@shivenparikh1/how-ai-is-changing-supplier-risk-management-36f9109d4e4c"
+  },
+  {
     title: "AI and Humans in Supply Chain",
     description: "Explores how AI is becoming a support tool in supply chain work and why human judgment still matters in planning, sourcing, and operations.",
-    skills: ["Business Writing", "AI Research", "Supply Chain Strategy"],
+    skills: ["AI Research", "Supply Chain Strategy", "Business Writing"],
     href: "https://medium.com/@shivenparikh1/ai-and-humans-in-supply-chain-the-coworker-we-didnt-hire-but-now-have-to-work-with-a5c4e3711006"
   },
   {
@@ -435,15 +432,9 @@ export const articles: Article[] = [
     href: "https://medium.com/@shivenparikh1/same-prompt-different-brain-why-no-two-ai-models-give-you-the-same-response-88c65e0f6ac4"
   },
   {
-    title: "How AI Is Changing Supplier Risk Management",
-    description: "Explores how AI can identify supplier risk, hidden fragility, early warning signals, and disruptions beyond first-tier suppliers.",
-    skills: ["Supplier Risk", "Research", "Advanced Manufacturing"],
-    href: "https://medium.com/@shivenparikh1/how-ai-is-changing-supplier-risk-management-36f9109d4e4c"
-  },
-  {
     title: "Beyond Earth: The Future of Asteroid Mining",
     description: "Examines future resource extraction, asteroid mining, and the long-term business possibilities of space-based supply chains.",
-    skills: ["Industry Research", "Emerging Technology", "Business Writing"],
+    skills: ["Emerging Technology", "Industry Research", "Other Writing"],
     href: "https://medium.com/@shivenparikh1/beyond-earth-the-trillion-dollar-future-of-asteroid-mining-8c3c6f7253bd"
   }
 ];
