@@ -220,6 +220,29 @@ export function HomePage() {
           </div>
         </section>
 
+        {experience ? (
+          <section className="section experience-section" id="experience">
+            <div className="container-wide experience-layout">
+              <div>
+                <h2>Supporting Operations Experience</h2>
+              </div>
+              <div className="experience-card">
+                <div>
+                  <p className="experience-company">{experience.company}</p>
+                  <h3>{experience.role}</h3>
+                  <p>{experience.description}</p>
+                </div>
+                <ul className="tag-list">
+                  {experience.points.map((point) => <li key={point}>{point}</li>)}
+                </ul>
+                <a className="text-link" href={warehouseOperationsCaseHref}>
+                  {warehouseOperationsCaseTitle} <Icon name="arrow" />
+                </a>
+              </div>
+            </div>
+          </section>
+        ) : null}
+
         <section className="section projects-section" id="projects">
           <div className="container-wide">
             <div className="section-heading">
@@ -240,6 +263,25 @@ export function HomePage() {
               <a className="button button--primary button--large" href="./projects.html">
                 View the rest of my projects <Icon name="arrow" />
               </a>
+            </div>
+          </div>
+        </section>
+
+        <section className="section articles-section" id="articles">
+          <div className="container-wide">
+            <div className="section-heading">
+              <div>
+                <h2>Articles &amp; Writing</h2>
+                <p>
+                  Selected writing on supply chain disruption, AI in sourcing, supplier risk, and
+                  emerging technology.
+                </p>
+              </div>
+            </div>
+            <div className="article-grid">
+              {articles.map((article) => (
+                <ArticleCard article={article} key={article.href} />
+              ))}
             </div>
           </div>
         </section>
@@ -294,48 +336,6 @@ export function HomePage() {
                     <p>{strategy.risks}</p>
                   </div>
                 </article>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {experience ? (
-          <section className="section experience-section" id="experience">
-            <div className="container-wide experience-layout">
-              <div>
-                <h2>Supporting Operations Experience</h2>
-              </div>
-              <div className="experience-card">
-                <div>
-                  <p className="experience-company">{experience.company}</p>
-                  <h3>{experience.role}</h3>
-                  <p>{experience.description}</p>
-                </div>
-                <ul className="tag-list">
-                  {experience.points.map((point) => <li key={point}>{point}</li>)}
-                </ul>
-                <a className="text-link" href={warehouseOperationsCaseHref}>
-                  {warehouseOperationsCaseTitle} <Icon name="arrow" />
-                </a>
-              </div>
-            </div>
-          </section>
-        ) : null}
-
-        <section className="section articles-section" id="articles">
-          <div className="container-wide">
-            <div className="section-heading">
-              <div>
-                <h2>Articles &amp; Writing</h2>
-                <p>
-                  Selected writing on supply chain disruption, AI in sourcing, supplier risk, and
-                  emerging technology.
-                </p>
-              </div>
-            </div>
-            <div className="article-grid">
-              {articles.map((article) => (
-                <ArticleCard article={article} key={article.href} />
               ))}
             </div>
           </div>
