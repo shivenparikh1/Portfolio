@@ -62,6 +62,12 @@ export const sourcingCopilotCaseHref = "./global-sourcing-copilot.html";
 export const sourcingCopilotHref = "https://sourcingcopilot.streamlit.app/";
 export const sourcingCopilotPreviewHref =
   "./assets/global-sourcing-copilot-streamlit-preview.png";
+export const globalSourcingPredictorTitle =
+  "Global Sourcing Predictor Command Center";
+export const globalSourcingPredictorHref =
+  "https://global-sourcing-predictor-dashboard.vercel.app";
+export const globalSourcingPredictorGithubHref =
+  "https://github.com/shivenparikh1/global-sourcing-predictor-dashboard";
 export const aiMicrochipCaseTitle =
   "AI Microchip Global Sourcing Risk Framework";
 export const aiMicrochipCaseHref = "./global-sourcing-ai-microchip.html";
@@ -261,6 +267,27 @@ export const projects: Project[] = [
     ]
   },
   {
+    title: globalSourcingPredictorTitle,
+    description:
+      "A deployed command-center prototype for modeling suppliers, demand hubs, routes, risk events, product details, forecast readiness, and sourcing workflow intelligence across multiple dashboard scenarios.",
+    skills: [
+      "Global Sourcing",
+      "Supplier Network Modeling",
+      "Risk Intelligence",
+      "Scenario Planning",
+      "Dashboard UX"
+    ],
+    tools: ["React", "TypeScript", "Vite", "Tailwind CSS", "Vercel", "GitHub"],
+    insights: [
+      "A sourcing predictor is most useful when product details, supplier capacity, route structure, risk exposure, and missing-data warnings live in one workflow instead of separate spreadsheets."
+    ],
+    links: [
+      { label: "Launch Website", href: globalSourcingPredictorHref },
+      { label: "View GitHub", href: globalSourcingPredictorGithubHref }
+    ],
+    badges: ["Live Website", "Command Center Prototype", "GitHub + Vercel"]
+  },
+  {
     title: aiMicrochipCaseTitle,
     description:
       "A regional semiconductor sourcing framework comparing Taiwan, South Korea, and U.S. domestic hub exposure across geopolitical risk, lead time, trade cost, capacity bottlenecks, supplier criticality, and substitution difficulty.",
@@ -367,6 +394,7 @@ export const projectCategories: ProjectCategory[] = [
     description: "Primary work in supplier comparison, sourcing strategy, landed cost, risk analytics, and AI-assisted procurement.",
     projectTitles: [
       semiconductorProjectTitle,
+      globalSourcingPredictorTitle,
       sourcingCopilotTitle,
       aiMicrochipCaseTitle,
       landedCostCaseTitle,

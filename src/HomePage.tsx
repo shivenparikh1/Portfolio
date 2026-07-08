@@ -7,6 +7,7 @@ import {
   evAssemblyCaseTitle,
   experiences,
   focusAreas,
+  globalSourcingPredictorTitle,
   linkedinHref,
   projects,
   resumeHref,
@@ -23,6 +24,7 @@ import { SiteFooter, SiteHeader } from "./components/SiteChrome";
 
 const featuredProjectTitles = [
   semiconductorProjectTitle,
+  globalSourcingPredictorTitle,
   sourcingCopilotTitle,
   aiMicrochipCaseTitle
 ];
@@ -54,7 +56,10 @@ const aiApplications = [
 function ProjectCard({ project, index }: { project: Project; index: number }) {
   const preview = projectImages[project.title];
   const isFeatured = project.title === semiconductorProjectTitle;
-  const showAllLinks = isFeatured || project.title === aiMicrochipCaseTitle;
+  const showAllLinks =
+    isFeatured ||
+    project.title === globalSourcingPredictorTitle ||
+    project.title === aiMicrochipCaseTitle;
   const visibleLinks = showAllLinks ? project.links : project.links.slice(0, 1);
 
   return (
