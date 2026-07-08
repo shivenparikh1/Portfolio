@@ -270,12 +270,15 @@
 }
 
 .project-row--dashboard .project-row__visual > img {
+  box-sizing: border-box;
   object-fit: contain;
   object-position: center;
   padding: 12px;
 }
 
 .project-row--selected .project-row__visual > img {
+  width: 100%;
+  height: auto;
   object-fit: contain;
   object-position: center;
   max-height: 760px;
@@ -467,6 +470,7 @@
 
 .case-hero__visual img,
 .case-dashboard img {
+  box-sizing: border-box;
   width: 100%;
   max-height: 720px;
   object-fit: contain;

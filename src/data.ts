@@ -84,8 +84,12 @@ export const evAssemblyDashboardHref =
 export const evAssemblyBomHref = "./assets/ev-assembly-logistics-bom.xlsx";
 export const landedCostCaseTitle = "Landed Cost & Supplier Comparison Model";
 export const landedCostCaseHref = "./landed-cost-supplier-comparison.html";
+export const landedCostPreviewHref =
+  "./assets/landed-cost-supplier-comparison-cover.svg";
 export const landedCostModelHref =
   "https://docs.google.com/spreadsheets/d/15Gr8eBAHjNAZ99r7JHt7nitAAsoYcfwoRmYWrbf8OGs/edit?usp=sharing";
+export const supplierRiskDashboardHref =
+  "./assets/supplier-scorecard-vendor-risk-dashboard.pdf";
 export const warehouseOperationsCaseTitle = "MSWIPE Warehouse / Operations Case Study";
 export const warehouseOperationsCaseHref =
   "./assets/warehouse-inward-reverse-inward-case-study.pdf";
@@ -303,27 +307,17 @@ export const projects: Project[] = [
     ]
   },
   {
-    title: "Supplier Risk Scoring Dashboard",
-    description:
-      "A dashboard that evaluates suppliers by disruption exposure, geopolitical risk, lead-time volatility, quality risk, and sourcing region concentration.",
-    skills: ["Supplier Risk", "Risk Scoring", "Dashboarding", "Analytics"],
-    tools: ["Excel", "Google Sheets", "Weighted Scorecard", "Dashboard Summary"],
-    insights: ["A supplier risk score is most useful when it makes the source of exposure visible instead of reducing every risk to one unexplained number."],
-    links: [
-      { label: "View Spreadsheet", href: "https://docs.google.com/spreadsheets/d/1isNEYD47TgExA5Wjflqh_QYZmAQzakrAys8E6G4sVKo/edit?usp=sharing" },
-      { label: "View Dashboard", href: "./assets/supplier-scorecard-vendor-risk-dashboard.pdf" }
-    ]
-  },
-  {
     title: landedCostCaseTitle,
     description:
-      "A foundational sourcing model built to practice landed cost, supplier comparison, demand-based quantity planning, and sourcing recommendation logic.",
-    skills: ["Landed Cost", "Supplier Selection", "Cost Modeling", "Sourcing Analysis"],
-    tools: ["Google Sheets", "Excel", "Cost Sheet Model", "Supplier Dashboard"],
-    insights: ["The lowest unit-price quote can become the wrong sourcing decision after freight, tariffs, duties, and lead-time costs are included."],
+      "A combined sourcing model for landed cost, supplier quote comparison, supplier risk scoring, vendor shipping cost analysis, and final recommendation logic.",
+    skills: ["Landed Cost", "Supplier Selection", "Supplier Risk Scoring", "Freight Cost Comparison", "Sourcing Analysis"],
+    tools: ["Google Sheets", "Excel", "Cost Sheet Model", "Supplier Dashboard", "Vendor Rate Comparison"],
+    insights: ["Treating landed cost, supplier risk, and shipping-rate comparison as one sourcing view prevents a low unit price or low carrier rate from looking better than the full decision."],
     links: [
       { label: "View Case Study", href: landedCostCaseHref },
-      { label: "View Spreadsheet", href: landedCostModelHref }
+      { label: "View Spreadsheet", href: landedCostModelHref },
+      { label: "Open Shipping Cost Model", href: vendorShippingSpreadsheetHref },
+      { label: "View Supplier Risk Dashboard", href: supplierRiskDashboardHref }
     ]
   },
   {
@@ -375,18 +369,6 @@ export const projects: Project[] = [
       { label: "View Dashboard", href: distributionCenterDashboardHref },
       { label: "View Spreadsheet", href: distributionCenterModelHref }
     ]
-  },
-  {
-    title: vendorShippingCaseTitle,
-    description:
-      "Compared a current small-shipment vendor against two alternatives across destination zones, base weights, additional-weight rates, savings, and cost increases.",
-    skills: ["Vendor Comparison", "Freight Cost Analysis", "Small Parcel Shipping", "Cost Savings"],
-    tools: ["Google Sheets", "Cost Comparison Table", "Decision Summary"],
-    insights: ["Option 1 creates a 12.89% average saving versus the current vendor, but the final choice still needs service quality, reliability, and contract terms before execution."],
-    links: [
-      { label: "View PDF", href: vendorShippingPdfHref },
-      { label: "Open Spreadsheet", href: vendorShippingSpreadsheetHref }
-    ]
   }
 ];
 
@@ -400,9 +382,7 @@ export const projectCategories: ProjectCategory[] = [
       globalSourcingPredictorTitle,
       sourcingCopilotTitle,
       aiMicrochipCaseTitle,
-      landedCostCaseTitle,
-      "Supplier Risk Scoring Dashboard",
-      vendorShippingCaseTitle
+      landedCostCaseTitle
     ]
   },
   {

@@ -4,6 +4,7 @@ import {
   evAssemblyDashboardHref,
   evAssemblyCaseTitle,
   landedCostCaseTitle,
+  landedCostPreviewHref,
   landedCostModelHref
 } from "./data";
 import { Icon } from "./components/Icon";
@@ -519,35 +520,13 @@ export function LandedCostCasePage() {
               </div>
             </div>
             <figure className="case-hero__visual case-hero__visual--model">
-              <div className="case-model-preview" aria-label="Landed cost sourcing dashboard preview">
-                <div>
-                  <span>Total Landed Cost</span>
-                  <strong>$2.38M</strong>
-                </div>
-                <div>
-                  <span>Gross Margin</span>
-                  <strong>$718.8K</strong>
-                </div>
-                <div>
-                  <span>Quote Rows</span>
-                  <strong>40</strong>
-                </div>
-                <div className="case-model-preview__bar">
-                  <span>Recommended</span>
-                  <i style={{ width: "25%" }} />
-                </div>
-                <div className="case-model-preview__bar">
-                  <span>Backup</span>
-                  <i style={{ width: "62.5%" }} />
-                </div>
-                <div className="case-model-preview__bar">
-                  <span>Rejected</span>
-                  <i style={{ width: "12.5%" }} />
-                </div>
-              </div>
+              <img
+                src={landedCostPreviewHref}
+                alt="Landed cost and supplier comparison model cover"
+              />
               <figcaption>
-                Code-native summary preview based on the final sourcing dashboard and vendor
-                comparison results from the Word report.
+                Portfolio cover for the landed cost, supplier comparison, risk scoring, and
+                shipping-cost decision model.
               </figcaption>
             </figure>
           </div>

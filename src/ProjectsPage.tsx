@@ -10,6 +10,8 @@ import {
   evAssemblyDashboardHref,
   globalSourcingPredictorPreviewHref,
   globalSourcingPredictorTitle,
+  landedCostCaseTitle,
+  landedCostPreviewHref,
   linkedinHref,
   projectCategories,
   projects,
@@ -20,8 +22,6 @@ import {
   skuInventoryDashboardHref,
   sourcingCopilotPreviewHref,
   sourcingCopilotTitle,
-  vendorShippingCaseTitle,
-  vendorShippingPreviewHref,
   warehouseOperationsCaseTitle,
   warehouseOperationsPreviewHref
 } from "./data";
@@ -38,8 +38,7 @@ const projectPreviews: Partial<Record<string, string>> = {
   [globalSourcingPredictorTitle]: globalSourcingPredictorPreviewHref,
   [sourcingCopilotTitle]: sourcingCopilotPreviewHref,
   [aiMicrochipCaseTitle]: aiMicrochipPreviewHref,
-  [vendorShippingCaseTitle]: vendorShippingPreviewHref,
-  "Supplier Risk Scoring Dashboard": "./assets/supplier-scorecard-preview.png",
+  [landedCostCaseTitle]: landedCostPreviewHref,
   [warehouseOperationsCaseTitle]: warehouseOperationsPreviewHref,
   [evAssemblyCaseTitle]: evAssemblyDashboardHref,
   [skuInventoryCaseTitle]: skuInventoryDashboardHref,
