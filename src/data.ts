@@ -424,18 +424,6 @@ export const articles: Article[] = [
     description: "Explores how AI is becoming a support tool in supply chain work and why human judgment still matters in planning, sourcing, and operations.",
     skills: ["AI Research", "Supply Chain Strategy", "Business Writing"],
     href: "https://medium.com/@shivenparikh1/ai-and-humans-in-supply-chain-the-coworker-we-didnt-hire-but-now-have-to-work-with-a5c4e3711006"
-  },
-  {
-    title: "Same Prompt, Different Brain",
-    description: "Explores why different AI models respond differently to the same prompt and what that means for research, productivity, and practical business use.",
-    skills: ["AI Research", "Technology Analysis", "Business Communication"],
-    href: "https://medium.com/@shivenparikh1/same-prompt-different-brain-why-no-two-ai-models-give-you-the-same-response-88c65e0f6ac4"
-  },
-  {
-    title: "Beyond Earth: The Future of Asteroid Mining",
-    description: "Examines future resource extraction, asteroid mining, and the long-term business possibilities of space-based supply chains.",
-    skills: ["Emerging Technology", "Industry Research", "Other Writing"],
-    href: "https://medium.com/@shivenparikh1/beyond-earth-the-trillion-dollar-future-of-asteroid-mining-8c3c6f7253bd"
   }
 ];
 
