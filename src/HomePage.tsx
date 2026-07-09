@@ -1,7 +1,6 @@
 import type { Article, Project } from "./data";
 import {
   articles,
-  emailHref,
   evAssemblyDashboardHref,
   evAssemblyCaseTitle,
   experiences,
@@ -337,28 +336,6 @@ export function HomePage() {
                   </div>
                 </article>
               ))}
-            </div>
-          </div>
-        </section>
-
-        <section className="contact" id="contact">
-          <div className="container-wide contact-grid">
-            <div>
-              <p className="contact-label">Global sourcing · Supplier risk · Procurement analytics</p>
-              <h2>Let’s build stronger sourcing decisions.</h2>
-              <p>
-                I’m interested in internships and early-career opportunities where I can contribute
-                to sourcing analysis, supplier risk, procurement, and supply-chain decision support.
-              </p>
-            </div>
-            <div className="contact-actions">
-              <a href={emailHref}><Icon name="mail" /> Email Shiven</a>
-              <a href={linkedinHref} target="_blank" rel="noreferrer">
-                LinkedIn <Icon name="external" />
-              </a>
-              <a href={resumeHref} download="Shiven-Parikh-Resume.pdf">
-                Resume <Icon name="download" />
-              </a>
             </div>
           </div>
         </section>

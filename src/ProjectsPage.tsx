@@ -5,17 +5,14 @@ import {
   aiMicrochipPreviewHref,
   distributionCenterCaseTitle,
   distributionCenterDashboardHref,
-  emailHref,
   evAssemblyCaseTitle,
   evAssemblyDashboardHref,
   globalSourcingPredictorPreviewHref,
   globalSourcingPredictorTitle,
   landedCostCaseTitle,
   landedCostPreviewHref,
-  linkedinHref,
   projectCategories,
   projects,
-  resumeHref,
   semiconductorDashboardHref,
   semiconductorProjectTitle,
   skuInventoryCaseTitle,
@@ -209,25 +206,6 @@ export function ProjectsPage() {
           />
           {selectedEntry ? <ProjectDetail entry={selectedEntry} /> : null}
         </div>
-
-        <section className="contact projects-contact">
-          <div className="container-wide contact-grid">
-            <div>
-              <p className="contact-label">Interested in the work?</p>
-              <h2>Let’s discuss sourcing and supplier risk.</h2>
-              <p>Connect for internships, early-career opportunities, or project conversations.</p>
-            </div>
-            <div className="contact-actions">
-              <a href={emailHref}><Icon name="mail" /> Email Shiven</a>
-              <a href={linkedinHref} target="_blank" rel="noreferrer">
-                LinkedIn <Icon name="external" />
-              </a>
-              <a href={resumeHref} download="Shiven-Parikh-Resume.pdf">
-                Resume <Icon name="download" />
-              </a>
-            </div>
-          </div>
-        </section>
       </main>
       <SiteFooter />
     </>

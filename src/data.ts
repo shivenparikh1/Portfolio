@@ -129,8 +129,7 @@ export const navItems = [
   ["Articles", "articles"],
   ["AI in Sourcing", "ai"],
   ["Strategies", "strategies"],
-  ["Experience", "experience"],
-  ["Contact", "contact"]
+  ["Experience", "experience"]
 ];
 
 export const focusAreas = [
