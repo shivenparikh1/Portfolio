@@ -127,8 +127,6 @@ export const navItems = [
   ["Focus", "focus"],
   ["Projects", "projects"],
   ["Articles", "articles"],
-  ["AI in Sourcing", "ai"],
-  ["Strategies", "strategies"],
   ["Experience", "experience"]
 ];
 
@@ -157,54 +155,6 @@ export const focusAreas = [
     title: "AI-Assisted Sourcing",
     description:
       "Using AI tools to support supplier research, RFQ comparison, country risk summaries, tariff scenario planning, supplier scorecards, and sourcing recommendation writing."
-  }
-];
-
-export const sourcingStrategies = [
-  {
-    title: "Low-Cost Country Sourcing",
-    meaning:
-      "Source from markets with structural labor, material, or production cost advantages.",
-    works:
-      "Works when savings remain meaningful after freight, duties, quality controls, and working-capital costs.",
-    risks:
-      "Long lead times, tariff exposure, quality variation, communication gaps, and disruption risk."
-  },
-  {
-    title: "China Plus One",
-    meaning:
-      "Keep selected China capacity while developing an additional sourcing country.",
-    works:
-      "Works when a company needs diversification without abandoning an established supplier ecosystem.",
-    risks:
-      "Duplicate tooling, fragmented volume, qualification time, and hidden dependence on China-based inputs."
-  },
-  {
-    title: "Nearshoring / Regional Sourcing",
-    meaning:
-      "Move supply closer to the primary customer or production market.",
-    works:
-      "Works when speed, responsiveness, lower inventory, and regional trade access offset higher unit costs.",
-    risks:
-      "Limited capacity, smaller supplier pools, wage inflation, and regional concentration."
-  },
-  {
-    title: "Dual Sourcing / Multi-Sourcing",
-    meaning:
-      "Qualify two or more suppliers for the same material, component, or category.",
-    works:
-      "Works for critical items where continuity and negotiation leverage justify added complexity.",
-    risks:
-      "Lower supplier volume, inconsistent specifications, more coordination, and duplicate qualification costs."
-  },
-  {
-    title: "Strategic Supplier Partnerships",
-    meaning:
-      "Build long-term supplier relationships around shared planning, capability, innovation, and performance.",
-    works:
-      "Works when the supplier owns critical knowledge, technology, capacity, or quality capability.",
-    risks:
-      "Supplier dependency, reduced competitive tension, switching barriers, and relationship governance."
   }
 ];
 

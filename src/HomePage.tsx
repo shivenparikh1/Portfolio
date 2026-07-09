@@ -12,7 +12,6 @@ import {
   resumeHref,
   semiconductorDashboardHref,
   semiconductorProjectTitle,
-  sourcingStrategies,
   warehouseOperationsCaseHref,
   warehouseOperationsCaseTitle
 } from "./data";
@@ -39,15 +38,6 @@ const featuredProjects = featuredProjectTitles.flatMap((title) => {
 function getLinkTarget(href: string) {
   return /^https?:\/\//.test(href) ? "_blank" : undefined;
 }
-
-const aiApplications = [
-  "Supplier research",
-  "RFQ comparison",
-  "Country risk summaries",
-  "Tariff scenario planning",
-  "Supplier scorecards",
-  "Recommendation writing"
-];
 
 function ProjectCard({ project, index }: { project: Project; index: number }) {
   const preview = projectImages[project.title];
@@ -285,60 +275,6 @@ export function HomePage() {
           </div>
         </section>
 
-        <section className="ai-section" id="ai">
-          <div className="container-wide ai-layout">
-            <div>
-              <h2>How I Use AI in Sourcing Analysis</h2>
-            </div>
-            <div className="ai-copy">
-              <p>
-                I use AI tools to support supplier research, RFQ comparison, country risk
-                summaries, tariff scenario planning, supplier scorecard development, and sourcing
-                recommendation writing. My goal is not to replace sourcing judgment with AI, but
-                to use AI to research faster, test assumptions, and make stronger sourcing
-                decisions.
-              </p>
-              <ul>
-                {aiApplications.map((application) => <li key={application}>{application}</li>)}
-              </ul>
-            </div>
-          </div>
-        </section>
-
-        <section className="section strategy-section" id="strategies">
-          <div className="container-wide">
-            <div className="section-heading">
-              <div>
-                <h2>Sourcing Strategies I Am Studying</h2>
-                <p>
-                  Each strategy changes the balance between cost, speed, control, resilience, and
-                  supplier dependence.
-                </p>
-              </div>
-            </div>
-            <div className="strategy-list">
-              {sourcingStrategies.map((strategy) => (
-                <article className="strategy-card" key={strategy.title}>
-                  <div className="strategy-card__title">
-                    <h3>{strategy.title}</h3>
-                  </div>
-                  <div>
-                    <strong>What it means</strong>
-                    <p>{strategy.meaning}</p>
-                  </div>
-                  <div>
-                    <strong>When it works</strong>
-                    <p>{strategy.works}</p>
-                  </div>
-                  <div>
-                    <strong>Risks created</strong>
-                    <p>{strategy.risks}</p>
-                  </div>
-                </article>
-              ))}
-            </div>
-          </div>
-        </section>
       </main>
       <SiteFooter />
     </>
