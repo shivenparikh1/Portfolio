@@ -65,7 +65,7 @@ export const sourcingCopilotPreviewHref =
 export const globalSourcingPredictorTitle =
   "Sourcing Command";
 export const globalSourcingPredictorHref =
-  "https://global-sourcing-predictor-dashboard.vercel.app";
+  "https://sourcing-command.vercel.app";
 export const globalSourcingPredictorGithubHref =
   "https://github.com/shivenparikh1/global-sourcing-predictor-dashboard";
 export const globalSourcingPredictorPreviewHref =
