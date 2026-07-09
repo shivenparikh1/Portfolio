@@ -63,7 +63,7 @@ export const sourcingCopilotHref = "https://sourcingcopilot.streamlit.app/";
 export const sourcingCopilotPreviewHref =
   "./assets/global-sourcing-copilot-streamlit-preview.png";
 export const globalSourcingPredictorTitle =
-  "Global Sourcing Predictor Command Center";
+  "Sourcing Command";
 export const globalSourcingPredictorHref =
   "https://global-sourcing-predictor-dashboard.vercel.app";
 export const globalSourcingPredictorGithubHref =
@@ -276,7 +276,7 @@ export const projects: Project[] = [
   {
     title: globalSourcingPredictorTitle,
     description:
-      "A deployed command-center prototype for modeling suppliers, demand hubs, routes, risk events, product details, forecast readiness, and sourcing workflow intelligence across multiple dashboard scenarios.",
+      "A deployed sourcing command-center prototype for modeling suppliers, demand hubs, routes, risk events, product details, forecast readiness, and workflow intelligence across multiple workspaces.",
     skills: [
       "Global Sourcing",
       "Supplier Network Modeling",
@@ -286,10 +286,10 @@ export const projects: Project[] = [
     ],
     tools: ["React", "TypeScript", "Vite", "Tailwind CSS", "Vercel", "GitHub"],
     insights: [
-      "A sourcing predictor is most useful when product details, supplier capacity, route structure, risk exposure, and missing-data warnings live in one workflow instead of separate spreadsheets."
+      "A sourcing command center is most useful when product details, supplier capacity, route structure, risk exposure, and missing-data warnings live in one workflow instead of separate spreadsheets."
     ],
     links: [
-      { label: "Launch Website", href: globalSourcingPredictorHref },
+      { label: "Launch Sourcing Command", href: globalSourcingPredictorHref },
       { label: "View GitHub", href: globalSourcingPredictorGithubHref }
     ],
     badges: ["Live Website", "Command Center Prototype", "GitHub + Vercel"]
