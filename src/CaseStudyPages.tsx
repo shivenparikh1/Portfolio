@@ -505,7 +505,7 @@ export function LandedCostCasePage() {
               </p>
               <div className="case-actions">
                 {[
-                  { label: "View Spreadsheet", href: landedCostModelHref }
+                  { label: "View Landed Cost Spreadsheet", href: landedCostModelHref }
                 ].map((item) => (
                   <a
                     className="button button--outline"
@@ -526,7 +526,7 @@ export function LandedCostCasePage() {
               />
               <figcaption>
                 Portfolio cover for the landed cost, supplier comparison, risk scoring, and
-                shipping-cost decision model.
+                recommendation model.
               </figcaption>
             </figure>
           </div>

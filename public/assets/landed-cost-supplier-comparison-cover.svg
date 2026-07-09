@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc">
   <title id="title">Landed Cost and Supplier Comparison Model cover</title>
-  <desc id="desc">Portfolio cover showing landed cost, supplier score, freight cost, and recommendation dashboard metrics.</desc>
+  <desc id="desc">Portfolio cover showing landed cost, supplier score, risk dashboard metrics, and recommendation logic.</desc>
   <defs>
     <linearGradient id="navy" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0" stop-color="#061833" />
@@ -21,11 +21,12 @@
 
   <g transform="translate(108 104)">
     <text x="0" y="0" fill="#74a7f4" font-family="IBM Plex Mono, Menlo, Consolas, monospace" font-size="22" font-weight="700" letter-spacing="4">SOURCING COST MODEL</text>
-    <text x="0" y="94" fill="#ffffff" font-family="Georgia, 'Times New Roman', serif" font-size="92" font-weight="700">Landed Cost</text>
-    <text x="0" y="188" fill="#ffffff" font-family="Georgia, 'Times New Roman', serif" font-size="92" font-weight="700">&amp; Supplier</text>
-    <text x="0" y="282" fill="#ffffff" font-family="Georgia, 'Times New Roman', serif" font-size="92" font-weight="700">Comparison Model</text>
-    <text x="3" y="350" fill="#c9d7ea" font-family="Inter, Arial, sans-serif" font-size="30">Unit price, freight, duty, supplier risk, lead time,</text>
-    <text x="3" y="392" fill="#c9d7ea" font-family="Inter, Arial, sans-serif" font-size="30">warranty, margin, and award recommendation in one view.</text>
+    <text x="0" y="94" fill="#ffffff" font-family="Georgia, 'Times New Roman', serif" font-size="82" font-weight="700">Landed Cost</text>
+    <text x="0" y="178" fill="#ffffff" font-family="Georgia, 'Times New Roman', serif" font-size="82" font-weight="700">&amp; Supplier</text>
+    <text x="0" y="262" fill="#ffffff" font-family="Georgia, 'Times New Roman', serif" font-size="82" font-weight="700">Comparison</text>
+    <text x="0" y="346" fill="#ffffff" font-family="Georgia, 'Times New Roman', serif" font-size="82" font-weight="700">Model</text>
+    <text x="3" y="408" fill="#c9d7ea" font-family="Inter, Arial, sans-serif" font-size="28">Unit price, landed cost, duty, supplier risk,</text>
+    <text x="3" y="448" fill="#c9d7ea" font-family="Inter, Arial, sans-serif" font-size="28">lead time, warranty, margin, and recommendation.</text>
   </g>
 
   <g transform="translate(918 96)" filter="url(#shadow)">
@@ -38,8 +39,8 @@
     </g>
     <g transform="translate(292 86)">
       <rect width="214" height="92" fill="#f4f8fd" stroke="#c9d8eb" />
-      <text x="18" y="31" fill="#65758b" font-family="Inter, Arial, sans-serif" font-size="17">Gross Margin</text>
-      <text x="18" y="70" fill="#061833" font-family="Georgia, 'Times New Roman', serif" font-size="42" font-weight="700">$718K</text>
+      <text x="18" y="31" fill="#65758b" font-family="Inter, Arial, sans-serif" font-size="17">Supplier Risk Score</text>
+      <text x="18" y="70" fill="#061833" font-family="Georgia, 'Times New Roman', serif" font-size="40" font-weight="700">8.4/10</text>
     </g>
     <g transform="translate(34 212)">
       <rect width="472" height="18" fill="#dce8f6" />
@@ -50,12 +51,12 @@
     <g transform="translate(34 278)">
       <rect width="472" height="18" fill="#dce8f6" />
       <rect width="390" height="18" fill="#1e9a8a" />
-      <text x="0" y="-12" fill="#061833" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">Option 1 freight saving</text>
-      <text x="392" y="-12" fill="#061833" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">12.89%</text>
+      <text x="0" y="-12" fill="#061833" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">Risk-adjusted supplier fit</text>
+      <text x="426" y="-12" fill="#061833" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">82%</text>
     </g>
   </g>
 
-  <g transform="translate(108 560)" filter="url(#shadow)">
+  <g transform="translate(108 612)" filter="url(#shadow)">
     <rect width="710" height="292" fill="#ffffff" stroke="#b6c8de" stroke-width="2" />
     <rect width="710" height="58" fill="#eef5ff" />
     <text x="28" y="37" fill="#0b63ce" font-family="IBM Plex Mono, Menlo, Consolas, monospace" font-size="17" font-weight="700" letter-spacing="2">SUPPLIER COMPARISON</text>
@@ -78,7 +79,7 @@
     </g>
   </g>
 
-  <g transform="translate(878 560)" filter="url(#shadow)">
+  <g transform="translate(878 612)" filter="url(#shadow)">
     <rect width="580" height="292" fill="#ffffff" stroke="#b6c8de" stroke-width="2" />
     <rect width="580" height="58" fill="#eef5ff" />
     <text x="28" y="37" fill="#0b63ce" font-family="IBM Plex Mono, Menlo, Consolas, monospace" font-size="17" font-weight="700" letter-spacing="2">DECISION LOGIC</text>
@@ -87,7 +88,7 @@
       <text x="24" y="38" fill="#061833">Unit Price</text>
       <path d="M 178 29 H 220" stroke="#0b63ce" stroke-width="4" />
       <rect x="226" y="0" width="172" height="58" fill="#f8fbff" stroke="#c9d8eb" />
-      <text x="250" y="38" fill="#061833">Freight</text>
+      <text x="242" y="38" fill="#061833">Lead Time</text>
       <path d="M 404 29 H 446" stroke="#0b63ce" stroke-width="4" />
       <rect x="452" y="0" width="82" height="58" fill="#0b63ce" />
       <text x="475" y="38" fill="#ffffff">Fit</text>

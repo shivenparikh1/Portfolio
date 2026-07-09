@@ -88,6 +88,8 @@ export const landedCostPreviewHref =
   "./assets/landed-cost-supplier-comparison-cover.svg";
 export const landedCostModelHref =
   "https://docs.google.com/spreadsheets/d/15Gr8eBAHjNAZ99r7JHt7nitAAsoYcfwoRmYWrbf8OGs/edit?usp=sharing";
+export const supplierRiskSpreadsheetHref =
+  "https://docs.google.com/spreadsheets/d/1isNEYD47TgExA5Wjflqh_QYZmAQzakrAys8E6G4sVKo/edit?usp=sharing";
 export const supplierRiskDashboardHref =
   "./assets/supplier-scorecard-vendor-risk-dashboard.pdf";
 export const warehouseOperationsCaseTitle = "MSWIPE Warehouse / Operations Case Study";
@@ -309,14 +311,14 @@ export const projects: Project[] = [
   {
     title: landedCostCaseTitle,
     description:
-      "A combined sourcing model for landed cost, supplier quote comparison, supplier risk scoring, vendor shipping cost analysis, and final recommendation logic.",
-    skills: ["Landed Cost", "Supplier Selection", "Supplier Risk Scoring", "Freight Cost Comparison", "Sourcing Analysis"],
-    tools: ["Google Sheets", "Excel", "Cost Sheet Model", "Supplier Dashboard", "Vendor Rate Comparison"],
-    insights: ["Treating landed cost, supplier risk, and shipping-rate comparison as one sourcing view prevents a low unit price or low carrier rate from looking better than the full decision."],
+      "A combined sourcing model for landed cost, supplier quote comparison, supplier risk scoring, dashboard review, and final recommendation logic.",
+    skills: ["Landed Cost", "Supplier Selection", "Supplier Risk Scoring", "Cost Modeling", "Sourcing Analysis"],
+    tools: ["Google Sheets", "Excel", "Cost Sheet Model", "Supplier Risk Spreadsheet", "Supplier Dashboard"],
+    insights: ["Treating landed cost, supplier risk, and supplier comparison as one sourcing view prevents a low unit price from looking better than the full decision."],
     links: [
       { label: "View Case Study", href: landedCostCaseHref },
-      { label: "View Spreadsheet", href: landedCostModelHref },
-      { label: "Open Shipping Cost Model", href: vendorShippingSpreadsheetHref },
+      { label: "Open Landed Cost Spreadsheet", href: landedCostModelHref },
+      { label: "Open Supplier Risk Spreadsheet", href: supplierRiskSpreadsheetHref },
       { label: "View Supplier Risk Dashboard", href: supplierRiskDashboardHref }
     ]
   },
