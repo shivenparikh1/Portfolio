@@ -540,7 +540,7 @@ svg {
 }
 
 .projects-section {
-  background: var(--surface);
+  background: var(--white);
 }
 
 .project-grid {
@@ -761,7 +761,7 @@ svg {
 }
 
 .articles-section {
-  background: var(--white);
+  background: var(--surface);
 }
 
 .article-grid {
