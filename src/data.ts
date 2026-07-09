@@ -90,8 +90,6 @@ export const landedCostModelHref =
   "https://docs.google.com/spreadsheets/d/15Gr8eBAHjNAZ99r7JHt7nitAAsoYcfwoRmYWrbf8OGs/edit?usp=sharing";
 export const supplierRiskSpreadsheetHref =
   "https://docs.google.com/spreadsheets/d/1isNEYD47TgExA5Wjflqh_QYZmAQzakrAys8E6G4sVKo/edit?usp=sharing";
-export const supplierRiskDashboardHref =
-  "./assets/supplier-scorecard-vendor-risk-dashboard.pdf";
 export const warehouseOperationsCaseTitle = "MSWIPE Warehouse / Operations Case Study";
 export const warehouseOperationsCaseHref =
   "./assets/warehouse-inward-reverse-inward-case-study.pdf";
@@ -267,8 +265,7 @@ export const projects: Project[] = [
     links: [
       { label: "View Case Study", href: landedCostCaseHref },
       { label: "Open Landed Cost Spreadsheet", href: landedCostModelHref },
-      { label: "Open Supplier Risk Spreadsheet", href: supplierRiskSpreadsheetHref },
-      { label: "View Supplier Risk Dashboard", href: supplierRiskDashboardHref }
+      { label: "Open Supplier Risk Spreadsheet", href: supplierRiskSpreadsheetHref }
     ]
   },
   {
