@@ -367,6 +367,13 @@ export const skillGroups: SkillGroup[] = [
 
 export const articles: Article[] = [
   {
+    title: "Semiconductors Are Not Just Components",
+    description:
+      "Explains why chips function as strategic supply-chain infrastructure, connecting sourcing risk, fabrication capacity, advanced packaging, geopolitics, and production continuity.",
+    skills: ["Semiconductor Supply Chain", "Supplier Risk", "Strategic Sourcing"],
+    href: "https://medium.com/@shivenparikh1/semiconductors-are-not-just-components-they-are-the-supply-chain-0cd855ada9ab?sharedUserId=shivenparikh1"
+  },
+  {
     title: "Global Supply Chains Are Not Back to Normal",
     description:
       "Explores why modern supply chains are no longer returning to a stable normal, but adapting to permanent disruption, volatility, trade risk, and sourcing complexity.",
