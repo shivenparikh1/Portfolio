@@ -39,9 +39,7 @@ body {
   margin: 0;
   min-height: 100vh;
   overflow-x: clip;
-  background:
-    linear-gradient(180deg, rgba(234, 242, 255, 0.72) 0%, rgba(255, 255, 255, 0.96) 38%, rgba(239, 248, 252, 0.74) 100%),
-    var(--white);
+  background: var(--surface);
   color: var(--ink);
   font-family: var(--sans);
   line-height: 1.6;
@@ -59,14 +57,14 @@ body::before {
   inset: -24vh -18vw;
   z-index: 4;
   background:
-    radial-gradient(circle at 12% 18%, rgba(11, 99, 206, 0.18), transparent 30%),
-    radial-gradient(circle at 86% 14%, rgba(18, 134, 151, 0.16), transparent 28%),
-    radial-gradient(circle at 66% 86%, rgba(11, 29, 57, 0.12), transparent 31%),
-    radial-gradient(circle at 22% 78%, rgba(11, 99, 206, 0.1), transparent 26%),
-    linear-gradient(135deg, rgba(11, 99, 206, 0.065), transparent 42%, rgba(18, 134, 151, 0.07));
+    radial-gradient(circle at 12% 18%, rgba(11, 99, 206, 0.16), transparent 30%),
+    radial-gradient(circle at 86% 14%, rgba(11, 99, 206, 0.12), transparent 28%),
+    radial-gradient(circle at 66% 86%, rgba(8, 75, 155, 0.1), transparent 31%),
+    radial-gradient(circle at 22% 78%, rgba(11, 99, 206, 0.09), transparent 26%),
+    linear-gradient(135deg, rgba(11, 99, 206, 0.055), transparent 42%, rgba(11, 99, 206, 0.055));
   filter: blur(1px);
   mix-blend-mode: multiply;
-  opacity: 0.92;
+  opacity: 0.82;
   animation: ambient-field-drift 22s ease-in-out infinite alternate;
 }
 
@@ -74,8 +72,8 @@ body::after {
   inset: 0;
   z-index: 5;
   background-image:
-    linear-gradient(rgba(11, 99, 206, 0.058) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(11, 99, 206, 0.058) 1px, transparent 1px);
+    linear-gradient(rgba(11, 99, 206, 0.052) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(11, 99, 206, 0.052) 1px, transparent 1px);
   background-position: 0 0;
   background-size: 66px 66px;
   mask-image: linear-gradient(
@@ -267,6 +265,7 @@ main,
 .hero {
   overflow: hidden;
   border-bottom: 1px solid var(--line);
+  background: var(--surface);
 }
 
 .hero-grid {
@@ -552,6 +551,11 @@ main,
   border-bottom: 1px solid var(--line);
 }
 
+.focus-section,
+.projects-section {
+  background: var(--white);
+}
+
 .section-heading {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
@@ -650,10 +654,6 @@ main,
   margin-bottom: 0;
   color: var(--muted);
   font-size: 0.78rem;
-}
-
-.projects-section {
-  background: var(--white);
 }
 
 .project-grid {

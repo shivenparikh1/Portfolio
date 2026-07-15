@@ -1,6 +1,7 @@
 .projects-hero {
   padding: 92px 0 0;
   border-bottom: 1px solid var(--line);
+  background: var(--surface);
 }
 
 .projects-name {
@@ -63,6 +64,7 @@
 
 .project-library {
   padding: 64px 0 100px;
+  background: var(--white);
 }
 
 .project-selector-layout {
