@@ -35,12 +35,52 @@ main section[id] {
 }
 
 body {
+  position: relative;
   margin: 0;
   background: var(--white);
   color: var(--ink);
   font-family: var(--sans);
   line-height: 1.6;
   animation: page-enter 520ms var(--ease-out) both;
+}
+
+body::before,
+body::after {
+  position: fixed;
+  pointer-events: none;
+  content: "";
+}
+
+body::before {
+  inset: -24vh -18vw;
+  z-index: 1;
+  background:
+    radial-gradient(circle at 14% 22%, rgba(11, 99, 206, 0.08), transparent 30%),
+    radial-gradient(circle at 82% 16%, rgba(18, 134, 151, 0.075), transparent 28%),
+    radial-gradient(circle at 64% 88%, rgba(11, 29, 57, 0.055), transparent 32%),
+    radial-gradient(circle at 24% 78%, rgba(11, 99, 206, 0.045), transparent 26%);
+  filter: blur(3px);
+  mix-blend-mode: multiply;
+  opacity: 0.78;
+  animation: ambient-field-drift 34s ease-in-out infinite alternate;
+}
+
+body::after {
+  inset: 0;
+  z-index: 2;
+  background-image:
+    linear-gradient(rgba(11, 99, 206, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(11, 99, 206, 0.035) 1px, transparent 1px);
+  background-position: 0 0;
+  background-size: 82px 82px;
+  mask-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.58),
+    rgba(0, 0, 0, 0.18) 42%,
+    rgba(0, 0, 0, 0.1)
+  );
+  opacity: 0.44;
+  animation: ambient-grid-drift 42s linear infinite;
 }
 
 a {
@@ -95,6 +135,13 @@ svg {
   background: rgba(255, 255, 255, 0.96);
   backdrop-filter: blur(14px);
   animation: header-drop 520ms var(--ease-out) both;
+}
+
+#top,
+main,
+.footer {
+  position: relative;
+  z-index: 3;
 }
 
 .nav {
@@ -1120,6 +1167,27 @@ svg {
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@keyframes ambient-field-drift {
+  0% {
+    transform: translate3d(-1.5%, -1%, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(1.5%, 1%, 0) scale(1.035);
+  }
+  100% {
+    transform: translate3d(2%, -0.5%, 0) scale(1.02);
+  }
+}
+
+@keyframes ambient-grid-drift {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 82px 82px;
   }
 }
 
