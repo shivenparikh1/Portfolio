@@ -20,8 +20,8 @@ import { SiteFooter, SiteHeader } from "./components/SiteChrome";
 import { useScrollReveal } from "./useScrollReveal";
 
 const featuredProjectTitles = [
-  semiconductorProjectTitle,
   globalSourcingPredictorTitle,
+  semiconductorProjectTitle,
   evAssemblyCaseTitle
 ];
 

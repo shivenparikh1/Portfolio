@@ -326,8 +326,8 @@ export const projectCategories: ProjectCategory[] = [
     title: "Sourcing Strategy, Cost & Supplier Risk",
     description: "Primary work in supplier comparison, sourcing strategy, landed cost, risk analytics, and AI-assisted procurement.",
     projectTitles: [
-      semiconductorProjectTitle,
       globalSourcingPredictorTitle,
+      semiconductorProjectTitle,
       sourcingCopilotTitle,
       aiMicrochipCaseTitle,
       landedCostCaseTitle
