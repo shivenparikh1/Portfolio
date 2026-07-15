@@ -124,18 +124,21 @@
   transition:
     background 160ms ease,
     border-color 160ms ease,
-    color 160ms ease;
+    color 160ms ease,
+    transform 180ms var(--ease-spring);
 }
 
 .project-sidebar__list button:hover,
 .project-sidebar__list button:focus-visible {
   background: var(--surface);
+  transform: translateX(4px);
 }
 
 .project-sidebar__list button.is-selected {
   border-left-color: var(--blue);
   background: #eef6ff;
   color: var(--blue-dark);
+  box-shadow: inset 10px 0 18px rgba(11, 99, 206, 0.07);
 }
 
 .project-sidebar__list span,
@@ -823,6 +826,128 @@
 
 .case-tags {
   margin-bottom: 0;
+}
+
+.project-detail-panel {
+  animation: detail-swap 460ms var(--ease-out) both;
+}
+
+.project-sidebar,
+.project-row--selected,
+.case-hero__visual,
+.case-dashboard,
+.case-summary-grid article,
+.case-metric-grid article,
+.formula-grid article,
+.case-table-wrap,
+.credential-card,
+.deliverable-grid a,
+.supplier-grid article {
+  transition:
+    background 200ms ease,
+    border-color 200ms ease,
+    box-shadow 240ms ease,
+    transform 240ms var(--ease-spring);
+}
+
+.project-sidebar:hover,
+.project-row--selected:hover,
+.case-hero__visual:hover,
+.case-dashboard:hover,
+.case-summary-grid article:hover,
+.case-metric-grid article:hover,
+.formula-grid article:hover,
+.credential-card:hover,
+.deliverable-grid a:hover,
+.deliverable-grid a:focus-visible,
+.supplier-grid article:hover {
+  border-color: var(--blue);
+  box-shadow: var(--shadow-lift);
+  transform: translateY(-5px);
+}
+
+.project-row--selected {
+  overflow: hidden;
+}
+
+.project-row--selected .project-row__content,
+.case-hero__copy {
+  animation: copy-rise 520ms var(--ease-out) both;
+}
+
+.project-row--selected .project-row__visual > img,
+.case-hero__visual img,
+.case-dashboard img {
+  transition: transform 420ms var(--ease-out);
+}
+
+.project-row--selected:hover .project-row__visual > img,
+.case-hero__visual:hover img,
+.case-dashboard:hover img {
+  transform: scale(1.015);
+}
+
+.case-hero__visual,
+.case-dashboard {
+  overflow: hidden;
+}
+
+.case-section {
+  transition:
+    border-color 200ms ease,
+    transform 240ms var(--ease-spring);
+}
+
+.case-section:hover {
+  border-top-color: var(--blue);
+}
+
+.case-section:hover .section-index {
+  color: var(--teal);
+}
+
+.case-table tr {
+  transition: background 160ms ease;
+}
+
+.case-table tbody tr:hover {
+  background: #f7fbff;
+}
+
+.is-visible .case-model-preview__bar i {
+  transform-origin: left;
+  animation: model-bar-grow 900ms var(--ease-out) both;
+}
+
+@keyframes detail-swap {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes copy-rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes model-bar-grow {
+  from {
+    transform: scaleX(0.2);
+  }
+  to {
+    transform: scaleX(1);
+  }
 }
 
 @media (max-width: 980px) {

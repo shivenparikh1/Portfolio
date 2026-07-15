@@ -16,6 +16,10 @@
   --sans: "Manrope", Arial, sans-serif;
   --serif: Georgia, "Times New Roman", serif;
   --mono: "DM Mono", "Courier New", monospace;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-spring: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --shadow-lift: 0 22px 42px rgba(11, 29, 57, 0.12);
+  --shadow-soft: 0 14px 30px rgba(11, 29, 57, 0.08);
 }
 
 * {
@@ -36,6 +40,7 @@ body {
   color: var(--ink);
   font-family: var(--sans);
   line-height: 1.6;
+  animation: page-enter 520ms var(--ease-out) both;
 }
 
 a {
@@ -89,6 +94,7 @@ svg {
   border-bottom: 1px solid var(--line);
   background: rgba(255, 255, 255, 0.96);
   backdrop-filter: blur(14px);
+  animation: header-drop 520ms var(--ease-out) both;
 }
 
 .nav {
@@ -117,6 +123,14 @@ svg {
   color: var(--white);
   font-family: var(--serif);
   font-size: 1rem;
+  transition:
+    background 180ms ease,
+    transform 220ms var(--ease-spring);
+}
+
+.brand:hover span,
+.brand:focus-visible span {
+  transform: translateY(-1px) rotate(-4deg);
 }
 
 .nav-links,
@@ -166,11 +180,17 @@ svg {
   border-radius: 3px;
   background: var(--blue);
   color: var(--white);
+  transition:
+    background 180ms ease,
+    box-shadow 220ms ease,
+    transform 220ms var(--ease-spring);
 }
 
 .nav-resume:hover,
 .nav-resume:focus-visible {
   background: var(--blue-dark);
+  box-shadow: var(--shadow-soft);
+  transform: translateY(-2px);
 }
 
 .menu-button {
@@ -251,11 +271,13 @@ svg {
 }
 
 .button {
+  position: relative;
   display: inline-flex;
   min-height: 50px;
   align-items: center;
   justify-content: center;
   gap: 11px;
+  overflow: hidden;
   border: 1px solid var(--blue);
   border-radius: 3px;
   padding: 0 18px;
@@ -263,13 +285,47 @@ svg {
   font-weight: 800;
   transition:
     background 180ms ease,
+    border-color 180ms ease,
+    box-shadow 220ms ease,
     color 180ms ease,
-    transform 180ms ease;
+    transform 220ms var(--ease-spring);
+}
+
+.button::after {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(110deg, transparent 20%, rgba(255, 255, 255, 0.32), transparent 80%);
+  content: "";
+  pointer-events: none;
+  transform: translateX(-130%);
+  transition: transform 560ms var(--ease-out);
+}
+
+.button--outline::after {
+  background: linear-gradient(110deg, transparent 20%, rgba(11, 99, 206, 0.12), transparent 80%);
 }
 
 .button:hover,
 .button:focus-visible {
+  box-shadow: var(--shadow-soft);
   transform: translateY(-2px);
+}
+
+.button:hover::after,
+.button:focus-visible::after {
+  transform: translateX(130%);
+}
+
+.button svg,
+.nav-resume svg {
+  transition: transform 220ms var(--ease-spring);
+}
+
+.button:hover svg,
+.button:focus-visible svg,
+.nav-resume:hover svg,
+.nav-resume:focus-visible svg {
+  transform: translateX(3px);
 }
 
 .button--primary {
@@ -302,6 +358,7 @@ svg {
   border: 1px solid var(--line-strong);
   background: var(--white);
   box-shadow: 16px 18px 0 var(--surface-strong);
+  transform-origin: center;
 }
 
 .decision-framework__header {
@@ -344,6 +401,7 @@ svg {
   background-size: 12px 12px;
   content: "";
   opacity: 0.55;
+  animation: matrix-grid-drift 18s linear infinite;
 }
 
 .matrix-point {
@@ -361,6 +419,7 @@ svg {
   color: var(--white);
   font-size: 0.65rem;
   font-weight: 800;
+  animation: matrix-float 5.8s ease-in-out infinite;
 }
 
 .matrix-point--one {
@@ -373,6 +432,7 @@ svg {
   top: 14%;
   background: var(--teal);
   box-shadow: 0 0 0 1px var(--teal);
+  animation-delay: -1.1s;
 }
 
 .matrix-point--three {
@@ -380,6 +440,7 @@ svg {
   top: 33%;
   width: 62px;
   height: 62px;
+  animation-delay: -2.2s;
 }
 
 .matrix-point--four {
@@ -389,6 +450,7 @@ svg {
   height: 58px;
   background: var(--ink);
   box-shadow: 0 0 0 1px var(--ink);
+  animation-delay: -3.1s;
 }
 
 .decision-axis {
@@ -910,6 +972,185 @@ svg {
   color: var(--white);
 }
 
+[data-animate] {
+  scroll-margin-top: 90px;
+}
+
+.has-scroll-reveal [data-animate] {
+  opacity: 0;
+  filter: blur(6px);
+  transform: translate3d(0, 28px, 0);
+  transition:
+    opacity 680ms var(--ease-out),
+    filter 680ms var(--ease-out),
+    transform 680ms var(--ease-out);
+  will-change: opacity, filter, transform;
+}
+
+.has-scroll-reveal [data-animate="left"] {
+  transform: translate3d(-32px, 0, 0);
+}
+
+.has-scroll-reveal [data-animate="right"] {
+  transform: translate3d(32px, 0, 0);
+}
+
+.has-scroll-reveal [data-animate="panel"],
+.has-scroll-reveal [data-animate="card"] {
+  transform: translate3d(0, 26px, 0) scale(0.985);
+}
+
+.has-scroll-reveal [data-animate].is-visible {
+  opacity: 1;
+  filter: blur(0);
+  transform: translate3d(0, 0, 0) scale(1);
+  will-change: auto;
+}
+
+.has-scroll-reveal .focus-grid [data-animate]:nth-child(2),
+.has-scroll-reveal .project-grid [data-animate]:nth-child(2),
+.has-scroll-reveal .article-grid [data-animate]:nth-child(2),
+.has-scroll-reveal .case-metric-grid [data-animate]:nth-child(2) {
+  transition-delay: 70ms;
+}
+
+.has-scroll-reveal .focus-grid [data-animate]:nth-child(3),
+.has-scroll-reveal .project-grid [data-animate]:nth-child(3),
+.has-scroll-reveal .article-grid [data-animate]:nth-child(3),
+.has-scroll-reveal .case-metric-grid [data-animate]:nth-child(3) {
+  transition-delay: 140ms;
+}
+
+.has-scroll-reveal .focus-grid [data-animate]:nth-child(4),
+.has-scroll-reveal .article-grid [data-animate]:nth-child(4) {
+  transition-delay: 210ms;
+}
+
+.has-scroll-reveal .focus-grid [data-animate]:nth-child(5) {
+  transition-delay: 280ms;
+}
+
+.project-card,
+.article-card,
+.focus-card,
+.experience-card {
+  transition:
+    background 200ms ease,
+    border-color 200ms ease,
+    box-shadow 240ms ease,
+    transform 240ms var(--ease-spring);
+}
+
+.project-card:hover,
+.project-card:focus-within,
+.article-card:hover,
+.article-card:focus-visible,
+.focus-card:hover,
+.experience-card:hover,
+.experience-card:focus-within {
+  box-shadow: var(--shadow-lift);
+  transform: translateY(-6px);
+}
+
+.focus-card:hover,
+.experience-card:hover,
+.experience-card:focus-within {
+  background: #fbfdff;
+}
+
+.project-card__body h3,
+.article-card h3,
+.focus-card h3,
+.experience-card h3 {
+  transition: color 180ms ease;
+}
+
+.project-card:hover .project-card__body h3,
+.project-card:focus-within .project-card__body h3,
+.article-card:hover h3,
+.article-card:focus-visible h3,
+.focus-card:hover h3,
+.experience-card:hover h3,
+.experience-card:focus-within h3 {
+  color: var(--blue-dark);
+}
+
+.project-card__model i,
+.case-model-preview__bar i {
+  transform-origin: bottom;
+  animation: bar-rise 850ms var(--ease-out) both;
+}
+
+.project-card__model i:nth-child(2) {
+  animation-delay: 80ms;
+}
+
+.project-card__model i:nth-child(3) {
+  animation-delay: 150ms;
+}
+
+.project-card__model i:nth-child(4) {
+  animation-delay: 220ms;
+}
+
+.article-card > span svg,
+.text-link svg {
+  transition: transform 220ms var(--ease-spring);
+}
+
+.article-card:hover > span svg,
+.article-card:focus-visible > span svg {
+  transform: translate(3px, -3px);
+}
+
+@keyframes page-enter {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes header-drop {
+  from {
+    opacity: 0;
+    transform: translateY(-12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes matrix-grid-drift {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 48px 48px;
+  }
+}
+
+@keyframes matrix-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes bar-rise {
+  from {
+    transform: scaleY(0.18);
+  }
+  to {
+    transform: scaleY(1);
+  }
+}
+
 @media (max-width: 1120px) {
   .hero-grid {
     grid-template-columns: 1fr;
@@ -925,6 +1166,16 @@ svg {
 
   .article-grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .project-card--featured {
+    grid-template-columns: 1fr;
+    grid-template-rows: 420px 1fr;
+  }
+
+  .project-card--featured .project-card__visual {
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
   }
 
   .focus-card:nth-child(3) {
@@ -1174,6 +1425,14 @@ svg {
   *,
   *::before,
   *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+  }
+
+  .has-scroll-reveal [data-animate] {
+    opacity: 1;
+    filter: none;
+    transform: none;
   }
 }

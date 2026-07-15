@@ -24,6 +24,7 @@ import {
 } from "./data";
 import { Icon } from "./components/Icon";
 import { SiteFooter, SiteHeader } from "./components/SiteChrome";
+import { useScrollReveal } from "./useScrollReveal";
 
 interface ProjectEntry {
   category: ProjectCategory;
@@ -95,7 +96,7 @@ function ProjectDetail({ entry }: { entry: ProjectEntry }) {
     project.title === evAssemblyCaseTitle;
 
   return (
-    <section className="project-detail-panel" aria-live="polite">
+    <section className="project-detail-panel" aria-live="polite" data-animate="right">
       <div className="project-detail-heading">
         <div>
           <p className="project-detail__category">{category.title}</p>
@@ -104,7 +105,7 @@ function ProjectDetail({ entry }: { entry: ProjectEntry }) {
         <p>{project.description}</p>
       </div>
 
-      <article className={`project-row project-row--selected${isDashboardProject ? " project-row--dashboard" : ""}`}>
+      <article className={`project-row project-row--selected${isDashboardProject ? " project-row--dashboard" : ""}`} data-animate="card">
         <div className="project-row__visual">
           <ProjectVisual project={project} />
         </div>
@@ -155,7 +156,7 @@ function ProjectSelector({
   selectedTitle: string;
 }) {
   return (
-    <aside className="project-sidebar" aria-label="Project navigation">
+    <aside className="project-sidebar" aria-label="Project navigation" data-animate="left">
       <p className="project-sidebar__label">Project Library</p>
       {projectCategories.map((category) => (
         <section className="project-sidebar__group" key={category.id}>
@@ -182,6 +183,7 @@ function ProjectSelector({
 
 export function ProjectsPage() {
   const [selectedProjectTitle, setSelectedProjectTitle] = useState(defaultProjectTitle);
+  useScrollReveal();
   const selectedEntry =
     projectLibrary.find((entry) => entry.project.title === selectedProjectTitle) ?? projectLibrary[0];
 
@@ -190,7 +192,7 @@ export function ProjectsPage() {
       <div id="top" />
       <SiteHeader page="projects" />
       <main>
-        <section className="projects-hero">
+        <section className="projects-hero" data-animate="section">
           <div className="container-wide">
             <p className="projects-name">Shiven Parikh</p>
             <div className="projects-hero__layout">
@@ -204,7 +206,7 @@ export function ProjectsPage() {
             selectedTitle={selectedEntry?.project.title ?? ""}
             onSelect={setSelectedProjectTitle}
           />
-          {selectedEntry ? <ProjectDetail entry={selectedEntry} /> : null}
+          {selectedEntry ? <ProjectDetail entry={selectedEntry} key={selectedEntry.project.title} /> : null}
         </div>
       </main>
       <SiteFooter />

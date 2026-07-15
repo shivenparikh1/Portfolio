@@ -22,6 +22,7 @@ import {
 import type { ProjectLink } from "./data";
 import { Icon } from "./components/Icon";
 import { SiteFooter, SiteHeader } from "./components/SiteChrome";
+import { useScrollReveal } from "./useScrollReveal";
 
 interface SummaryItem {
   label: string;
@@ -93,7 +94,7 @@ function getLinkTarget(href: string) {
 
 function SummaryGrid({ items }: { items: SummaryItem[] }) {
   return (
-    <section className="case-summary-grid" aria-label="Project summary">
+    <section className="case-summary-grid" aria-label="Project summary" data-animate="card">
       {items.map((item) => (
         <article key={item.label}>
           <span>{item.label}</span>
@@ -108,7 +109,7 @@ function MetricGrid({ items }: { items: MetricItem[] }) {
   return (
     <div className="case-metric-grid">
       {items.map((item) => (
-        <article key={`${item.value}-${item.label}`}>
+        <article key={`${item.value}-${item.label}`} data-animate="card">
           <strong>{item.value}</strong>
           <span>{item.label}</span>
           {item.detail ? <p>{item.detail}</p> : null}
@@ -142,7 +143,7 @@ function CaseTable({ columns, rows, label }: TableData & { label: string }) {
 function CaseVisualBlock({ visual }: { visual: CaseVisual }) {
   if (visual.kind === "image") {
     return (
-      <figure className="case-hero__visual">
+      <figure className="case-hero__visual" data-animate="panel">
         <img src={visual.src} alt={visual.alt} />
         <figcaption>{visual.caption}</figcaption>
       </figure>
@@ -150,7 +151,7 @@ function CaseVisualBlock({ visual }: { visual: CaseVisual }) {
   }
 
   return (
-    <figure className="case-hero__visual case-hero__visual--model">
+    <figure className="case-hero__visual case-hero__visual--model" data-animate="panel">
       <div className="case-model-preview">
         {visual.cells.map((cell) => (
           <div key={`${cell.label}-${cell.value}`}>
@@ -229,14 +230,16 @@ function renderBlock(block: ContentBlock) {
 }
 
 function PortfolioCaseStudyPage({ study }: { study: CaseStudyContent }) {
+  useScrollReveal();
+
   return (
     <>
       <div id="top" />
       <SiteHeader page="projects" />
       <main className="case-page">
-        <section className="case-hero">
+        <section className="case-hero" data-animate="section">
           <div className="container-wide case-hero__grid">
-            <div className="case-hero__copy">
+            <div className="case-hero__copy" data-animate="left">
               <div className="project-badge-list">
                 {study.badges.map((badge) => <span key={badge}>{badge}</span>)}
               </div>
@@ -267,7 +270,7 @@ function PortfolioCaseStudyPage({ study }: { study: CaseStudyContent }) {
         <div className="container-wide case-content">
           <SummaryGrid items={study.summaryItems} />
           {study.sections.map((section) => (
-            <section className="case-section" key={`${section.eyebrow}-${section.title}`}>
+            <section className="case-section" key={`${section.eyebrow}-${section.title}`} data-animate="section">
               <div className="case-section__heading">
                 <p className="section-index">{section.eyebrow}</p>
                 <h2>{section.title}</h2>

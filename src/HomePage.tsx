@@ -17,6 +17,7 @@ import {
 } from "./data";
 import { Icon } from "./components/Icon";
 import { SiteFooter, SiteHeader } from "./components/SiteChrome";
+import { useScrollReveal } from "./useScrollReveal";
 
 const featuredProjectTitles = [
   semiconductorProjectTitle,
@@ -35,13 +36,18 @@ const featuredProjects = featuredProjectTitles.flatMap((title) => {
   return project ? [project] : [];
 });
 
+const mainProjectTitles = new Set([
+  semiconductorProjectTitle,
+  globalSourcingPredictorTitle
+]);
+
 function getLinkTarget(href: string) {
   return /^https?:\/\//.test(href) ? "_blank" : undefined;
 }
 
 function ProjectCard({ project, index }: { project: Project; index: number }) {
   const preview = projectImages[project.title];
-  const isFeatured = project.title === semiconductorProjectTitle;
+  const isFeatured = mainProjectTitles.has(project.title);
   const showAllLinks =
     isFeatured ||
     project.title === globalSourcingPredictorTitle ||
@@ -49,7 +55,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
   const visibleLinks = showAllLinks ? project.links : project.links.slice(0, 1);
 
   return (
-    <article className={`project-card${isFeatured ? " project-card--featured" : ""}`}>
+    <article className={`project-card${isFeatured ? " project-card--featured" : ""}`} data-animate="card">
       <div className="project-card__visual">
         {preview ? (
           <img
@@ -101,7 +107,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
 
 function ArticleCard({ article }: { article: Article }) {
   return (
-    <a className="article-card" href={article.href} target="_blank" rel="noreferrer">
+    <a className="article-card" href={article.href} target="_blank" rel="noreferrer" data-animate="card">
       <h3>{article.title}</h3>
       <p>{article.description}</p>
       <ul className="tag-list" aria-label={`${article.title} topics`}>
@@ -114,6 +120,7 @@ function ArticleCard({ article }: { article: Article }) {
 
 export function HomePage() {
   const experience = experiences[0];
+  useScrollReveal();
 
   return (
     <>
@@ -122,7 +129,7 @@ export function HomePage() {
       <main>
         <section className="hero" id="home">
           <div className="container-wide hero-grid">
-            <div className="hero-copy">
+            <div className="hero-copy" data-animate="left">
               <p className="hero-name">Shiven Parikh</p>
               <h1>Global Sourcing &amp; Supplier Risk Portfolio</h1>
               <p className="hero-subheading">
@@ -157,7 +164,7 @@ export function HomePage() {
               </div>
             </div>
 
-            <div className="decision-framework" aria-label="Global supplier decision framework">
+            <div className="decision-framework" aria-label="Global supplier decision framework" data-animate="panel">
               <div className="decision-framework__header">
                 <span>Sourcing decision framework</span>
                 <span>Method</span>
@@ -187,7 +194,7 @@ export function HomePage() {
           </div>
         </section>
 
-        <section className="section focus-section" id="focus">
+        <section className="section focus-section" id="focus" data-animate="section">
           <div className="container-wide">
             <div className="section-heading">
               <div>
@@ -200,7 +207,7 @@ export function HomePage() {
             </div>
             <div className="focus-grid">
               {focusAreas.map((area) => (
-                <article className="focus-card" key={area.title}>
+                <article className="focus-card" key={area.title} data-animate="card">
                   <h3>{area.title}</h3>
                   <p>{area.description}</p>
                 </article>
@@ -210,12 +217,12 @@ export function HomePage() {
         </section>
 
         {experience ? (
-          <section className="section experience-section" id="experience">
+          <section className="section experience-section" id="experience" data-animate="section">
             <div className="container-wide experience-layout">
               <div>
                 <h2>Supporting Operations Experience</h2>
               </div>
-              <div className="experience-card">
+              <div className="experience-card" data-animate="card">
                 <div>
                   <p className="experience-company">{experience.company}</p>
                   <h3>{experience.role}</h3>
@@ -232,7 +239,7 @@ export function HomePage() {
           </section>
         ) : null}
 
-        <section className="section projects-section" id="projects">
+        <section className="section projects-section" id="projects" data-animate="section">
           <div className="container-wide">
             <div className="section-heading">
               <div>
@@ -256,7 +263,7 @@ export function HomePage() {
           </div>
         </section>
 
-        <section className="section articles-section" id="articles">
+        <section className="section articles-section" id="articles" data-animate="section">
           <div className="container-wide">
             <div className="section-heading">
               <div>

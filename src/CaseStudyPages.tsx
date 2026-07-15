@@ -9,6 +9,7 @@ import {
 } from "./data";
 import { Icon } from "./components/Icon";
 import { SiteFooter, SiteHeader } from "./components/SiteChrome";
+import { useScrollReveal } from "./useScrollReveal";
 
 interface SummaryItem {
   label: string;
@@ -40,7 +41,7 @@ function DetailSection({
   children: ReactNode;
 }) {
   return (
-    <section className="case-section">
+    <section className="case-section" data-animate="section">
       <div className="case-section__heading">
         <p className="section-index">{eyebrow}</p>
         <h2>{title}</h2>
@@ -52,7 +53,7 @@ function DetailSection({
 
 function SummaryGrid({ items }: { items: SummaryItem[] }) {
   return (
-    <section className="case-summary-grid" aria-label="Project summary">
+    <section className="case-summary-grid" aria-label="Project summary" data-animate="card">
       {items.map((item) => (
         <article key={item.label}>
           <span>{item.label}</span>
@@ -67,7 +68,7 @@ function MetricGrid({ items }: { items: MetricItem[] }) {
   return (
     <div className="case-metric-grid">
       {items.map((item) => (
-        <article key={`${item.value}-${item.label}`}>
+        <article key={`${item.value}-${item.label}`} data-animate="card">
           <strong>{item.value}</strong>
           <span>{item.label}</span>
           {item.detail ? <p>{item.detail}</p> : null}
@@ -284,14 +285,16 @@ const landedSkills = [
 ];
 
 export function EVAssemblyCasePage() {
+  useScrollReveal();
+
   return (
     <>
       <div id="top" />
       <SiteHeader page="projects" />
       <main className="case-page">
-        <section className="case-hero">
+        <section className="case-hero" data-animate="section">
           <div className="container-wide case-hero__grid">
-            <div className="case-hero__copy">
+            <div className="case-hero__copy" data-animate="left">
               <div className="project-badge-list">
                 <span>Featured Project</span>
                 <span>Operations Readiness</span>
@@ -326,7 +329,7 @@ export function EVAssemblyCasePage() {
                 ))}
               </div>
             </div>
-            <figure className="case-hero__visual">
+            <figure className="case-hero__visual" data-animate="panel">
               <img
                 src={evAssemblyDashboardHref}
                 alt="EV assembly logistics readiness Tableau dashboard"
@@ -480,14 +483,16 @@ export function EVAssemblyCasePage() {
 }
 
 export function LandedCostCasePage() {
+  useScrollReveal();
+
   return (
     <>
       <div id="top" />
       <SiteHeader page="projects" />
       <main className="case-page">
-        <section className="case-hero">
+        <section className="case-hero" data-animate="section">
           <div className="container-wide case-hero__grid">
-            <div className="case-hero__copy">
+            <div className="case-hero__copy" data-animate="left">
               <div className="project-badge-list">
                 <span>Sourcing Model</span>
                 <span>Landed Cost</span>
@@ -519,7 +524,7 @@ export function LandedCostCasePage() {
                 ))}
               </div>
             </div>
-            <figure className="case-hero__visual case-hero__visual--model">
+            <figure className="case-hero__visual case-hero__visual--model" data-animate="panel">
               <img
                 src={landedCostPreviewHref}
                 alt="Landed cost and supplier comparison model cover"

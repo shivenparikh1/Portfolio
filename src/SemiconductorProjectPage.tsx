@@ -7,6 +7,7 @@ import {
 } from "./data";
 import { Icon } from "./components/Icon";
 import { SiteFooter, SiteHeader } from "./components/SiteChrome";
+import { useScrollReveal } from "./useScrollReveal";
 
 const heroBadges = ["Featured Project", "Newest Project", "Global Sourcing Focus"];
 
@@ -101,7 +102,7 @@ function DetailSection({
   children: ReactNode;
 }) {
   return (
-    <section className="case-section">
+    <section className="case-section" data-animate="section">
       <div className="case-section__heading">
         <p className="section-index">{eyebrow}</p>
         <h2>{title}</h2>
@@ -112,14 +113,16 @@ function DetailSection({
 }
 
 export function SemiconductorProjectPage() {
+  useScrollReveal();
+
   return (
     <>
       <div id="top" />
       <SiteHeader page="projects" />
       <main className="case-page">
-        <section className="case-hero">
+        <section className="case-hero" data-animate="section">
           <div className="container-wide case-hero__grid">
-            <div className="case-hero__copy">
+            <div className="case-hero__copy" data-animate="left">
               <div className="project-badge-list">
                 {heroBadges.map((badge) => <span key={badge}>{badge}</span>)}
               </div>
@@ -145,7 +148,7 @@ export function SemiconductorProjectPage() {
                 ))}
               </div>
             </div>
-            <figure className="case-hero__visual">
+            <figure className="case-hero__visual" data-animate="panel">
               <img
                 src={semiconductorDashboardHref}
                 alt="Supplier ranking dashboard showing confidence-adjusted OSAT supplier scores"
@@ -159,7 +162,7 @@ export function SemiconductorProjectPage() {
         </section>
 
         <div className="container-wide case-content">
-          <section className="case-summary-grid" aria-label="Project summary">
+          <section className="case-summary-grid" aria-label="Project summary" data-animate="card">
             {summaryItems.map((item) => (
               <article key={item.label}>
                 <span>{item.label}</span>
