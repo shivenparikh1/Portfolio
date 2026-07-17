@@ -1,7 +1,7 @@
 .projects-hero {
   padding: 92px 0 0;
   border-bottom: 1px solid var(--line);
-  background: var(--surface);
+  background: rgba(245, 248, 252, 0.88);
 }
 
 .projects-name {
@@ -64,7 +64,7 @@
 
 .project-library {
   padding: 64px 0 100px;
-  background: var(--white);
+  background: rgba(255, 255, 255, 0.94);
 }
 
 .project-selector-layout {
@@ -416,13 +416,13 @@
 }
 
 .case-page {
-  background: var(--white);
+  background: rgba(255, 255, 255, 0.94);
 }
 
 .case-hero {
   padding: 68px 0;
   border-bottom: 1px solid var(--line);
-  background: var(--surface);
+  background: rgba(245, 248, 252, 0.88);
 }
 
 .case-hero__grid {
