@@ -70,6 +70,10 @@ export const globalSourcingPredictorGithubHref =
   "https://github.com/shivenparikh1/global-sourcing-predictor-dashboard";
 export const globalSourcingPredictorPreviewHref =
   "./assets/global-sourcing-predictor-command-center-preview.png";
+export const bufferLabTitle = "BufferLab Inventory Policy & Risk Simulator";
+export const bufferLabHref = "https://buffer-lab.vercel.app/";
+export const bufferLabPreviewHref =
+  "./assets/bufferlab-inventory-policy-risk-simulator-preview.jpg";
 export const aiMicrochipCaseTitle =
   "AI Microchip Global Sourcing Risk Framework";
 export const aiMicrochipCaseHref = "./global-sourcing-ai-microchip.html";
@@ -244,6 +248,26 @@ export const projects: Project[] = [
     badges: ["Live Website", "Command Center Prototype", "GitHub + Vercel"]
   },
   {
+    title: bufferLabTitle,
+    description:
+      "A live inventory policy and risk simulator for comparing safety-stock decisions under uncertain demand, supplier performance, fill rates, defects, and disruption events.",
+    skills: [
+      "Inventory Policy",
+      "Safety Stock Simulation",
+      "Supplier Uncertainty",
+      "Demand Risk",
+      "Cost-Service Tradeoff"
+    ],
+    tools: ["React", "TypeScript", "Vercel", "Simulation UI", "Supply Chain Analytics"],
+    insights: [
+      "BufferLab turns safety stock into a decision workspace by showing how service goals, supplier reliability, demand volatility, and disruption exposure change inventory choices."
+    ],
+    links: [
+      { label: "Launch BufferLab", href: bufferLabHref }
+    ],
+    badges: ["Live Website", "Inventory Simulator", "Highlighted Project"]
+  },
+  {
     title: aiMicrochipCaseTitle,
     description:
       "A regional semiconductor sourcing framework comparing Taiwan, South Korea, and U.S. domestic hub exposure across geopolitical risk, lead time, trade cost, capacity bottlenecks, supplier criticality, and substitution difficulty.",
@@ -327,6 +351,7 @@ export const projectCategories: ProjectCategory[] = [
     description: "Primary work in supplier comparison, sourcing strategy, landed cost, risk analytics, and AI-assisted procurement.",
     projectTitles: [
       globalSourcingPredictorTitle,
+      bufferLabTitle,
       semiconductorProjectTitle,
       sourcingCopilotTitle,
       aiMicrochipCaseTitle,

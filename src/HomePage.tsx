@@ -1,6 +1,8 @@
 import type { Article, Project } from "./data";
 import {
   articles,
+  bufferLabPreviewHref,
+  bufferLabTitle,
   evAssemblyDashboardHref,
   evAssemblyCaseTitle,
   experiences,
@@ -21,6 +23,7 @@ import { useScrollReveal } from "./useScrollReveal";
 
 const featuredProjectTitles = [
   globalSourcingPredictorTitle,
+  bufferLabTitle,
   semiconductorProjectTitle,
   evAssemblyCaseTitle
 ];
@@ -28,6 +31,7 @@ const featuredProjectTitles = [
 const projectImages: Partial<Record<string, string>> = {
   [semiconductorProjectTitle]: semiconductorDashboardHref,
   [globalSourcingPredictorTitle]: globalSourcingPredictorPreviewHref,
+  [bufferLabTitle]: bufferLabPreviewHref,
   [evAssemblyCaseTitle]: evAssemblyDashboardHref
 };
 
@@ -37,6 +41,7 @@ const featuredProjects = featuredProjectTitles.flatMap((title) => {
 });
 
 const mainProjectTitles = new Set([
+  bufferLabTitle,
   semiconductorProjectTitle,
   globalSourcingPredictorTitle
 ]);

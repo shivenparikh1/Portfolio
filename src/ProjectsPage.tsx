@@ -3,6 +3,8 @@ import type { Project, ProjectCategory } from "./data";
 import {
   aiMicrochipCaseTitle,
   aiMicrochipPreviewHref,
+  bufferLabPreviewHref,
+  bufferLabTitle,
   distributionCenterCaseTitle,
   distributionCenterDashboardHref,
   evAssemblyCaseTitle,
@@ -34,6 +36,7 @@ interface ProjectEntry {
 const projectPreviews: Partial<Record<string, string>> = {
   [semiconductorProjectTitle]: semiconductorDashboardHref,
   [globalSourcingPredictorTitle]: globalSourcingPredictorPreviewHref,
+  [bufferLabTitle]: bufferLabPreviewHref,
   [sourcingCopilotTitle]: sourcingCopilotPreviewHref,
   [aiMicrochipCaseTitle]: aiMicrochipPreviewHref,
   [landedCostCaseTitle]: landedCostPreviewHref,
@@ -92,6 +95,7 @@ function ProjectDetail({ entry }: { entry: ProjectEntry }) {
   const { category, project } = entry;
   const isDashboardProject =
     project.title === semiconductorProjectTitle ||
+    project.title === bufferLabTitle ||
     project.title === globalSourcingPredictorTitle ||
     project.title === evAssemblyCaseTitle;
 
