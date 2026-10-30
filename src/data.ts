@@ -47,6 +47,11 @@ export interface GlossaryGroup {
 export const resumeHref = "./assets/shiven-resume.pdf";
 export const linkedinHref = "https://www.linkedin.com/in/shiven-parikh";
 export const emailHref = "mailto:shivenparikh1@gmail.com";
+export const peakFormTitle = "PeakForm Technologies — Reverse Logistics Transformation";
+export const peakFormHref = "./peakform-reverse-logistics.html";
+export const peakFormPreviewHref = "./assets/peakform-reverse-logistics.svg";
+export const peakFormSlidesHref = "./assets/peakform-team-3-presentation.pptx";
+export const peakFormCaseDocumentHref = "./assets/peakform-case-study.docx";
 export const semiconductorProjectTitle =
   "Semiconductor Packaging Global Sourcing & Supplier Risk Model";
 export const semiconductorProjectHref = "./semiconductor-packaging-sourcing.html";
@@ -177,6 +182,22 @@ export const experiences: Experience[] = [
 ];
 
 export const projects: Project[] = [
+  {
+    title: peakFormTitle,
+    description:
+      "A 2026 team case competition strategy for a fictional connected fitness company: prevent avoidable returns, pilot regional refurbishment partners, and use recovery data to guide investment.",
+    skills: ["Supply Chain Strategy", "Reverse Logistics", "Operations Optimization", "Financial Analysis", "Process Improvement", "Cross-Functional Collaboration"],
+    tools: ["Case Exhibit Analysis", "Cost Modeling", "Process Design", "Phased Implementation Planning"],
+    insights: [
+      "Recommended a partner-first refurbishment pilot alongside better support diagnostics and technician training, with in-house investment conditional on proven recovery economics."
+    ],
+    links: [
+      { label: "View Case Study", href: peakFormHref },
+      { label: "Download Slides (PPTX)", href: peakFormSlidesHref },
+      { label: "Download Case Study (DOCX)", href: peakFormCaseDocumentHref }
+    ],
+    badges: ["Featured Project", "2026 Case Competition", "Team Strategy"]
+  },
   {
     title: semiconductorProjectTitle,
     description:
@@ -363,6 +384,7 @@ export const projectCategories: ProjectCategory[] = [
     title: "Operations, Logistics & Network Analytics",
     description: "Operational evidence that supports sourcing judgment through receiving, inventory, production readiness, and network analysis.",
     projectTitles: [
+      peakFormTitle,
       warehouseOperationsCaseTitle,
       evAssemblyCaseTitle,
       distributionCenterCaseTitle,

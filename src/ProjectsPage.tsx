@@ -13,6 +13,9 @@ import {
   globalSourcingPredictorTitle,
   landedCostCaseTitle,
   landedCostPreviewHref,
+  peakFormTitle,
+  peakFormHref,
+  peakFormPreviewHref,
   projectCategories,
   projects,
   semiconductorDashboardHref,
@@ -34,6 +37,7 @@ interface ProjectEntry {
 }
 
 const projectPreviews: Partial<Record<string, string>> = {
+  [peakFormTitle]: peakFormPreviewHref,
   [semiconductorProjectTitle]: semiconductorDashboardHref,
   [globalSourcingPredictorTitle]: globalSourcingPredictorPreviewHref,
   [bufferLabTitle]: bufferLabPreviewHref,
@@ -202,6 +206,18 @@ export function ProjectsPage() {
             <div className="projects-hero__layout">
               <h1>Supply Chain &amp; Sourcing Projects</h1>
             </div>
+          </div>
+        </section>
+
+        <section className="container-wide peakform-feature" aria-labelledby="peakform-feature-title" data-animate="card">
+          <a className="peakform-feature__image" href={peakFormHref} aria-label="Explore the PeakForm reverse logistics case study">
+            <img src={peakFormPreviewHref} alt="Proposed reverse logistics flow from customer support to regional refurbishment and the Indianapolis depot" />
+          </a>
+          <div>
+            <div className="project-badge-list"><span>Featured Project</span><span>2026 Case Competition</span></div>
+            <h2 id="peakform-feature-title">{peakFormTitle}</h2>
+            <p>A team strategy to address $16.9M in annual net reverse logistics losses through return prevention, intelligent triage, and a partner-first recovery network.</p>
+            <a className="text-link" href={peakFormHref}>Explore the case study <Icon name="arrow" /></a>
           </div>
         </section>
 

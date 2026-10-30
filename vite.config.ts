@@ -9,6 +9,7 @@ export default defineConfig({
       input: {
         portfolio: "index.html",
         projects: "projects.html",
+        peakFormCase: "peakform-reverse-logistics.html",
         semiconductorProject: "semiconductor-packaging-sourcing.html",
         evAssemblyCase: "ev-assembly-logistics-readiness.html",
         landedCostCase: "landed-cost-supplier-comparison.html",

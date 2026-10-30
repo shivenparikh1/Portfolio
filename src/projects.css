@@ -1,3 +1,24 @@
+.peakform-feature {
+  display: grid;
+  grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr);
+  gap: 44px;
+  align-items: center;
+  margin-top: 48px;
+  margin-bottom: 16px;
+  border: 1px solid var(--line-strong);
+  padding: 28px;
+  background: var(--white);
+}
+
+.peakform-feature__image { display: block; overflow: hidden; }
+.peakform-feature__image img { width: 100%; }
+.peakform-feature h2 { font-family: var(--serif); font-size: clamp(1.8rem, 3vw, 2.75rem); font-weight: 400; letter-spacing: -.03em; line-height: 1.12; }
+.peakform-feature p { color: var(--muted); font-size: .87rem; }
+.peakform-feature a:focus-visible { outline: 2px solid var(--blue); outline-offset: 5px; }
+@media (max-width: 700px) {
+  .peakform-feature { grid-template-columns: 1fr; gap: 24px; padding: 20px; }
+}
+
 .projects-hero {
   padding: 92px 0 0;
   border-bottom: 1px solid var(--line);

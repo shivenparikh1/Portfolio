@@ -1,0 +1,98 @@
+.peakform-page .case-hero { padding-top: 34px; }
+.peakform-back { margin-bottom: 38px; }
+.peakform-page .case-hero__grid { grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); gap: 48px; }
+.peakform-page .case-hero__copy h1 { font-size: clamp(2.4rem, 4.2vw, 3.65rem); letter-spacing: -.035em; }
+.peakform-page .case-hero__visual .peakform-network-image { padding: 0; }
+.peakform-mobile-flow { display: none; }
+.peakform-page .case-hero__copy h1 { overflow-wrap: anywhere; }
+.peakform-context { color: var(--blue-dark); font-size: .7rem; margin-bottom: 24px; }
+.peakform-jump-nav { border-bottom: 1px solid var(--line); background: var(--white); }
+.peakform-jump-nav > div { display: flex; flex-wrap: wrap; column-gap: 32px; }
+.peakform-jump-nav a { padding: 18px 0; color: var(--muted); font-size: .73rem; font-weight: 700; }
+.peakform-jump-nav a:hover { color: var(--blue); }
+.peakform-page .case-content { padding-top: 28px; }
+.peakform-page .case-section { grid-template-columns: minmax(190px, .34fr) minmax(0, 1fr); gap: 48px; padding: 54px 0; }
+.peakform-page .case-section:first-child { border-top: 0; }
+.peakform-page .case-section__heading h2 { font-size: clamp(1.8rem, 2.6vw, 2.3rem); }
+.peakform-page .peakform-source { margin: 18px 0 24px; color: var(--muted); font-size: .69rem; line-height: 1.65; }
+.peakform-kpis { grid-template-columns: repeat(2, minmax(0, 1fr)); margin-top: 26px; }
+.peakform-causes { display: grid; gap: 24px; }
+.peakform-causes article { position: relative; padding: 0 0 24px 42px; border-bottom: 1px solid var(--line); }
+.peakform-causes article:last-child { border-bottom: 0; padding-bottom: 0; }
+.peakform-causes article > span { position: absolute; top: 1px; left: 0; color: var(--blue); font: .75rem var(--mono); }
+.peakform-page h3 { font-size: 1.05rem; line-height: 1.4; margin-bottom: 12px; }
+.peakform-causes p { margin-bottom: 0; }
+.peakform-pillars { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; margin: 28px 0; }
+.peakform-pillar { --pillar-accent: var(--blue); padding: 26px; border: 1px solid var(--line); border-top: 3px solid var(--pillar-accent); background: var(--surface); }
+.peakform-pillar--triage { --pillar-accent: var(--teal); background: #f3faf9; }
+.peakform-pillar--network { --pillar-accent: var(--blue-dark); background: #f1f5fb; }
+.peakform-pillar--data { --pillar-accent: #665188; background: #f8f6fb; }
+.peakform-pillar__top { display: flex; align-items: center; gap: 12px; margin-bottom: 22px; color: var(--pillar-accent); }
+.peakform-pillar__top svg { width: 26px; height: 26px; flex-shrink: 0; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+.peakform-pillar__top span { font: .62rem/1.6 var(--mono); text-transform: uppercase; }
+.peakform-pillar ul { padding-left: 18px; margin-bottom: 0; color: var(--muted); font-size: .8rem; }
+.peakform-pillar li + li { margin-top: 9px; }
+.peakform-pillar .peakform-source { margin-bottom: 0; }
+.peakform-timeline { list-style: none; padding: 0; margin: 30px 0; }
+.peakform-timeline li { display: grid; grid-template-columns: 42px minmax(0, 1fr); gap: 24px; position: relative; padding-bottom: 30px; }
+.peakform-timeline li::before { position: absolute; content: ""; left: 20px; top: 40px; bottom: 0; border-left: 1px solid var(--line-strong); }
+.peakform-timeline li:last-child { padding-bottom: 0; }
+.peakform-timeline li:last-child::before { display: none; }
+.peakform-timeline__number { display: grid; place-items: center; height: 42px; background: var(--ink); color: var(--white); font: .7rem var(--mono); }
+.peakform-timeline__time { display: block; color: var(--blue); margin-bottom: 8px; font: .68rem var(--mono); text-transform: uppercase; }
+.peakform-timeline h3 { margin-bottom: 8px; }
+.peakform-timeline p { margin-bottom: 0; }
+.peakform-impact-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; margin: 28px 0; }
+.peakform-impact-grid article { border: 1px solid var(--line-strong); padding: 26px; }
+.peakform-label { display: block; color: var(--blue-dark); font: .64rem/1.6 var(--mono); text-transform: uppercase; }
+.peakform-impact-grid article > strong { display: block; font: 3rem/1.1 var(--serif); margin: 16px 0; }
+.peakform-impact-grid .peakform-source { margin-bottom: 0; }
+.peakform-budget { border: 1px solid var(--line); padding: 26px; margin: 0 0 28px; background: var(--surface); }
+.peakform-budget > div > strong { display: block; font: 2.4rem var(--serif); margin-top: 10px; }
+.peakform-budget > div > strong span { color: var(--muted); font-size: 1.2rem; }
+.peakform-budget__bar { height: 14px; background: var(--line); margin: 22px 0; }
+.peakform-budget__bar > span { display: block; width: 41.75%; height: 100%; background: var(--blue); }
+.peakform-budget ul { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; list-style: none; padding: 0; }
+.peakform-budget li span, .peakform-budget li strong { display: block; font-size: .8rem; }
+.peakform-budget li span { color: var(--muted); }
+.peakform-budget .peakform-source { margin-bottom: 0; }
+.peakform-evidence { padding: 20px 22px; background: var(--surface); border: 1px solid var(--line); }
+.peakform-evidence summary { font-size: .8rem; font-weight: 800; color: var(--blue-dark); cursor: pointer; }
+.peakform-evidence[open] summary { margin-bottom: 18px; }
+.peakform-evidence p:last-child { margin-bottom: 0; }
+.peakform-team { margin-top: 24px; }
+.peakform-source-note { margin-top: 42px; padding: 24px; border: 1px solid var(--line); background: var(--surface); }
+.peakform-source-note h2 { font-size: .85rem; }
+.peakform-source-note p { color: var(--muted); font-size: .75rem; }
+.peakform-source-note p:last-child { margin-bottom: 0; }
+.peakform-end-link { margin-top: 32px; }
+.peakform-page a:focus-visible, .peakform-evidence summary:focus-visible { outline: 2px solid var(--blue); outline-offset: 5px; }
+@media (max-width: 980px) {
+  .peakform-page .case-hero__grid, .peakform-page .case-section { grid-template-columns: 1fr; gap: 28px; }
+  .peakform-page .case-hero__visual { max-width: 760px; }
+}
+@media (max-width: 600px) {
+  .peakform-page .case-hero__visual .peakform-network-image { display: none; }
+  .peakform-mobile-flow { display: block; padding: 24px; background: var(--ink); color: var(--white); }
+  .peakform-mobile-flow__label { color: #93c7ff; font: .63rem/1.6 var(--mono); text-transform: uppercase; }
+  .peakform-mobile-flow h2 { font: 1.7rem/1.15 var(--serif); margin: 18px 0 24px; }
+  .peakform-mobile-flow ol { list-style: none; margin: 0; padding: 0; }
+  .peakform-mobile-flow li { border-left: 2px solid #4ba4ad; padding: 4px 0 4px 18px; }
+  .peakform-mobile-flow li + li { margin-top: 24px; }
+  .peakform-mobile-flow li span { display: block; color: #93c7ff; font: .62rem/1.7 var(--mono); text-transform: uppercase; margin-bottom: 10px; }
+  .peakform-mobile-flow li strong { font-size: .9rem; }
+  .peakform-mobile-flow li p { color: #b6c8dc; font-size: .8rem; margin: 7px 0 12px; }
+  .peakform-mobile-flow__feedback { color: #93c7ff; font-size: .75rem; margin: 24px 0 0; border-top: 1px solid #5688b9; padding-top: 16px; }
+  .peakform-page .case-hero { padding-bottom: 36px; }
+  .peakform-page .case-section { padding: 36px 0; }
+  .peakform-pillars, .peakform-impact-grid { grid-template-columns: 1fr; }
+  .peakform-pillar, .peakform-impact-grid article, .peakform-budget { padding: 20px; }
+  .peakform-kpis article { padding: 18px; }
+  .peakform-kpis strong { font-size: 2.2rem; }
+  .peakform-jump-nav > div { column-gap: 22px; }
+  .peakform-jump-nav a { padding: 12px 0; font-size: .68rem; }
+  .peakform-timeline li { gap: 16px; }
+}
+@media (max-width: 360px) {
+  .peakform-kpis, .peakform-budget ul { grid-template-columns: 1fr; }
+}

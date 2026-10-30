@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 610" fill="none">
+  <title>PeakForm proposed reverse logistics network</title>
+  <desc>Support diagnostics help resolve issues at home. Approved returns are pre-graded at pickup, then routed to a regional refurbishment partner or the Indianapolis depot. Repair and resale data feed future decisions.</desc>
+  <defs>
+    <pattern id="grid" width="38" height="38" patternUnits="userSpaceOnUse"><path d="M38 0H0V38" stroke="#8cb3e1" stroke-opacity=".09"/></pattern>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="m1 1 5 3-5 3" stroke="#72b6ff" stroke-width="1.5"/></marker>
+  </defs>
+  <path fill="#0b1d39" d="M0 0h760v610H0z"/>
+  <path fill="url(#grid)" d="M0 0h760v610H0z"/>
+  <g font-family="Arial, sans-serif">
+    <text x="38" y="44" fill="#93c7ff" font-size="15" letter-spacing="2.4">PEAKFORM / PROPOSED OPERATING MODEL</text>
+    <text x="38" y="92" fill="#fff" font-family="Georgia, serif" font-size="34">Prevent first. Recover intelligently.</text>
+    <rect x="38" y="133" width="314" height="94" rx="3" fill="#163452" stroke="#5688b9"/>
+    <text x="58" y="164" fill="#93c7ff" font-size="14" letter-spacing="1.4">01 / CUSTOMER SUPPORT</text>
+    <text x="58" y="197" fill="#fff" font-size="23">Guided diagnostics</text>
+    <rect x="443" y="133" width="279" height="94" rx="3" fill="#103c49" stroke="#4ba4ad"/>
+    <text x="463" y="164" fill="#86d3d3" font-size="14" letter-spacing="1.4">RESOLVE AT HOME</text>
+    <text x="463" y="197" fill="#fff" font-size="23">Remote or on-site fix</text>
+    <path d="M352 180h81" stroke="#72b6ff" stroke-width="2" marker-end="url(#arrow)"/>
+    <path d="M195 227v55" stroke="#72b6ff" stroke-width="2" marker-end="url(#arrow)"/>
+    <rect x="38" y="292" width="684" height="89" rx="3" fill="#163452" stroke="#5688b9"/>
+    <text x="58" y="323" fill="#93c7ff" font-size="14" letter-spacing="1.4">02 / APPROVED PHYSICAL RETURNS</text>
+    <text x="58" y="356" fill="#fff" font-size="23">Pre-grade at pickup · Route by condition</text>
+    <path d="M195 381v54m370-54v54" stroke="#72b6ff" stroke-width="2" marker-end="url(#arrow)"/>
+    <rect x="38" y="445" width="330" height="92" rx="3" fill="#103c49" stroke="#4ba4ad"/>
+    <text x="58" y="478" fill="#fff" font-size="23">Regional refurb partner</text>
+    <text x="58" y="510" fill="#a4bdce" font-size="18">Grade A / B · Repair · Resale</text>
+    <rect x="390" y="445" width="332" height="92" rx="3" fill="#163452" stroke="#5688b9"/>
+    <text x="410" y="478" fill="#fff" font-size="23">Indianapolis depot</text>
+    <text x="410" y="510" fill="#a4bdce" font-size="18">Return to stock · Parts / E-waste</text>
+    <text x="38" y="579" fill="#93c7ff" font-size="17">FEEDBACK LOOP</text>
+    <text x="210" y="579" fill="#b6c8dc" font-size="17">Repair + resale data inform the next decision</text>
+  </g>
+</svg>

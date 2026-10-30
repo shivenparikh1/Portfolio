@@ -10,6 +10,8 @@ import {
   globalSourcingPredictorPreviewHref,
   globalSourcingPredictorTitle,
   linkedinHref,
+  peakFormTitle,
+  peakFormPreviewHref,
   projects,
   resumeHref,
   semiconductorDashboardHref,
@@ -22,6 +24,7 @@ import { SiteFooter, SiteHeader } from "./components/SiteChrome";
 import { useScrollReveal } from "./useScrollReveal";
 
 const featuredProjectTitles = [
+  peakFormTitle,
   globalSourcingPredictorTitle,
   bufferLabTitle,
   semiconductorProjectTitle,
@@ -29,6 +32,7 @@ const featuredProjectTitles = [
 ];
 
 const projectImages: Partial<Record<string, string>> = {
+  [peakFormTitle]: peakFormPreviewHref,
   [semiconductorProjectTitle]: semiconductorDashboardHref,
   [globalSourcingPredictorTitle]: globalSourcingPredictorPreviewHref,
   [bufferLabTitle]: bufferLabPreviewHref,
@@ -41,6 +45,7 @@ const featuredProjects = featuredProjectTitles.flatMap((title) => {
 });
 
 const mainProjectTitles = new Set([
+  peakFormTitle,
   bufferLabTitle,
   semiconductorProjectTitle,
   globalSourcingPredictorTitle
@@ -250,8 +255,8 @@ export function HomePage() {
               <div>
                 <h2>Featured Projects</h2>
                 <p>
-                  Featured projects focused on semiconductor sourcing, supplier risk scoring,
-                  global sourcing strategy, and AI-assisted sourcing workflows.
+                  Featured projects in reverse logistics, semiconductor sourcing, supplier risk,
+                  inventory planning, and AI-assisted sourcing workflows.
                 </p>
               </div>
             </div>
